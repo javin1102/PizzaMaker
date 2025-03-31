@@ -1,0 +1,57 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05ca84e725c7c764aa5ed097918d14b7, type: 3}
+  m_Name: ftLocalStorage
+  m_EditorClassIdentifier: 
+  modifiedAssetPathList:
+  - Assets/Bakery/examples/content/sponza/sponza.FBX
+  - Assets/_PizzaMaker/Art/Meshes/SM_BuildingWallRoof_2x1.5.fbx
+  - Assets/_PizzaMaker/Art/Meshes/SM_BuildingWallCornerRoof_1x1.5.fbx
+  - Assets/_PizzaMaker/Art/Meshes/SM_Ground.fbx
+  - Assets/_PizzaMaker/Art/Meshes/SM_BuildingWall_2x4.fbx
+  - Assets/_PizzaMaker/Art/Meshes/SM_BuildingWall_2x4_Corner.fbx
+  - Assets/_PizzaMaker/Art/Meshes/SM_Frame_MainDoor.fbx
+  - Assets/_PizzaMaker/Art/Meshes/Walls/SM_BuildingWall_2x4.fbx
+  - Assets/_PizzaMaker/Art/Meshes/Walls/SM_Ground.fbx
+  - Assets/_PizzaMaker/Art/Meshes/Walls/SM_BuildingWallRoof_2x1.5.fbx
+  - Assets/_PizzaMaker/Art/Meshes/Walls/SM_BuildingWallCornerRoof_1x1.5.fbx
+  - Assets/_PizzaMaker/Art/Meshes/Walls/SM_Frame_MainDoor.fbx
+  - Assets/_PizzaMaker/Art/Meshes/Walls/SM_BuildingWall_2x4_Corner.fbx
+  - Assets/_PizzaMaker/Art/Meshes/CounterProps/SM_HotelPan_Medium.fbx
+  - Assets/_PizzaMaker/Art/Meshes/CounterProps/SM_HotelPan_Small.fbx
+  - Assets/_PizzaMaker/Art/Meshes/CounterProps/SM_HotelPan_Large.fbx
+  - Assets/_PizzaMaker/Art/Meshes/SM_PizzaHolder.fbx
+  - Assets/_PizzaMaker/Art/Meshes/PizzaHolder/SM_PizzaHolder.fbx
+  - Assets/_PizzaMaker/Art/Meshes/Walls/SM_DoorFrame_Middle.fbx
+  - Assets/_PizzaMaker/Art/Meshes/Walls/SM_DoorFrame_Left.fbx
+  - Assets/_PizzaMaker/Art/Meshes/Walls/SM_DoorFrame_Right.fbx
+  - Assets/_PizzaMaker/Art/Meshes/Walls/SM_Roof.fbx
+  - Assets/_PizzaMaker/Art/Meshes/CounterProps/SM_BottleSauce.fbx
+  - Assets/_PizzaMaker/Art/Meshes/CounterProps/SM_Pizza_Large.fbx
+  - Assets/_PizzaMaker/Art/Meshes/Walls/SM_DoorRegular.fbx
+  - Assets/_PizzaMaker/Art/Meshes/Walls/SM_WallRegular_2x4.fbx
+  - Assets/_PizzaMaker/Art/Meshes/Walls/SM_WallRegularDoor_2x4.fbx
+  - Assets/Gogo Casual Pack/Gogo Casual Free Light Pack/FBX/Decoration_Light_CeilingLamp_02_01.fbx
+  - Assets/Gogo Casual Pack/Gogo Casual Free Light Pack/FBX/Decoration_Light_CeilingLamp_04_01.fbx
+  - Assets/Gogo Casual Pack/Gogo Casual Free Plants Pack/FBX/Decoration_Plant_03_03.fbx
+  - Assets/Gogo Casual Pack/Gogo Casual Free Plants Pack/FBX/Decoration_Plant_05_01.fbx
+  - Assets/Gogo Casual Pack/Gogo Casual Free Plants Pack/FBX/Decoration_Vase_02_03.fbx
+  - Assets/Brick Project Studio/Fast Food Restaurant Kit/Common/Models/FFK_FurnitureProps_01.fbx
+  - Assets/_PizzaMaker/Art/Meshes/CounterProps/SM_BowlSauce.fbx
+  - Assets/_PizzaMaker/Art/Meshes/CounterProps/SM_Computer.fbx
+  - Assets/_PizzaMaker/Art/Meshes/RestaurantProps/SM_CountertopCabinet.fbx
+  - Assets/_PizzaMaker/Art/Meshes/RestaurantProps/SM_PizzaOven.fbx
+  - Assets/_PizzaMaker/Art/Meshes/Toilet/SM_Toilet.fbx
+  - Assets/_PizzaMaker/Art/Meshes/Toilet/SM_Toilet_Seperator.fbx
+  - Assets/_PizzaMaker/Art/Meshes/Toilet/SM_Toilet_Seperator_End.fbx
+  - Assets/_PizzaMaker/Art/Meshes/Toilet/SM_Toilet_Sink.fbx
+  modifiedAssetPaddingHash: aaf8cc2e1b3a8033af67e2a8363fd3d914f33a06343fd3d9e55031ee4adc894b393fd3d9f83980333c4efff0567e9363de09ecc0b45634b70ca3dddeeec3a693e6ebe68b733603738c67e2a88c67e2a88c67e2a8de09ecc0dc4608c8be4608c89c09ecc0f8398033d7c2a693344ffff0ba4608c838c2a6939f398033fa4dfff098583469cfc3a6931c7e93636c0f4967c8a55afa650b43819561d67c4adc894be1c4d890
