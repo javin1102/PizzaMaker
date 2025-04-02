@@ -20,24 +20,24 @@ RenderSettings:
   m_FogDensity: 0.01
   m_LinearFogStart: 0
   m_LinearFogEnd: 300
-  m_AmbientSkyColor: {r: 0.212, g: 0.227, b: 0.259, a: 1}
+  m_AmbientSkyColor: {r: 0.4282328, g: 0.4282328, b: 0.4282328, a: 1}
   m_AmbientEquatorColor: {r: 0.114, g: 0.125, b: 0.133, a: 1}
   m_AmbientGroundColor: {r: 0.047, g: 0.043, b: 0.035, a: 1}
   m_AmbientIntensity: 1
-  m_AmbientMode: 0
+  m_AmbientMode: 3
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
-  m_SkyboxMaterial: {fileID: 2100000, guid: adc171798cd3d6347879ef46bfd33eb6, type: 2}
+  m_SkyboxMaterial: {fileID: 0}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
   m_HaloTexture: {fileID: 0}
   m_SpotCookie: {fileID: 10001, guid: 0000000000000000e000000000000000, type: 0}
-  m_DefaultReflectionMode: 1
+  m_DefaultReflectionMode: 0
   m_DefaultReflectionResolution: 128
   m_ReflectionBounces: 1
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 8900000, guid: d827a4f929c53834a984f7da12764627, type: 3}
-  m_Sun: {fileID: 0}
+  m_Sun: {fileID: 1725432638}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -93,7 +93,7 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
-  m_LightingDataAsset: {fileID: 112000002, guid: 9d3cfb004d3b6224e82d0049f7cc0524, type: 2}
+  m_LightingDataAsset: {fileID: 112000000, guid: 634b8a32af20e534baaeb2e049ebff11, type: 2}
   m_LightingSettings: {fileID: 4890085278179872738, guid: c7439edf907bf1d4397dbc4b874d27d2, type: 2}
 --- !u!196 &4
 NavMeshSettings:
@@ -5493,7 +5493,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a83d2f7ae04ab6f4f99b0d85377be998, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  serializedBakingSet: {fileID: 0}
+  serializedBakingSet: {fileID: 11400000, guid: 444dbf2109f1a34429037e1a64ac1513, type: 2}
   sceneGUID: 3e3b9cd84b9ea8549a8e1d3eae225ff0
   obsoleteAsset: {fileID: 0}
   obsoleteCellSharedDataAsset: {fileID: 0}
@@ -7945,7 +7945,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mode: 1
-  size: {x: 23.002392, y: 11.091559, z: 31.001806}
+  size: {x: 21.502392, y: 9.591559, z: 29.501806}
   overrideRendererFilters: 0
   minRendererVolumeSize: 0.1
   objectLayerMask:
@@ -7954,7 +7954,7 @@ MonoBehaviour:
   lowestSubdivLevelOverride: 0
   highestSubdivLevelOverride: 7
   overridesSubdivLevels: 0
-  mightNeedRebaking: 1
+  mightNeedRebaking: 0
   cachedTransform:
     e00: 1
     e01: 0
@@ -7972,7 +7972,7 @@ MonoBehaviour:
     e31: 0
     e32: 0
     e33: 1
-  cachedHashCode: -966773656
+  cachedHashCode: 1054815336
   fillEmptySpaces: 0
   version: 2
   globalVolume: 0
@@ -19767,6 +19767,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: a6af943996e2a0f47a172cca4de33aff, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1166444499}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: a6af943996e2a0f47a172cca4de33aff, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1166444500}
   m_SourcePrefab: {fileID: 100100000, guid: a6af943996e2a0f47a172cca4de33aff, type: 3}
 --- !u!4 &1166444495 stripped
 Transform:
@@ -19804,6 +19807,55 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 4, y: 0.14999999, z: 4}
   m_Center: {x: -2.000001, y: -0.00000017881393, z: -2}
+--- !u!114 &1166444500
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1166444496}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 75f82f03739e4499282c234601d0b1ad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ignore: 0
+  scope: 10
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  nameFilter: 
+  subMeshMask: 0
+  smoothnessSource: 1
+  customSmoothnessMap: {fileID: 0}
+  materialSmoothnessMapPropertyName: _MetallicGlossMap
+  materialReflectivityPropertyName: _Metallic
+  materialSmoothnessIntensityPropertyName: _Smoothness
+  smoothness: 1
+  metallic: 1
+  perSubMeshSmoothness: 0
+  subMeshSettings:
+  - metallic: 0
+    smoothness: 0
+  normalSource: 1
+  normalMap: {fileID: 0}
+  normalMapStrength: 1
+  materialNormalMapPropertyName: _BumpMap
+  materialNormalMapScalePropertyName: _BumpScale
+  overrideGlobalSettings: 0
+  sampleCount: 200
+  stepSize: 0
+  maxRayLength: 64
+  thickness: 0.5
+  binarySearchIterations: 8
+  refineThickness: 1
+  thicknessFine: 0.05
+  decay: 2
+  fresnel: 0.75
+  fuzzyness: 0
+  contactHardening: 0
+  jitter: 0.3
+  uvDistortionSpeed: {x: 0, y: 0}
 --- !u!1 &1175796080 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -5726294213807950792, guid: 413501c66b8647f489a8fb0d955bbc25, type: 3}
@@ -27927,7 +27979,7 @@ MonoBehaviour:
   m_VolumeTrigger: {fileID: 0}
   m_VolumeFrameworkUpdateModeOption: 2
   m_RenderPostProcessing: 1
-  m_Antialiasing: 0
+  m_Antialiasing: 3
   m_AntialiasingQuality: 2
   m_StopNaN: 0
   m_Dithering: 0
@@ -27947,6 +27999,18 @@ MonoBehaviour:
     m_MipBias: 0
     m_VarianceClampScale: 0.9
     m_ContrastAdaptiveSharpening: 0
+--- !u!114 &1562140931
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1562140926}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a63c861ad0cc84c0cb848fa0ddd96ef0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1565859869 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 6423c8140a19eeb42b0a8ca5bec383cf, type: 3}
@@ -30799,6 +30863,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 4459864851310106424, guid: 6bacecc4f3df9584198879c73a6b6c36, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1562140930}
+    - targetCorrespondingSourceObject: {fileID: 4459864851310106424, guid: 6bacecc4f3df9584198879c73a6b6c36, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1562140931}
   m_SourcePrefab: {fileID: 100100000, guid: 6bacecc4f3df9584198879c73a6b6c36, type: 3}
 --- !u!4 &1746627191 stripped
 Transform:
@@ -33431,11 +33498,11 @@ MonoBehaviour:
   renderSettingsAutoAtlas: 1
   renderSettingsUnwrapUVs: 1
   renderSettingsForceDisableUnwrapUVs: 0
-  renderSettingsMaxAutoResolution: 4096
+  renderSettingsMaxAutoResolution: 2048
   renderSettingsMinAutoResolution: 16
   renderSettingsUnloadScenes: 1
   renderSettingsAdjustSamples: 1
-  renderSettingsGILODMode: 2
+  renderSettingsGILODMode: 0
   renderSettingsGILODModeEnabled: 0
   renderSettingsCheckOverlaps: 0
   renderSettingsSkipOutOfBoundsUVs: 1
@@ -36793,7 +36860,7 @@ MonoBehaviour:
   bakedScaleOffsetTerrain: []
   assetList: []
   uvOverlapAssetList: 
-  idremap: 0000000001000000
+  idremap: 
   usesRealtimeGI: 0
   emptyDirectionTex: {fileID: 0}
   anyVolumes: 0
