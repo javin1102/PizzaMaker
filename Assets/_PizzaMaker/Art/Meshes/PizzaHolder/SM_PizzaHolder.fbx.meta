@@ -44,7 +44,7 @@ ModelImporter:
     animationWrapMode: 0
     extraExposedTransformPaths: []
     extraUserProperties:
-    - '#BAKERY{"meshName":["SM_PizzaTray_Bottom","SM_PizzaHolder_Opener_Right","SM_PizzaHolder_Opener_Left","SM_PizzaHolder_Base","SM_PizzaHolder_FrontGlass","SM_PizzaHolder_BaseFloor"],"padding":[58,51,51,23,39,36],"unwrapper":[0,0,0,0,0,0]}'
+    - '#BAKERY{"meshName":["SM_PizzaTray_Bottom","SM_PizzaHolder_Opener_Right","SM_PizzaHolder_Opener_Left","SM_PizzaHolder_FrontGlass","SM_PizzaHolder_BaseFloor","SM_PizzaHolder_Base"],"padding":[58,51,51,39,36,23],"unwrapper":[0,0,0,0,0,0]}'
     clipAnimations: []
     isReadable: 0
   meshes:
