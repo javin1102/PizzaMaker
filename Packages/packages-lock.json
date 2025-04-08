@@ -7,6 +7,15 @@
       "dependencies": {},
       "hash": "dded1eeaebaee6c14ec1778a915e7b705cc48aa0"
     },
+    "com.singularitygroup.hotreload": {
+      "version": "file:com.singularitygroup.hotreload",
+      "depth": 0,
+      "source": "embedded",
+      "dependencies": {
+        "com.unity.ugui": "1.0.0",
+        "com.unity.modules.unitywebrequest": "1.0.0"
+      }
+    },
     "com.unity.ai.navigation": {
       "version": "2.0.6",
       "depth": 0,

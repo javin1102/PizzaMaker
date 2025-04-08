@@ -146,8 +146,6 @@ public class FirstPersonController : MonoBehaviour
             sprintRemaining = sprintDuration;
             sprintCooldownReset = sprintCooldown;
         }
-
-        // QualitySettings.vSyncCount = 1;
     }
 
     void Start()
