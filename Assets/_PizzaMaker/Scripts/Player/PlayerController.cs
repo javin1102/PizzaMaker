@@ -12,7 +12,12 @@ namespace PizzaMaker
             if (spawnPoint != null)
             {
                 transform.position = spawnPoint.transform.position;
+                transform.rotation = spawnPoint.transform.rotation;
             }
+
+            PersistentDataManager.ApplySaveData(PlayerPrefs.GetString(Constants.SaveData));
+            var s = PersistentDataManager.GetSaveData();
+            // Debug.LogError(s);
         }
 
         void Start()
@@ -39,6 +44,10 @@ namespace PizzaMaker
         {
             Cursor.lockState = CursorLockMode.Locked;
             firstPersonController.enabled = true;
+            PersistentDataManager.Record();
+            var s = PersistentDataManager.GetSaveData();
+            PlayerPrefs.SetString(Constants.SaveData, s);
+            // Debug.LogWarning(s);
         }
     }
 

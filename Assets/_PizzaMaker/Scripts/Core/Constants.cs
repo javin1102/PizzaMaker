@@ -6,4 +6,5 @@ public static class Constants
     /*                                    Tags                                    */
     /* -------------------------------------------------------------------------- */
     public const string TagSpawn = "Spawn";
+    public const string SaveData = "SaveData";
 }
