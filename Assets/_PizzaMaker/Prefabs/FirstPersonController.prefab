@@ -682,6 +682,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   firstPersonController: {fileID: 8886747378719065451}
+  phoneGO: {fileID: 4044824346232447643}
 --- !u!114 &8082322015756450366
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -962,6 +963,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3e43b7bed6f489b4e9b5e154c1486d88, type: 3}
+--- !u!1 &4044824346232447643 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4756328033178959234, guid: 3e43b7bed6f489b4e9b5e154c1486d88, type: 3}
+  m_PrefabInstance: {fileID: 8801095204805566233}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &6952497046004657253 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1900517184604156796, guid: 3e43b7bed6f489b4e9b5e154c1486d88, type: 3}
