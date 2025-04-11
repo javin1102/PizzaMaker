@@ -152,7 +152,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab8b685e62a9aeb4a9472b30ec2d86d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  initialDatabase: {fileID: 11400000, guid: 7ceac75b1d52407489adfc99a8dc299b, type: 2}
+  initialDatabase: {fileID: 11400000, guid: c6d369084003f1e4794467526e61c833, type: 2}
   displaySettings:
     conversationOverrideSettings:
       useOverrides: 0

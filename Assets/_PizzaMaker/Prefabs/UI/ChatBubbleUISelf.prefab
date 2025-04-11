@@ -347,6 +347,7 @@ GameObject:
   - component: {fileID: 172451676704111243}
   - component: {fileID: 8909956596816900131}
   - component: {fileID: 8860827696669445152}
+  - component: {fileID: 397463469124440637}
   m_Layer: 0
   m_Name: ChatBubbleUISelf
   m_TagString: Untagged
@@ -420,6 +421,19 @@ MonoBehaviour:
   m_FlexibleWidth: -1
   m_FlexibleHeight: 0
   m_LayoutPriority: 1
+--- !u!114 &397463469124440637
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8209219349252911636}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 211298cf2f57459a91ed28c1f4da3a1e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  text: {fileID: 5099287650896133650}
 --- !u!1 &8636400614086091269
 GameObject:
   m_ObjectHideFlags: 0

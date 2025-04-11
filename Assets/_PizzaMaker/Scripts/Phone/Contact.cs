@@ -6,12 +6,7 @@ namespace PizzaMaker
     [Serializable]
     public class Contact
     {
+        public List<string> conversationTitles;
         public string name;
-        public List<Chat> chats;
-        public class Chat
-        {
-            public bool isOther;
-            public string text;
-        }
     }
 }

@@ -7,7 +7,7 @@ namespace PizzaMaker
     public class PlayerController : MonoBehaviour
     {
         [SerializeField] private FirstPersonController firstPersonController;
-        [SerializeField] private GameObject phoneGO;
+        [SerializeField] private PhoneController phoneController;
         protected void Awake()
         {
             var spawnPoint = GameObject.FindGameObjectWithTag(Constants.TagSpawn);
@@ -23,10 +23,16 @@ namespace PizzaMaker
             //Temp input for testing
             if (Input.GetKeyDown(KeyCode.Tab))
             {
-                phoneGO.SetActive(!phoneGO.activeInHierarchy);
-                Cursor.lockState = phoneGO.activeInHierarchy ? CursorLockMode.None : CursorLockMode.Locked;
-                firstPersonController.enabled = !phoneGO.activeInHierarchy;
+                phoneController.gameObject.SetActive(!phoneController.gameObject.activeInHierarchy);
+                Cursor.lockState = phoneController.gameObject.activeInHierarchy ? CursorLockMode.None : CursorLockMode.Locked;
+                firstPersonController.enabled = !phoneController.gameObject.activeInHierarchy;
             }
+
+            if (Input.GetKeyDown(KeyCode.Alpha1))
+            {
+                DialogueManager.Instance.StartConversation("chat/boss/1", transform, phoneController.transform, 0, phoneController.DialogueUI);
+            }
+
         }
 
         void Start()
@@ -51,6 +57,9 @@ namespace PizzaMaker
 
         private void OnConversationEnded(Transform t)
         {
+            if (phoneController.gameObject.activeInHierarchy)
+                return;
+            
             Cursor.lockState = CursorLockMode.Locked;
             firstPersonController.enabled = true;
         }
