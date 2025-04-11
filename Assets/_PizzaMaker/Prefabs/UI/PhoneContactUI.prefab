@@ -223,8 +223,9 @@ GameObject:
   - component: {fileID: 3747811022028989584}
   - component: {fileID: 2572177429121374006}
   - component: {fileID: 5304515739456594226}
+  - component: {fileID: 2243208201644274296}
   m_Layer: 0
-  m_Name: PhoneProfileUI
+  m_Name: PhoneContactUI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -334,6 +335,19 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &2243208201644274296
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5406665252979531184}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 98463fef2d4d445aab374865d1902710, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textName: {fileID: 2157291293721423008}
 --- !u!1 &6662176011809379744
 GameObject:
   m_ObjectHideFlags: 0
