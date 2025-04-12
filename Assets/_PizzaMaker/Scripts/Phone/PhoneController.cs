@@ -13,7 +13,7 @@ namespace PizzaMaker
         [SerializeField] private PhoneContactPageUI phoneContactPageUI;
         [SerializeField] private PhoneChatPageUI phoneChatPageUI;
 
-        private void Awake()
+        public void Initialize()
         {
             phoneContactPageUI.Initialize();
             StandardDialogueUI = DialogueManager.Instance.displaySettings.dialogueUI;
@@ -32,6 +32,18 @@ namespace PizzaMaker
             phoneChatPageUI.Show(contact);
         }
 
+        public Contact GetContactFromActor(Actor actor)
+        {
+            foreach (var contact in Contacts)
+            {
+                if (contact.actorId == actor.id)
+                {
+                    return contact;
+                }
+            }
+
+            return null;
+        }
 
 
         public void OnConversationStarted(Transform t) => phoneChatPageUI.OnConversationStarted(t);

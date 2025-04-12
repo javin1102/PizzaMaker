@@ -89,6 +89,10 @@ namespace PizzaMaker
 
         public void ShowSubtitle(Subtitle subtitle)
         {
+            var chatContact = phoneController.GetContactFromActor(currentConversant);
+            if (chatContact != null)
+                GameEvents.OnChatReceived?.Invoke(chatContact, subtitle.dialogueEntry.subtitleText);
+                
             if (contact == null)
                 return;
 

@@ -1,4 +1,3 @@
-using System.Collections.Generic;
 using PixelCrushers.DialogueSystem;
 using UnityEngine;
 using Zenject;
@@ -20,7 +19,26 @@ namespace PizzaMaker
                 phoneContactUIs[i].Contact = phoneController.Contacts[i];
                 phoneContactUIs[i].OnClicked = GoToChatPage;
             }
+            
+            GameEvents.OnChatReceived += OnChatReceived;
+        }
 
+        private void OnChatReceived(Contact arg1, string arg2)
+        {
+            if (arg1 == null) return;
+            if (arg1.actorId == -1) return;
+
+            var actor = dialogueDatabase.GetActor(arg1.actorId);
+            if (actor == null) return;
+
+            foreach (var contactUI in phoneContactUIs)
+            {
+                if (contactUI.Contact == arg1)
+                {
+                    Debug.LogError("ContactUI: " + contactUI.Contact.name);
+                   break;
+                }
+            }
         }
 
         private void GoToChatPage(Contact contact) => phoneController.GoToChatPage(contact);
