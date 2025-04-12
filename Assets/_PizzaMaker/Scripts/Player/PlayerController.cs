@@ -1,21 +1,34 @@
 using System;
 using PixelCrushers.DialogueSystem;
+using PizzaMaker.Tools;
 using UnityEngine;
 
 namespace PizzaMaker
 {
     public class PlayerController : MonoBehaviour
     {
+        public PhoneController PhoneController => phoneController;
         [SerializeField] private FirstPersonController firstPersonController;
         [SerializeField] private PhoneController phoneController;
+
         protected void Awake()
         {
-            var spawnPoint = GameObject.FindGameObjectWithTag(Constants.TagSpawn);
+            var spawnPoint = GameObject.FindGameObjectWithTag(GlobalVars.TagSpawn);
             if (spawnPoint != null)
             {
                 transform.position = spawnPoint.transform.position;
                 transform.rotation = spawnPoint.transform.rotation;
             }
+
+            //Note: Uses PlayerPrefs for temp save data (testing purposes)
+            PersistentDataManager.ApplySaveData(PlayerPrefs.GetString(GlobalVars.SaveData));
+        }
+
+
+        void Start()
+        {
+            DialogueManager.Instance.conversationEnded += OnConversationEnded;
+            DialogueManager.Instance.conversationStarted += OnConversationStarted;
         }
 
         private void Update()
@@ -23,23 +36,10 @@ namespace PizzaMaker
             //Temp input for testing
             if (Input.GetKeyDown(KeyCode.Tab))
             {
-                phoneController.gameObject.SetActive(!phoneController.gameObject.activeInHierarchy);
-                Cursor.lockState = phoneController.gameObject.activeInHierarchy ? CursorLockMode.None : CursorLockMode.Locked;
-                firstPersonController.enabled = !phoneController.gameObject.activeInHierarchy;
+                TogglePhone();
             }
-
-            if (Input.GetKeyDown(KeyCode.Alpha1))
-            {
-                DialogueManager.Instance.StartConversation("chat/boss/1", transform, phoneController.transform, 0, phoneController.DialogueUI);
-            }
-
         }
 
-        void Start()
-        {
-            DialogueManager.Instance.conversationEnded += OnConversationEnded;
-            DialogueManager.Instance.conversationStarted += OnConversationStarted;
-        }
 
         void OnDestroy()
         {
@@ -50,19 +50,50 @@ namespace PizzaMaker
             }
         }
 
+        public void TogglePhone()
+        {
+            phoneController.gameObject.SetActive(!phoneController.gameObject.activeInHierarchy);
+            Cursor.lockState = phoneController.gameObject.activeInHierarchy ? CursorLockMode.None : CursorLockMode.Locked;
+            firstPersonController.cameraCanMove = !phoneController.gameObject.activeInHierarchy;
+        }
+
+        public void ShowPhone()
+        {
+            if (phoneController.gameObject.activeInHierarchy)
+                return;
+
+            phoneController.gameObject.SetActive(true);
+            Cursor.lockState = CursorLockMode.None;
+            firstPersonController.cameraCanMove = false;
+        }
+
+        public void HidePhone()
+        {
+            if (!phoneController.gameObject.activeInHierarchy)
+                return;
+
+            phoneController.gameObject.SetActive(false);
+            Cursor.lockState = CursorLockMode.Locked;
+            firstPersonController.cameraCanMove = true;
+        }
+
+
         private void OnConversationStarted(Transform t)
         {
-            firstPersonController.enabled = false;
+            phoneController.OnConversationStarted(t);
+            if (!phoneController.gameObject.activeInHierarchy)
+                return;
+            firstPersonController.cameraCanMove = false;
         }
 
         private void OnConversationEnded(Transform t)
         {
+            phoneController.OnConversationEnded(t);
             if (phoneController.gameObject.activeInHierarchy)
                 return;
-            
+
             Cursor.lockState = CursorLockMode.Locked;
-            firstPersonController.enabled = true;
+            firstPersonController.cameraCanMove = true;
         }
     }
-
 }

@@ -17,18 +17,24 @@ namespace PizzaMaker
         {
             phoneContactPageUI.Initialize();
             StandardDialogueUI = DialogueManager.Instance.displaySettings.dialogueUI;
+            GoToContactPage();
         }
 
         public void GoToContactPage()
         {
-            phoneContactPageUI.gameObject.SetActive(true);
-            phoneChatPageUI.gameObject.SetActive(false);
+            phoneContactPageUI.Show();
+            phoneChatPageUI.Hide();
         }
 
-        public void GoToChatPage()
+        public void GoToChatPage(Contact contact)
         {
-            phoneContactPageUI.gameObject.SetActive(false);
-            phoneChatPageUI.gameObject.SetActive(true);
+            phoneContactPageUI.Hide();
+            phoneChatPageUI.Show(contact);
         }
+
+
+
+        public void OnConversationStarted(Transform t) => phoneChatPageUI.OnConversationStarted(t);
+        public void OnConversationEnded(Transform t) => phoneChatPageUI.OnConversationEnded(t);
     }
 }

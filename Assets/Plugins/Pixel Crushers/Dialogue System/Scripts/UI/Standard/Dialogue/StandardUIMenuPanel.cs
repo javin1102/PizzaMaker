@@ -248,7 +248,10 @@ namespace PixelCrushers.DialogueSystem
             }
             else
             {
-                if (InputDeviceManager.autoFocus) SetFocus(firstSelected);
+                if (InputDeviceManager.autoFocus)
+                {
+                    SetFocus(firstSelected);
+                }
                 if (s_isInputDisabled) EnableInput();
             }
 #if TMP_PRESENT

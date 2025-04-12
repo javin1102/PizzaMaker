@@ -8,7 +8,7 @@ public class ZenInstaller : MonoInstaller
     [SerializeField] private DialogueDatabase chatDialogueDatabase;
     public override void InstallBindings()
     {
-        Container.Bind<DialogueDatabase>().WithId(Constants.ZenDialogueMainDatabaseId).FromInstance(chatDialogueDatabase).AsSingle().NonLazy();
+        Container.Bind<DialogueDatabase>().WithId(GlobalVars.ZenDialogueMainDatabaseId).FromInstance(chatDialogueDatabase).AsSingle().NonLazy();
         Container.Bind<PhoneController>().FromComponentInParents().AsSingle();
     }
 }

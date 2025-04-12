@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using PixelCrushers.DialogueSystem;
 using UnityEngine;
 using Zenject;
@@ -8,7 +9,7 @@ namespace PizzaMaker
     {
         [SerializeField] private PhoneContactUI[] phoneContactUIs;
         [Inject] private PhoneController phoneController;
-        [Inject(Id = Constants.ZenDialogueMainDatabaseId)] 
+        [Inject(Id = GlobalVars.ZenDialogueMainDatabaseId)] 
         private DialogueDatabase dialogueDatabase;
 
         public void Initialize()
@@ -16,11 +17,12 @@ namespace PizzaMaker
             for (int i = 0; i < phoneController.Contacts.Count; i++)
             {
                 phoneContactUIs[i].TextName.text = phoneController.Contacts[i].name;
+                phoneContactUIs[i].Contact = phoneController.Contacts[i];
                 phoneContactUIs[i].OnClicked = GoToChatPage;
             }
 
         }
 
-        private void GoToChatPage() => phoneController.GoToChatPage();
+        private void GoToChatPage(Contact contact) => phoneController.GoToChatPage(contact);
     }
 }

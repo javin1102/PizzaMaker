@@ -8,5 +8,6 @@ namespace PizzaMaker
     {
         public List<string> conversationTitles;
         public string name;
+        public int actorId;
     }
 }
