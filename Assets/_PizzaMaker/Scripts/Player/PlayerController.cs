@@ -14,7 +14,8 @@ namespace PizzaMaker
         protected void Awake()
         {
             //Note: Uses PlayerPrefs for temp save data (testing purposes)
-            PersistentDataManager.ApplySaveData(PlayerPrefs.GetString(GlobalVars.SaveData));
+            // PersistentDataManager.ApplySaveData(PlayerPrefs.GetString(GlobalVars.SaveData));
+            
             var spawnPoint = GameObject.FindGameObjectWithTag(GlobalVars.TagSpawn);
             if (spawnPoint != null)
             {

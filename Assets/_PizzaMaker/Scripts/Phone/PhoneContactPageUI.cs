@@ -33,9 +33,9 @@ namespace PizzaMaker
 
             foreach (var contactUI in phoneContactUIs)
             {
-                if (contactUI.Contact == arg1)
+                if (contactUI.Contact == arg1 && IsShowing)
                 {
-                    Debug.LogError("ContactUI: " + contactUI.Contact.name);
+                    contactUI.ShowNotification(true);
                    break;
                 }
             }
