@@ -7,11 +7,12 @@ namespace PizzaMaker
 {
     public class PhoneContactUI : MonoBehaviour
     {
-        [SerializeField] private Button button;
-        [field: SerializeField] public TMP_Text TextName { get; private set; }
-        [field: SerializeField] public Image imageNotification; 
         public UnityAction<Contact> OnClicked { get; set; }
         public Contact Contact { get; set; }
+        [field: SerializeField] public TMP_Text TextName { get; private set; }
+        [field: SerializeField] public Image imageNotification; 
+        
+        [SerializeField] private Button button;
 
         private void Awake()
         {

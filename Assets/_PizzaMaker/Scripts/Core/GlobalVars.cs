@@ -4,6 +4,9 @@ namespace PizzaMaker
 {
     public static class GlobalVars
     {
+        //Layers
+        public const int LayerDefault = 0;
+        public const int LayerFocus = 6;
         public const string SceneCore = "Core";
 
         /* -------------------------------------------------------------------------- */

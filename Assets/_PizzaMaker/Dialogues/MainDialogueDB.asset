@@ -170,7 +170,7 @@ MonoBehaviour:
       showNPCSubtitlesWithResponses: 1
       showPCSubtitlesDuringLine: 1
       skipPCSubtitleAfterResponseMenu: 0
-      subtitleCharsPerSecond: 25
+      subtitleCharsPerSecond: 30
       minSubtitleSeconds: 0.5
       continueButton: 0
       overrideSequenceSettings: 0

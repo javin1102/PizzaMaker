@@ -849,15 +849,15 @@ MonoBehaviour:
     m_Value: 3
   chromaticAberrationIntensity:
     m_OverrideState: 1
-    m_Value: 0.0066
+    m_Value: 0.0044
   chromaticAberrationShift:
     m_OverrideState: 1
     m_Value: 0
   chromaticAberrationSmoothing:
     m_OverrideState: 1
-    m_Value: 7
+    m_Value: 7.2
   chromaticAberrationSeparatePass:
-    m_OverrideState: 0
+    m_OverrideState: 1
     m_Value: 0
   depthOfField:
     m_OverrideState: 0

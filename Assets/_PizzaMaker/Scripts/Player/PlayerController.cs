@@ -10,6 +10,7 @@ namespace PizzaMaker
         public PhoneController PhoneController => phoneController;
         [SerializeField] private FirstPersonController firstPersonController;
         [SerializeField] private PhoneController phoneController;
+        private Focusable currentFocusable;
 
         protected void Awake()
         {
@@ -38,6 +39,28 @@ namespace PizzaMaker
             if (Input.GetKeyDown(KeyCode.Tab))
             {
                 TogglePhone();
+            }
+
+            if (Input.GetMouseButtonDown(0))
+            {
+                if (currentFocusable == null && Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out var hit, 10f) && hit.collider.TryGetComponent(out currentFocusable))
+                {
+                    currentFocusable.Focus();
+                    firstPersonController.enabled = false;
+                    Cursor.lockState = CursorLockMode.None;
+                }
+            }
+
+            if (currentFocusable && Input.GetMouseButton(0))
+            {
+                currentFocusable.transform.Rotate(new Vector3(-Input.GetAxis("Mouse Y"), -Input.GetAxis("Mouse X"), 0) * Time.deltaTime * 200f);               
+            }
+            if (Input.GetKeyDown(KeyCode.Q) && currentFocusable != null)
+            {
+                currentFocusable.OutFocus();
+                firstPersonController.enabled = true;
+                currentFocusable = null;
+                Cursor.lockState = CursorLockMode.Locked;
             }
         }
 

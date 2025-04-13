@@ -26,12 +26,8 @@ namespace PizzaMaker.Events
             {
                 isTriggered = true;
                 DialogueManager.Instance.DialogueUI.ShowAlert("You got a message", 2f);
+                DialogueManager.Instance.StartConversation("day1/boss/intro", player.PhoneController.transform, player.PhoneController.transform, -1, player.PhoneController.DialogueUI);
                 Tween.Delay(3f, () => InGameUIController.Instance.ShowInformationUI("Press <b>Tab</b> to Show/Hide your phone"));
-                Tween.Delay(4f, () =>
-                {
-                    // DialogueManager.Instance.activeConversation.
-                    DialogueManager.Instance.StartConversation("day1/boss/intro", player.PhoneController.transform, player.PhoneController.transform, -1, player.PhoneController.DialogueUI);
-                });
             }
         }
     }

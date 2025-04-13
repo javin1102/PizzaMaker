@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using PixelCrushers.DialogueSystem;
+using UnityEngine;
 
 public static class Utils
 {
@@ -18,6 +19,20 @@ public static class Utils
                 }
             }
         }
+
         return conversations;
+    }
+
+    public static void SetGameLayerRecursive(this GameObject _go, int _layer)
+    {
+        _go.layer = _layer;
+        foreach (Transform child in _go.transform)
+        {
+            child.gameObject.layer = _layer;
+
+            Transform _HasChildren = child.GetComponentInChildren<Transform>();
+            if (_HasChildren != null)
+                SetGameLayerRecursive(child.gameObject, _layer);
+        }
     }
 }
