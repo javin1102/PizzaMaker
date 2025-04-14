@@ -50,6 +50,7 @@ public class FirstPersonController : MonoBehaviour
     private bool isZoomed = false;
 
     #endregion
+
     #endregion
 
     #region Movement Variables
@@ -115,6 +116,7 @@ public class FirstPersonController : MonoBehaviour
     private Vector3 originalScale;
 
     #endregion
+
     #endregion
 
     #region Head Bob
@@ -282,6 +284,7 @@ public class FirstPersonController : MonoBehaviour
         }
 
         #endregion
+
         #endregion
 
         #region Sprint
@@ -392,9 +395,9 @@ public class FirstPersonController : MonoBehaviour
         {
             // Calculate how fast we should be moving
             Vector3 targetVelocity = new Vector3(
-                Input.GetAxis("Horizontal"),
+                Input.GetAxisRaw("Horizontal"),
                 0,
-                Input.GetAxis("Vertical")
+                Input.GetAxisRaw("Vertical")
             );
 
             // Checks if player is walking and isGrounded
@@ -406,6 +409,7 @@ public class FirstPersonController : MonoBehaviour
             else
             {
                 isWalking = false;
+                rb.linearVelocity = Vector3.zero;
             }
 
             // All movement calculations shile sprint is active
@@ -479,8 +483,12 @@ public class FirstPersonController : MonoBehaviour
                 );
                 velocityChange.y = 0;
 
-                rb.AddForce(velocityChange, ForceMode.VelocityChange);
+                rb.AddForce(velocityChange, ForceMode.Impulse);
             }
+        }
+        else
+        {
+            rb.linearVelocity = Vector3.zero;
         }
 
         #endregion
@@ -565,6 +573,7 @@ public class FirstPersonController : MonoBehaviour
             {
                 timer += Time.deltaTime * bobSpeed;
             }
+
             // Applies HeadBob movement
             joint.localPosition = new Vector3(
                 jointOriginalPos.x + Mathf.Sin(timer) * bobAmount.x,
@@ -960,6 +969,7 @@ public class FirstPersonControllerEditor : Editor
             EditorGUILayout.EndHorizontal();
             EditorGUI.indentLevel--;
         }
+
         GUI.enabled = true;
 
         EditorGUILayout.Space();

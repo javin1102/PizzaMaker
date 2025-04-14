@@ -20,12 +20,12 @@ namespace PizzaMaker
 
         public void Focus()
         {
-            transform.LookAt(Camera.main!.transform.position, Vector3.up);
+            // transform.LookAt(Camera.main!.transform.position, Vector3.up);
             transform.position = Camera.main.transform.position + Camera.main.transform.forward.normalized * 0.7f;
             transform.forward = -Camera.main.transform.forward;
             gameObject.SetGameLayerRecursive(GlobalVars.LayerFocus);
             InGameUIController.Instance.ShowOverlayScreenSpace();
-            playerController.FirstPersonController.enabled = false;
+            playerController.SetMovement(false);
             playerController.SetFocusable(this);
             Cursor.lockState = CursorLockMode.None;
             OnFocus?.Invoke();
@@ -37,7 +37,7 @@ namespace PizzaMaker
             transform.rotation = Quaternion.Euler(originalRotation);
             gameObject.SetGameLayerRecursive(GlobalVars.LayerDefault);
             InGameUIController.Instance.HideOverlayScreenSpace();
-            playerController.enabled = true;
+            playerController.SetMovement(true);
             OnOutFocus?.Invoke();
         }
     }

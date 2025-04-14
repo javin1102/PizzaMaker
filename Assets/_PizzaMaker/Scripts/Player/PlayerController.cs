@@ -11,11 +11,12 @@ namespace PizzaMaker
         public FirstPersonController FirstPersonController => firstPersonController;
         public PhoneController PhoneController => phoneController;
         [field: SerializeField] public StandardDialogueUI StandardDialogueUI { get; private set; }
-        
+
         [SerializeField] private FirstPersonController firstPersonController;
         [SerializeField] private PhoneController phoneController;
         private Focusable currentFocusable;
         private Selector selector;
+        private IInteractable currentInteractable;
 
         protected void Awake()
         {
@@ -29,6 +30,7 @@ namespace PizzaMaker
                 transform.position = spawnPoint.transform.position;
                 transform.rotation = spawnPoint.transform.rotation;
             }
+
             phoneController.Initialize();
         }
 
@@ -42,30 +44,40 @@ namespace PizzaMaker
 
         private void Update()
         {
-            // Debug.LogError(DialogueManager.Instance.lastConversationEnded);
             //Temp input for testing
             if (Input.GetKeyDown(KeyCode.Tab))
             {
                 TogglePhone();
             }
 
-            if (Input.GetMouseButtonDown(0))
+            var isHit = Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out RaycastHit hit, 5f);
+            if (isHit && hit.collider.TryGetComponent(out IInteractable interactable))
             {
-                if (currentFocusable == null && Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out var hit, 10f) 
-                                             && hit.collider.TryGetComponent(out IInteractable interactable))
+                if (!IsPhoneActive && currentFocusable == null)
                 {
-                    interactable.OnClick();
+                    if (Input.GetMouseButtonDown(0))
+                        currentInteractable.OnClick();
+                    else
+                    {
+                        currentInteractable = interactable;
+                        currentInteractable.OnHover();
+                    }
                 }
+            }
+            else if (currentInteractable != null)
+            {
+                currentInteractable.OnUnhover();
+                currentInteractable = null;
             }
 
             if (currentFocusable && Input.GetMouseButton(0))
             {
-                currentFocusable.transform.Rotate(new Vector3(-Input.GetAxis("Mouse Y"), -Input.GetAxis("Mouse X"), 0) * Time.deltaTime * 200f);               
+                currentFocusable.transform.Rotate(new Vector3(-Input.GetAxis("Mouse Y"), -Input.GetAxis("Mouse X"), 0) * Time.deltaTime * 200f);
             }
+
             if (Input.GetKeyDown(KeyCode.Q) && currentFocusable != null)
             {
                 currentFocusable.OutFocus();
-                firstPersonController.enabled = true;
                 currentFocusable = null;
                 Cursor.lockState = CursorLockMode.Locked;
             }
@@ -88,14 +100,15 @@ namespace PizzaMaker
                 HidePhone();
                 return;
             }
+
             ShowPhone();
         }
 
         public void ShowPhone()
         {
-            if (IsPhoneActive)
+            if (IsPhoneActive || currentFocusable != null)
                 return;
-            
+
             phoneController.gameObject.SetActive(true);
             Cursor.lockState = CursorLockMode.None;
             firstPersonController.cameraCanMove = false;
@@ -113,7 +126,7 @@ namespace PizzaMaker
         {
             if (!IsPhoneActive)
                 return;
-            
+
             selector.enabled = true;
             phoneController.gameObject.SetActive(false);
             Cursor.lockState = CursorLockMode.Locked;
@@ -133,11 +146,13 @@ namespace PizzaMaker
             {
                 if (t.transform != phoneController.transform)
                 {
-                    firstPersonController.enabled = false;
+                    SetMovement(false);
                     Cursor.lockState = CursorLockMode.None;
                 }
+
                 return;
             }
+
             firstPersonController.cameraCanMove = false;
         }
 
@@ -148,14 +163,21 @@ namespace PizzaMaker
             {
                 if (t.transform != phoneController.transform)
                 {
-                    firstPersonController.enabled = true;
+                    SetMovement(true);
                     Cursor.lockState = CursorLockMode.Locked;
                 }
+
                 return;
             }
 
             Cursor.lockState = CursorLockMode.Locked;
             firstPersonController.cameraCanMove = true;
+        }
+
+        public void SetMovement(bool isEnable)
+        {
+            firstPersonController.playerCanMove = isEnable;
+            firstPersonController.cameraCanMove = isEnable;
         }
     }
 }

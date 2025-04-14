@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 3774803227012925283}
   - component: {fileID: 3625433676395688964}
   - component: {fileID: 3986623614067318396}
+  - component: {fileID: 382109266600249306}
   m_Layer: 0
   m_Name: TutorialNote
   m_TagString: Untagged
@@ -81,6 +82,31 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b202f03e1179427d8478073e4b50321a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &382109266600249306
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 996658521517571205}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 274b80ab5b659c646ba9338870d14625, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_overrideName: 
+  m_overrideUseMessage: <sprite name="lmb"> Note
+  maxUseDistance: 5
+  events:
+    onSelect:
+      m_PersistentCalls:
+        m_Calls: []
+    onDeselect:
+      m_PersistentCalls:
+        m_Calls: []
+    onUse:
+      m_PersistentCalls:
+        m_Calls: []
 --- !u!1 &1594937204827815512
 GameObject:
   m_ObjectHideFlags: 0

@@ -314,6 +314,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2343879229779770626, guid: e3d0f9941597a074cb77f9a20e5e26a2, type: 3}
+      propertyPath: m_BlockingMask.m_Bits
+      value: 119
+      objectReference: {fileID: 0}
+    - target: {fileID: 5765237120958160541, guid: e3d0f9941597a074cb77f9a20e5e26a2, type: 3}
+      propertyPath: debugLevel
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 6475337146947701121, guid: e3d0f9941597a074cb77f9a20e5e26a2, type: 3}
       propertyPath: m_Name
       value: Dialogue Manager

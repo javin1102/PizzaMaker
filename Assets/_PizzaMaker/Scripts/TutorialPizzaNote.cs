@@ -47,18 +47,23 @@ namespace PizzaMaker
                 return;
 
             focusable.Focus();
+            Debug.LogError("Clicked");
         }
 
         public void OnHover()
         {
             if (!IsInteractable)
                 return;
+            
+            Debug.LogError("hover");
         }
 
         public void OnUnhover()
         {
             if (!IsInteractable)
                 return;
+            
+            Debug.LogError("Unhover");
         }
     }
 }
