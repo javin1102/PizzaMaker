@@ -13,7 +13,7 @@ namespace PizzaMaker
         [SerializeField] private PhoneContactPageUI phoneContactPageUI;
         [SerializeField] private PhoneChatPageUI phoneChatPageUI;
 
-        public void Initialize()
+        public void Ininitalize()
         {
             phoneContactPageUI.Initialize();
             StandardDialogueUI = DialogueManager.Instance.displaySettings.dialogueUI;

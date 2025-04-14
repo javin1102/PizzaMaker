@@ -1,5 +1,6 @@
 ﻿using System;
 using UnityEngine;
+using Zenject;
 
 namespace PizzaMaker
 {
@@ -10,6 +11,7 @@ namespace PizzaMaker
 
         public Action OnFocus { get; set; }
         public Action OnOutFocus { get; set; }
+        [Inject] private PlayerController playerController;
         private void Awake()
         {
             originalPosition = transform.position;
@@ -23,6 +25,9 @@ namespace PizzaMaker
             transform.forward = -Camera.main.transform.forward;
             gameObject.SetGameLayerRecursive(GlobalVars.LayerFocus);
             InGameUIController.Instance.ShowOverlayScreenSpace();
+            playerController.FirstPersonController.enabled = false;
+            playerController.SetFocusable(this);
+            Cursor.lockState = CursorLockMode.None;
             OnFocus?.Invoke();
         }
 
@@ -32,6 +37,7 @@ namespace PizzaMaker
             transform.rotation = Quaternion.Euler(originalRotation);
             gameObject.SetGameLayerRecursive(GlobalVars.LayerDefault);
             InGameUIController.Instance.HideOverlayScreenSpace();
+            playerController.enabled = true;
             OnOutFocus?.Invoke();
         }
     }

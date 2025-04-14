@@ -11,7 +11,7 @@ namespace PizzaMaker
         [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.AfterSceneLoad)]
         private static void OnAppStart()
         {
-            AutoLoadCoreScene();
+            // AutoLoadCoreScene();
 
         }
 
