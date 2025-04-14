@@ -7,17 +7,22 @@ namespace PizzaMaker
 {
     public class PlayerController : MonoBehaviour
     {
+        public bool IsPhoneActive => phoneController.gameObject.activeInHierarchy;
         public FirstPersonController FirstPersonController => firstPersonController;
         public PhoneController PhoneController => phoneController;
+        [field: SerializeField] public StandardDialogueUI StandardDialogueUI { get; private set; }
+        
         [SerializeField] private FirstPersonController firstPersonController;
         [SerializeField] private PhoneController phoneController;
         private Focusable currentFocusable;
+        private Selector selector;
 
         protected void Awake()
         {
             //Note: Uses PlayerPrefs for temp save data (testing purposes)
             // PersistentDataManager.ApplySaveData(PlayerPrefs.GetString(GlobalVars.SaveData));
-            Debug.LogError(PlayerPrefs.GetString(GlobalVars.SaveData));
+            // Debug.LogError(PlayerPrefs.GetString(GlobalVars.SaveData));
+            selector = GetComponent<Selector>();
             var spawnPoint = GameObject.FindGameObjectWithTag(GlobalVars.TagSpawn);
             if (spawnPoint != null)
             {
@@ -30,12 +35,14 @@ namespace PizzaMaker
 
         void Start()
         {
+            StandardDialogueUI = DialogueManager.Instance.standardDialogueUI;
             DialogueManager.Instance.conversationEnded += OnConversationEnded;
             DialogueManager.Instance.conversationStarted += OnConversationStarted;
         }
 
         private void Update()
         {
+            // Debug.LogError(DialogueManager.Instance.lastConversationEnded);
             //Temp input for testing
             if (Input.GetKeyDown(KeyCode.Tab))
             {
@@ -76,7 +83,7 @@ namespace PizzaMaker
 
         public void TogglePhone()
         {
-            if (phoneController.gameObject.activeInHierarchy)
+            if (IsPhoneActive)
             {
                 HidePhone();
                 return;
@@ -86,12 +93,13 @@ namespace PizzaMaker
 
         public void ShowPhone()
         {
-            if (phoneController.gameObject.activeInHierarchy)
+            if (IsPhoneActive)
                 return;
             
             phoneController.gameObject.SetActive(true);
             Cursor.lockState = CursorLockMode.None;
             firstPersonController.cameraCanMove = false;
+            selector.enabled = false;
 
             var openPhoneQuestState = QuestLog.GetQuestState(LuaVariables.Quests.Day1OpenPhone.id);
             if (openPhoneQuestState == QuestState.Active)
@@ -103,9 +111,10 @@ namespace PizzaMaker
 
         public void HidePhone()
         {
-            if (!phoneController.gameObject.activeInHierarchy)
+            if (!IsPhoneActive)
                 return;
-
+            
+            selector.enabled = true;
             phoneController.gameObject.SetActive(false);
             Cursor.lockState = CursorLockMode.Locked;
             firstPersonController.cameraCanMove = true;
@@ -120,16 +129,30 @@ namespace PizzaMaker
         private void OnConversationStarted(Transform t)
         {
             phoneController.OnConversationStarted(t);
-            if (!phoneController.gameObject.activeInHierarchy)
+            if (!IsPhoneActive)
+            {
+                if (t.transform != phoneController.transform)
+                {
+                    firstPersonController.enabled = false;
+                    Cursor.lockState = CursorLockMode.None;
+                }
                 return;
+            }
             firstPersonController.cameraCanMove = false;
         }
 
         private void OnConversationEnded(Transform t)
         {
             phoneController.OnConversationEnded(t);
-            if (phoneController.gameObject.activeInHierarchy)
+            if (!IsPhoneActive)
+            {
+                if (t.transform != phoneController.transform)
+                {
+                    firstPersonController.enabled = true;
+                    Cursor.lockState = CursorLockMode.Locked;
+                }
                 return;
+            }
 
             Cursor.lockState = CursorLockMode.Locked;
             firstPersonController.cameraCanMove = true;

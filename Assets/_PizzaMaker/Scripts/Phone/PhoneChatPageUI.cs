@@ -13,6 +13,7 @@ namespace PizzaMaker
 {
     public class PhoneChatPageUI : PhonePageUI, IDialogueUI
     {
+
         public event EventHandler<SelectedResponseEventArgs> SelectedResponseHandler;
 
         [SerializeField] private TMP_Text textContactName;
@@ -22,6 +23,7 @@ namespace PizzaMaker
         [SerializeField] private RectTransform chatContainer;
         [SerializeField] private StandardUIMenuPanel standardUIMenuPanel;
         [Inject] private PhoneController phoneController;
+        [Inject] private PlayerController PlayerController;
 
         [Inject(Id = GlobalVars.ZenDialogueMainDatabaseId)]
         private DialogueDatabase dialogueDatabase;
@@ -85,6 +87,8 @@ namespace PizzaMaker
         public void Close()
         {
             PlayerPrefs.SetString(GlobalVars.SaveData, PersistentDataManager.GetSaveData());
+            // DialogueManager.Instance.dialogueUI = PlayerController.StandardDialogueUI;
+            // DialogueManager.Instance.displaySettings.dialogueUI = PlayerController.StandardDialogueUI.gameObject;
         }
 
         public void ShowSubtitle(Subtitle subtitle)

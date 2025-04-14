@@ -7,16 +7,15 @@ namespace PizzaMaker
 {
     public class PhoneController : MonoBehaviour
     {
+        public GameObject DialogueUIGO => phoneChatPageUI.gameObject;
         public IDialogueUI DialogueUI => phoneChatPageUI;
         [field: SerializeField] public List<Contact> Contacts { get; private set; }
-        public GameObject StandardDialogueUI { get; private set; }
         [SerializeField] private PhoneContactPageUI phoneContactPageUI;
         [SerializeField] private PhoneChatPageUI phoneChatPageUI;
 
         public void Initialize()
         {
             phoneContactPageUI.Initialize();
-            StandardDialogueUI = DialogueManager.Instance.displaySettings.dialogueUI;
             GoToContactPage();
         }
 
