@@ -382,7 +382,7 @@ MonoBehaviour:
     m_uiText: {fileID: 0}
     m_textMeshProUGUI: {fileID: 0}
   usePortraitNativeSize: 0
-  timerSlider: {fileID: 8504099672570047225}
+  timerSlider: {fileID: 0}
   buttonAlignment: 0
   showUnusedButtons: 0
   buttons: []

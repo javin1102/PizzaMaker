@@ -56,17 +56,17 @@ namespace PizzaMaker
                 if (!IsPhoneActive && currentFocusable == null)
                 {
                     if (Input.GetMouseButtonDown(0))
-                        currentInteractable.OnClick();
+                        currentInteractable?.OnClick();
                     else
                     {
                         currentInteractable = interactable;
-                        currentInteractable.OnHover();
+                        currentInteractable?.OnHover();
                     }
                 }
             }
             else if (currentInteractable != null)
             {
-                currentInteractable.OnUnhover();
+                currentInteractable?.OnUnhover();
                 currentInteractable = null;
             }
 
@@ -109,6 +109,10 @@ namespace PizzaMaker
             if (IsPhoneActive || currentFocusable != null)
                 return;
 
+            //Do not show phone if direct conversation is ongoing
+            if (DialogueManager.Instance.IsConversationActive && DialogueManager.Instance.currentConversant != phoneController.transform)
+                return;
+            
             phoneController.gameObject.SetActive(true);
             Cursor.lockState = CursorLockMode.None;
             firstPersonController.cameraCanMove = false;
@@ -126,7 +130,11 @@ namespace PizzaMaker
         {
             if (!IsPhoneActive)
                 return;
-
+            
+            //Do not hide phone if chat conversation is ongoing
+            // if (DialogueManager.Instance.IsConversationActive && DialogueManager.Instance.currentConversant == phoneController.transform)
+            //     return;
+            
             selector.enabled = true;
             phoneController.gameObject.SetActive(false);
             Cursor.lockState = CursorLockMode.Locked;
@@ -159,7 +167,7 @@ namespace PizzaMaker
         private void OnConversationEnded(Transform t)
         {
             phoneController.OnConversationEnded(t);
-            if (!IsPhoneActive)
+            if (IsPhoneActive)
             {
                 if (t.transform != phoneController.transform)
                 {
