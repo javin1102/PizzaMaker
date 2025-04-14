@@ -24,7 +24,7 @@ namespace PizzaMaker
                 transform.position = spawnPoint.transform.position;
                 transform.rotation = spawnPoint.transform.rotation;
             }
-            phoneController.Ininitalize();
+            phoneController.Initialize();
         }
 
 
