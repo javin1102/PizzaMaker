@@ -245,6 +245,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: FirstPersonController
       objectReference: {fileID: 0}
+    - target: {fileID: 8082322015756450366, guid: 6e308d41e30f54841a15b98ca3a4c8d4, type: 3}
+      propertyPath: maxSelectionDistance
+      value: 10
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

@@ -4,15 +4,14 @@ using UnityEngine;
 namespace PizzaMaker
 {
     [RequireComponent(typeof(Focusable))]
-    public class TutorialPizzaNote : MonoBehaviour, IInteractable
+    public class TutorialPizzaNote : Interactable
     {
-        public bool IsInteractable { get; set; }
-        
         private Focusable focusable;
         private bool didAssignConversationEnded;
 
-        private void Awake()
+        protected override void Awake()
         {
+            base.Awake();
             focusable = GetComponent<Focusable>();
         }
 
@@ -40,30 +39,26 @@ namespace PizzaMaker
                 IsInteractable = true;
         }
 
-
-        public void OnClick()
+        public override void OnClick()
         {
             if (!IsInteractable)
                 return;
 
             focusable.Focus();
-            Debug.LogError("Clicked");
         }
 
-        public void OnHover()
+        public override void OnHover()
         {
             if (!IsInteractable)
                 return;
             
-            Debug.LogError("hover");
         }
 
-        public void OnUnhover()
+        public override void OnUnhover()
         {
             if (!IsInteractable)
                 return;
             
-            Debug.LogError("Unhover");
         }
     }
 }

@@ -179,7 +179,7 @@ namespace PizzaMaker
             }
 
             Cursor.lockState = CursorLockMode.Locked;
-            firstPersonController.cameraCanMove = true;
+            SetMovement(true);
         }
 
         public void SetMovement(bool isEnable)
