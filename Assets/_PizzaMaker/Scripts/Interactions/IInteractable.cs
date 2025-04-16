@@ -6,16 +6,16 @@ namespace PizzaMaker
         /// <summary>
         /// Called when the object is clicked
         /// </summary>
-        void OnClick();
+        void OnClick(PlayerController playerController);
 
         /// <summary>
         /// Called when the object is hovered
         /// </summary>
-        void OnHover();
+        void OnHover(PlayerController playerController);
 
         /// <summary>
         /// Called when the object is unhovered
         /// </summary>
-        void OnUnhover();
+        void OnUnhover(PlayerController playerController);
     }
 }

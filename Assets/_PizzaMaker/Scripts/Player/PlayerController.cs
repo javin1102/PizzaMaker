@@ -1,12 +1,12 @@
 using System;
 using PixelCrushers.DialogueSystem;
-using PizzaMaker.Tools;
 using UnityEngine;
 
 namespace PizzaMaker
 {
     public class PlayerController : MonoBehaviour
     {
+        public GameObject GrabbedGameObject => grabbedGameObject;
         public bool IsPhoneActive => phoneController.gameObject.activeInHierarchy;
         public FirstPersonController FirstPersonController => firstPersonController;
         public PhoneController PhoneController => phoneController;
@@ -14,14 +14,18 @@ namespace PizzaMaker
 
         [SerializeField] private FirstPersonController firstPersonController;
         [SerializeField] private PhoneController phoneController;
+        [SerializeField] private Transform grabAttachPoint;
+
         private Focusable currentFocusable;
         private Selector selector;
         private IInteractable currentInteractable;
+        private IGrabbable currentIGrabbable;
+        private GameObject grabbedGameObject;
 
         protected void Awake()
         {
             //Note: Uses PlayerPrefs for temp save data (testing purposes)
-            // PersistentDataManager.ApplySaveData(PlayerPrefs.GetString(GlobalVars.SaveData));
+            PersistentDataManager.ApplySaveData(PlayerPrefs.GetString(GlobalVars.SaveData));
             // Debug.LogError(PlayerPrefs.GetString(GlobalVars.SaveData));
             selector = GetComponent<Selector>();
             var spawnPoint = GameObject.FindGameObjectWithTag(GlobalVars.TagSpawn);
@@ -44,6 +48,28 @@ namespace PizzaMaker
 
         private void Update()
         {
+            if (Input.GetKeyDown(KeyCode.Q))
+            {
+                if (currentFocusable != null)
+                {
+                    currentFocusable.OutFocus();
+                    currentFocusable = null;
+                    Cursor.lockState = CursorLockMode.Locked;
+                }
+                else if (currentIGrabbable != null)
+                {
+                    UnGrab();
+                }
+            }
+
+            if (currentFocusable != null || currentIGrabbable != null)
+            {
+                selector.maxSelectionDistance = 0;
+            }
+
+            if (currentFocusable == null && currentIGrabbable == null)
+                selector.maxSelectionDistance = 10f;
+
             //Temp input for testing
             if (Input.GetKeyDown(KeyCode.Tab))
             {
@@ -56,17 +82,17 @@ namespace PizzaMaker
                 if (!IsPhoneActive && currentFocusable == null)
                 {
                     if (Input.GetMouseButtonDown(0))
-                        currentInteractable?.OnClick();
+                        currentInteractable?.OnClick(this);
                     else
                     {
                         currentInteractable = interactable;
-                        currentInteractable?.OnHover();
+                        currentInteractable?.OnHover(this);
                     }
                 }
             }
             else if (currentInteractable != null)
             {
-                currentInteractable?.OnUnhover();
+                currentInteractable?.OnUnhover(this);
                 currentInteractable = null;
             }
 
@@ -74,15 +100,7 @@ namespace PizzaMaker
             {
                 currentFocusable.transform.Rotate(new Vector3(-Input.GetAxis("Mouse Y"), -Input.GetAxis("Mouse X"), 0) * Time.deltaTime * 200f);
             }
-
-            if (Input.GetKeyDown(KeyCode.Q) && currentFocusable != null)
-            {
-                currentFocusable.OutFocus();
-                currentFocusable = null;
-                Cursor.lockState = CursorLockMode.Locked;
-            }
         }
-
 
         void OnDestroy()
         {
@@ -112,7 +130,7 @@ namespace PizzaMaker
             //Do not show phone if direct conversation is ongoing
             if (DialogueManager.Instance.IsConversationActive && DialogueManager.Instance.currentConversant != phoneController.transform)
                 return;
-            
+
             phoneController.gameObject.SetActive(true);
             Cursor.lockState = CursorLockMode.None;
             firstPersonController.cameraCanMove = false;
@@ -130,11 +148,11 @@ namespace PizzaMaker
         {
             if (!IsPhoneActive)
                 return;
-            
+
             //Do not hide phone if chat conversation is ongoing
             // if (DialogueManager.Instance.IsConversationActive && DialogueManager.Instance.currentConversant == phoneController.transform)
             //     return;
-            
+
             selector.enabled = true;
             phoneController.gameObject.SetActive(false);
             Cursor.lockState = CursorLockMode.Locked;
@@ -186,6 +204,30 @@ namespace PizzaMaker
         {
             firstPersonController.playerCanMove = isEnable;
             firstPersonController.cameraCanMove = isEnable;
+        }
+
+        public void Grab(IGrabbable grabbable)
+        {
+            if (currentIGrabbable != null)
+                return;
+
+            var iGrabbable = grabbable.GetGrabbableObject(out GameObject objectToGrab);
+            objectToGrab.transform.SetParent(grabAttachPoint);
+            objectToGrab.transform.localPosition = Vector3.zero;
+            objectToGrab.SetGameLayerRecursive(GlobalVars.LayerFocus);
+            grabbedGameObject = objectToGrab;
+            currentIGrabbable = iGrabbable;
+            currentIGrabbable.OnGrab(this);
+        }
+
+        private void UnGrab()
+        {
+            if (currentIGrabbable == null)
+                return;
+
+            currentIGrabbable.OnRelease(this);
+            currentIGrabbable = null;
+            grabbedGameObject = null;
         }
     }
 }

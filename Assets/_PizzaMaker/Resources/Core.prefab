@@ -245,10 +245,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: FirstPersonController
       objectReference: {fileID: 0}
-    - target: {fileID: 8082322015756450366, guid: 6e308d41e30f54841a15b98ca3a4c8d4, type: 3}
-      propertyPath: maxSelectionDistance
-      value: 10
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -317,14 +313,6 @@ PrefabInstance:
     - target: {fileID: 722603127920416763, guid: e3d0f9941597a074cb77f9a20e5e26a2, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2343879229779770626, guid: e3d0f9941597a074cb77f9a20e5e26a2, type: 3}
-      propertyPath: m_BlockingMask.m_Bits
-      value: 119
-      objectReference: {fileID: 0}
-    - target: {fileID: 5765237120958160541, guid: e3d0f9941597a074cb77f9a20e5e26a2, type: 3}
-      propertyPath: debugLevel
-      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 6475337146947701121, guid: e3d0f9941597a074cb77f9a20e5e26a2, type: 3}
       propertyPath: m_Name

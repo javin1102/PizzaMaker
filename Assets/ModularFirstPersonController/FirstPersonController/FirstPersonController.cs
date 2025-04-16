@@ -398,7 +398,7 @@ public class FirstPersonController : MonoBehaviour
                 Input.GetAxisRaw("Horizontal"),
                 0,
                 Input.GetAxisRaw("Vertical")
-            );
+            ).normalized;
 
             // Checks if player is walking and isGrounded
             // Will allow head bob

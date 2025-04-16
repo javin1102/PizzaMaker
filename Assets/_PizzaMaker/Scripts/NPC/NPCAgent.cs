@@ -29,18 +29,19 @@ namespace PizzaMaker
         }
 
 
-        public void OnClick()
+        public void OnClick(PlayerController playerController)
         {
             
         }
 
-        public void OnHover()
+        public void OnHover(PlayerController playerController)
         {
             
         }
 
-        public void OnUnhover()
+        public void OnUnhover(PlayerController playerController)
         {
+            
         }
     }
     

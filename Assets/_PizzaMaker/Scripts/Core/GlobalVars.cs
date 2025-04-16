@@ -3,6 +3,31 @@ using System.Collections.Generic;
 
 namespace PizzaMaker
 {
+    public enum IngredientType
+    {
+        SauceTomato = 0,
+        Pepperoni = 1,
+        SmokedChicken = 2,
+        SauceBarbecue = 3,
+        Beef = 4,
+        CheeseMozzarella = 5,
+        CheeseCheddar = 6,
+        Basil = 7,
+        Oregano = 8,
+        Spinach = 9,
+        Jalapeno = 10,
+        BlackOlives = 11,
+        Sausage = 12,
+        Ham = 13,
+        Tomato = 14,
+        Corn = 15,
+        Mushroom = 16,
+        Onion = 17,
+        Pineapple = 18,
+        BellPepper = 19,
+        RedOnion = 20,
+    }
+
     public static class GlobalVars
     {
         //Layers

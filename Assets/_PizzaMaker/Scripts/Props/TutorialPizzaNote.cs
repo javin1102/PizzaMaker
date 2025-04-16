@@ -39,7 +39,7 @@ namespace PizzaMaker
                 IsInteractable = true;
         }
 
-        public override void OnClick()
+        public override void OnClick(PlayerController playerController)
         {
             if (!IsInteractable)
                 return;
@@ -47,14 +47,14 @@ namespace PizzaMaker
             focusable.Focus();
         }
 
-        public override void OnHover()
+        public override void OnHover(PlayerController playerController)
         {
             if (!IsInteractable)
                 return;
             
         }
 
-        public override void OnUnhover()
+        public override void OnUnhover(PlayerController playerController)
         {
             if (!IsInteractable)
                 return;

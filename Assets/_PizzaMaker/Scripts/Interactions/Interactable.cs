@@ -25,10 +25,10 @@ namespace PizzaMaker
             usable = GetComponent<Usable>();
         }
 
-        public abstract void OnClick();
+        public abstract void OnClick(PlayerController playerController);
 
-        public abstract void OnHover();
+        public abstract void OnHover(PlayerController playerController);
 
-        public abstract void OnUnhover();
+        public abstract void OnUnhover(PlayerController playerController);
     }
 }
