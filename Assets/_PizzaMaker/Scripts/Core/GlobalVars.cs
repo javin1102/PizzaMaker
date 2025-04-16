@@ -3,29 +3,53 @@ using System.Collections.Generic;
 
 namespace PizzaMaker
 {
-    public enum IngredientType
+    public static class Ingredients
     {
-        SauceTomato = 0,
-        Pepperoni = 1,
-        SmokedChicken = 2,
-        SauceBarbecue = 3,
-        Beef = 4,
-        CheeseMozzarella = 5,
-        CheeseCheddar = 6,
-        Basil = 7,
-        Oregano = 8,
-        Spinach = 9,
-        Jalapeno = 10,
-        BlackOlives = 11,
-        Sausage = 12,
-        Ham = 13,
-        Tomato = 14,
-        Corn = 15,
-        Mushroom = 16,
-        Onion = 17,
-        Pineapple = 18,
-        BellPepper = 19,
-        RedOnion = 20,
+        public static readonly string[] All = {
+            SauceTomato,
+            Pepperoni,
+            SmokedChicken,
+            SauceBarbecue,
+            Beef,
+            CheeseMozzarella,
+            CheeseCheddar,
+            Basil,
+            Oregano,
+            Spinach,
+            Jalapeno,
+            BlackOlives,
+            Sausage,
+            Ham,
+            Tomato,
+            Corn,
+            Mushroom,
+            Onion,
+            Pineapple,
+            BellPepper,
+            RedOnion,
+        };
+        
+        public const string SauceTomato = "Tomato Sauce";
+        public const string Pepperoni = "Pepperoni";
+        public const string SmokedChicken = "Smoked Chicken";
+        public const string SauceBarbecue = "Barbecue Sauce";
+        public const string Beef = "Beef";
+        public const string CheeseMozzarella = "Mozzarella Cheese";
+        public const string CheeseCheddar = "Cheddar Cheese";
+        public const string Basil = "Basil";
+        public const string Oregano = "Oregano";
+        public const string Spinach = "Spinach";
+        public const string Jalapeno = "Jalapeno";
+        public const string BlackOlives = "Black Olives";
+        public const string Sausage = "Sausage";
+        public const string Ham = "Ham";
+        public const string Tomato = "Tomato";
+        public const string Corn = "Corn";
+        public const string Mushroom = "Mushroom";
+        public const string Onion = "Onion";
+        public const string Pineapple = "Pineapple";
+        public const string BellPepper = "Bell Pepper";
+        public const string RedOnion = "Red Onion";
     }
 
     public static class GlobalVars
@@ -61,7 +85,7 @@ namespace PizzaMaker
 
     public static class LuaVariables
     {
-        public static class Conversatons
+        public static class Conversations
         {
             public const string Day1BossIntro = "day1_boss_intro";
         }

@@ -18,7 +18,7 @@ namespace PizzaMaker
 
         private void Start()
         {
-            hasConversationCompleted = DialogueLua.GetVariable(LuaVariables.Conversatons.Day1BossIntro).asBool;
+            hasConversationCompleted = DialogueLua.GetVariable(LuaVariables.Conversations.Day1BossIntro).asBool;
             IsInteractable = hasConversationCompleted;
             if (hasConversationCompleted)
                 return;
@@ -35,7 +35,7 @@ namespace PizzaMaker
 
         private void OnConversationEnded(Transform t)
         {
-            hasConversationCompleted = DialogueLua.GetVariable(LuaVariables.Conversatons.Day1BossIntro).asBool;
+            hasConversationCompleted = DialogueLua.GetVariable(LuaVariables.Conversations.Day1BossIntro).asBool;
             if (hasConversationCompleted)
                 IsInteractable = true;
         }

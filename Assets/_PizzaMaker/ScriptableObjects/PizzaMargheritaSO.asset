@@ -14,4 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pizzaName: Margherita
   cookedPizza: {fileID: 3177969630614154374, guid: 87f210b462b1420459ca6ccd1f67c907, type: 3}
-  ingredients: 000000000500000007000000
+  ingredients:
+  - Tomato Sauce

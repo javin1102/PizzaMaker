@@ -1,6 +1,4 @@
-﻿using System;
-using UnityEngine;
-using UnityEngine.Rendering;
+﻿using UnityEngine;
 
 namespace PizzaMaker
 {
@@ -16,7 +14,7 @@ namespace PizzaMaker
 
         public void OnClick(PlayerController playerController)
         {
-            if (playerController.CurrentIGrabbable == null || playerController.CurrentIGrabbable.GetGrabbableObject<PizzaDough>() is not PizzaDough grabbedPizzaDough)
+            if (playerController.CurrentIGrabbable?.GetGrabbableObject<PizzaDough>() is not { } grabbedPizzaDough)
                 return;
 
             grabbedPizzaDough.transform.parent = attachPoint;
@@ -31,7 +29,7 @@ namespace PizzaMaker
 
         public void OnHover(PlayerController playerController)
         {
-            if (playerController.CurrentIGrabbable == null)
+            if (playerController.CurrentIGrabbable?.GetGrabbableObject<PizzaDough>() is null)
                 return;
             
             if (mat.SetPass(0))

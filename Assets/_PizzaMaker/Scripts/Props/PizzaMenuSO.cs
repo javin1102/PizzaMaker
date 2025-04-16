@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using Sirenix.OdinInspector;
 using UnityEngine;
 
 namespace PizzaMaker
@@ -8,6 +9,7 @@ namespace PizzaMaker
     {
         public string pizzaName;
         public GameObject cookedPizza;
-        public List<IngredientType> ingredients;
+        [ValueDropdown("allIngredients")] public List<string> ingredients;
+        private string[] allIngredients => Ingredients.All;
     }
 }

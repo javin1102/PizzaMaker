@@ -4,7 +4,7 @@ namespace PizzaMaker
 {
     public interface IGrabbable
     {
-        public Component GetGrabbableObject<T>() where T : MonoBehaviour, IGrabbable;
+        public T GetGrabbableObject<T>() where T : MonoBehaviour, IGrabbable;
 
         /// <summary>
         /// Called when the object is grabbed

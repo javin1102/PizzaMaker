@@ -23,13 +23,13 @@ namespace PizzaMaker.Events
 
         private void Start()
         {
-           if(DialogueLua.GetVariable(LuaVariables.Conversatons.Day1BossIntro).asBool)
+           if(DialogueLua.GetVariable(LuaVariables.Conversations.Day1BossIntro).asBool)
                gameObject.SetActive(false);
         }
 
         private void OnTriggerEnter(Collider other)
         {
-            if (isTriggered || DialogueLua.GetVariable(LuaVariables.Conversatons.Day1BossIntro).asBool)
+            if (isTriggered || DialogueLua.GetVariable(LuaVariables.Conversations.Day1BossIntro).asBool)
             {
                 gameObject.SetActive(false);
                 return;
