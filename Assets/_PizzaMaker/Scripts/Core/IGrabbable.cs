@@ -4,13 +4,17 @@ namespace PizzaMaker
 {
     public interface IGrabbable
     {
-        public GrabbableType GrabbableType { get; }
-        public IGrabbable GetGrabbableObject(out GameObject objectToGrab);
+        public Component GetGrabbableObject<T>() where T : MonoBehaviour, IGrabbable;
 
         /// <summary>
         /// Called when the object is grabbed
         /// </summary>
         void OnGrab(PlayerController playerController);
+        
+        /// <summary>
+        /// Called when the object is used
+        /// </summary>
+        void OnGrabUsed(PlayerController playerController);
 
         /// <summary>
         /// Called when the object is released

@@ -8,6 +8,7 @@ namespace PizzaMaker
     {
         private Focusable focusable;
         private bool didAssignConversationEnded;
+        private bool hasConversationCompleted;
 
         protected override void Awake()
         {
@@ -17,7 +18,7 @@ namespace PizzaMaker
 
         private void Start()
         {
-            var hasConversationCompleted = DialogueLua.GetVariable(LuaVariables.Conversatons.Day1BossIntro).asBool;
+            hasConversationCompleted = DialogueLua.GetVariable(LuaVariables.Conversatons.Day1BossIntro).asBool;
             IsInteractable = hasConversationCompleted;
             if (hasConversationCompleted)
                 return;
@@ -34,7 +35,7 @@ namespace PizzaMaker
 
         private void OnConversationEnded(Transform t)
         {
-            var hasConversationCompleted = DialogueLua.GetVariable(LuaVariables.Conversatons.Day1BossIntro).asBool;
+            hasConversationCompleted = DialogueLua.GetVariable(LuaVariables.Conversatons.Day1BossIntro).asBool;
             if (hasConversationCompleted)
                 IsInteractable = true;
         }
@@ -49,9 +50,7 @@ namespace PizzaMaker
 
         public override void OnHover(PlayerController playerController)
         {
-            if (!IsInteractable)
-                return;
-            
+            IsInteractable = hasConversationCompleted && playerController.CurrentIGrabbable == null;
         }
 
         public override void OnUnhover(PlayerController playerController)

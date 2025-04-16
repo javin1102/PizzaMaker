@@ -4,8 +4,17 @@ namespace PizzaMaker
 {
     public class PizzaDough : Interactable, IGrabbable
     {
+        public Collider Collider => _collider;
         private Collider _collider;
-        public GrabbableType GrabbableType => GrabbableType.PizzaDough;
+
+        public enum State
+        {
+            None,
+            Placed,
+            Grabbed
+        }
+
+        public State CurrentState { get; set; } = State.None;
 
         protected override void Awake()
         {
@@ -13,17 +22,18 @@ namespace PizzaMaker
             _collider = GetComponent<Collider>();
         }
 
+
         public override void OnClick(PlayerController playerController)
         {
             if (!IsInteractable)
                 return;
-            
-            playerController.Grab(this);
-            IsInteractable = playerController.GrabbedGameObject == null;
+
+            playerController.Grab<PizzaDough>(this);
         }
 
         public override void OnHover(PlayerController playerController)
         {
+            IsInteractable = playerController.CurrentIGrabbable == null;
         }
 
         public override void OnUnhover(PlayerController playerController)
@@ -31,22 +41,33 @@ namespace PizzaMaker
         }
 
 
-        public IGrabbable GetGrabbableObject(out GameObject objectToGrab)
+        public Component GetGrabbableObject<T>() where T : MonoBehaviour, IGrabbable
         {
-            var grabbableObject = Instantiate(gameObject);
-            grabbableObject.GetComponent<Collider>().enabled = false;
-            objectToGrab = grabbableObject;
-            return grabbableObject.GetComponent<IGrabbable>();
+            if (CurrentState != State.None)
+            {
+                return this;
+            }
+
+            var grabbableObject = Instantiate(gameObject).GetComponent<PizzaDough>();
+            grabbableObject.Collider.enabled = false;
+            grabbableObject.GetComponent<IGrabbable>();
+            return grabbableObject;
         }
 
         public void OnGrab(PlayerController playerController)
+        {
+            CurrentState = State.Grabbed;
+        }
+
+
+        public void OnGrabUsed(PlayerController playerController)
         {
         }
 
         public void OnRelease(PlayerController playerController)
         {
             Destroy(gameObject);
-            IsInteractable = playerController.GrabbedGameObject == null;
+            IsInteractable = playerController.CurrentIGrabbable == null;
         }
     }
 }

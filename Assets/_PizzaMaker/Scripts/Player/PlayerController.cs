@@ -7,8 +7,7 @@ namespace PizzaMaker
 {
     public class PlayerController : MonoBehaviour 
     {
-        public IGrabbable CurrentIGrabbable => currentIGrabbable;
-        public GameObject GrabbedGameObject => grabbedGameObject;
+        public IGrabbable CurrentIGrabbable { get; set; }
         public bool IsPhoneActive => phoneController.gameObject.activeInHierarchy;
         public FirstPersonController FirstPersonController => firstPersonController;
         public PhoneController PhoneController => phoneController;
@@ -22,8 +21,6 @@ namespace PizzaMaker
         private Focusable currentFocusable;
         private Selector selector;
         private IInteractable currentInteractable;
-        private IGrabbable currentIGrabbable;
-        private GameObject grabbedGameObject;
         private ContainerBuilder _cb;
 
         protected void Awake()
@@ -60,19 +57,25 @@ namespace PizzaMaker
                     currentFocusable = null;
                     Cursor.lockState = CursorLockMode.Locked;
                 }
-                else if (currentIGrabbable != null)
+                else if (CurrentIGrabbable != null)
                 {
+                    CurrentIGrabbable.OnRelease(this);
                     UnGrab();
                 }
             }
 
-            if (currentFocusable != null || currentIGrabbable != null)
+            if (Input.GetMouseButtonDown(0))
             {
-                selector.maxSelectionDistance = 0;
+                CurrentIGrabbable?.OnGrabUsed(this);
             }
 
-            if (currentFocusable == null && currentIGrabbable == null)
-                selector.maxSelectionDistance = 10f;
+            if (currentFocusable != null || CurrentIGrabbable != null)
+            {
+                // selector.maxSelectionDistance = 0;
+            }
+
+            // if (currentFocusable == null && CurrentIGrabbable == null)
+            //     selector.maxSelectionDistance = 10f;
 
             //Temp input for testing
             if (Input.GetKeyDown(KeyCode.Tab))
@@ -210,28 +213,25 @@ namespace PizzaMaker
             firstPersonController.cameraCanMove = isEnable;
         }
 
-        public void Grab(IGrabbable grabbable)
+        public void Grab<T>(IGrabbable grabbable) where T : MonoBehaviour, IGrabbable
         {
-            if (currentIGrabbable != null)
+            if (CurrentIGrabbable != null)
                 return;
 
-            var iGrabbable = grabbable.GetGrabbableObject(out GameObject objectToGrab);
+            var objectToGrab = grabbable.GetGrabbableObject<T>();
             objectToGrab.transform.SetParent(grabAttachPoint);
             objectToGrab.transform.localPosition = Vector3.zero;
-            objectToGrab.SetGameLayerRecursive(GlobalVars.LayerFocus);
-            grabbedGameObject = objectToGrab;
-            currentIGrabbable = iGrabbable;
-            currentIGrabbable.OnGrab(this);
+            objectToGrab.gameObject.SetGameLayerRecursive(GlobalVars.LayerFocus);
+            CurrentIGrabbable = objectToGrab.GetComponent<IGrabbable>();
+            CurrentIGrabbable.OnGrab(this);
         }
 
-        private void UnGrab()
+        public void UnGrab()
         {
-            if (currentIGrabbable == null)
+            if (CurrentIGrabbable == null)
                 return;
 
-            currentIGrabbable.OnRelease(this);
-            currentIGrabbable = null;
-            grabbedGameObject = null;
+            CurrentIGrabbable = null;
         }
     }
 }
