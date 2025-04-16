@@ -24,6 +24,7 @@ namespace PizzaMaker
             grabbedPizzaDough.transform.rotation = Quaternion.identity;
             grabbedPizzaDough.Collider.enabled = true;
             grabbedPizzaDough.CurrentState = PizzaDough.State.Placed;
+            grabbedPizzaDough.gameObject.SetGameLayerRecursive(GlobalVars.LayerDefault);
             placedPizzaDough = grabbedPizzaDough;
             playerController.UnGrab();
         }
