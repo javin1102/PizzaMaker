@@ -4,6 +4,7 @@ namespace PizzaMaker
 {
     public interface IGrabbable
     {
+        public GrabbableType GrabbableType { get; }
         public IGrabbable GetGrabbableObject(out GameObject objectToGrab);
 
         /// <summary>

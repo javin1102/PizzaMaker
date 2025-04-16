@@ -19,7 +19,6 @@ namespace PizzaMaker
 
         public void OnHover(PlayerController playerController)
         {
-
             if (mat.SetPass(0))
             {
                 Graphics.DrawMesh(mesh, attachPoint.position, attachPoint.rotation, mat, 0);

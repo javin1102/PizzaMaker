@@ -1,11 +1,13 @@
-using System;
 using PixelCrushers.DialogueSystem;
+using Reflex.Core;
 using UnityEngine;
+using DialogueDatabase = PixelCrushers.DialogueSystem.Wrappers.DialogueDatabase;
 
 namespace PizzaMaker
 {
-    public class PlayerController : MonoBehaviour
+    public class PlayerController : MonoBehaviour 
     {
+        public IGrabbable CurrentIGrabbable => currentIGrabbable;
         public GameObject GrabbedGameObject => grabbedGameObject;
         public bool IsPhoneActive => phoneController.gameObject.activeInHierarchy;
         public FirstPersonController FirstPersonController => firstPersonController;
@@ -15,12 +17,14 @@ namespace PizzaMaker
         [SerializeField] private FirstPersonController firstPersonController;
         [SerializeField] private PhoneController phoneController;
         [SerializeField] private Transform grabAttachPoint;
+        [SerializeField] private DialogueDatabase demoDatabase;
 
         private Focusable currentFocusable;
         private Selector selector;
         private IInteractable currentInteractable;
         private IGrabbable currentIGrabbable;
         private GameObject grabbedGameObject;
+        private ContainerBuilder _cb;
 
         protected void Awake()
         {

@@ -5,6 +5,7 @@ namespace PizzaMaker
     public class PizzaDough : Interactable, IGrabbable
     {
         private Collider _collider;
+        public GrabbableType GrabbableType => GrabbableType.PizzaDough;
 
         protected override void Awake()
         {
@@ -28,6 +29,7 @@ namespace PizzaMaker
         public override void OnUnhover(PlayerController playerController)
         {
         }
+
 
         public IGrabbable GetGrabbableObject(out GameObject objectToGrab)
         {

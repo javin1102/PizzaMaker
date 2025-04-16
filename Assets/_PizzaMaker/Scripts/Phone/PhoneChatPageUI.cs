@@ -1,19 +1,16 @@
 using System;
 using System.Collections;
-using System.Collections.Generic;
 using JetBrains.Annotations;
 using PixelCrushers.DialogueSystem;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
-using Zenject;
-using Cursor = UnityEngine.WSA.Cursor;
+using Reflex.Attributes;
 
 namespace PizzaMaker
 {
     public class PhoneChatPageUI : PhonePageUI, IDialogueUI
     {
-
         public event EventHandler<SelectedResponseEventArgs> SelectedResponseHandler;
 
         [SerializeField] private TMP_Text textContactName;
@@ -24,9 +21,7 @@ namespace PizzaMaker
         [SerializeField] private StandardUIMenuPanel standardUIMenuPanel;
         [Inject] private PhoneController phoneController;
         [Inject] private PlayerController PlayerController;
-
-        [Inject(Id = GlobalVars.ZenDialogueMainDatabaseId)]
-        private DialogueDatabase dialogueDatabase;
+        [Inject] private PixelCrushers.DialogueSystem.Wrappers.DialogueDatabase MainDatabase;
 
         private Contact contact;
         private Actor currentConversant;
@@ -50,12 +45,12 @@ namespace PizzaMaker
 
             foreach (var conversationTitle in contact.conversationTitles)
             {
-                var conv = dialogueDatabase.GetConversation(conversationTitle);
+                var conv = MainDatabase.GetConversation(conversationTitle);
                 foreach (DialogueEntry dialogueEntry in conv.dialogueEntries)
                 {
                     if (DialogueLua.GetSimStatus(dialogueEntry) == DialogueLua.WasDisplayed)
                     {
-                        var actor = dialogueDatabase.GetActor(dialogueEntry.ActorID);
+                        var actor = MainDatabase.GetActor(dialogueEntry.ActorID);
                         if (!string.IsNullOrEmpty(dialogueEntry.DialogueText))
                             ShowChatBubble(dialogueEntry.DialogueText, actor.IsPlayer);
                     }
@@ -76,10 +71,10 @@ namespace PizzaMaker
 
         public void Open()
         {
-            var conversation = dialogueDatabase.GetConversation(DialogueManager.Instance.LastConversationID);
-            var conversant = dialogueDatabase.GetActor(conversation.ConversantID);
+            var conversation = MainDatabase.GetConversation(DialogueManager.Instance.LastConversationID);
+            var conversant = MainDatabase.GetActor(conversation.ConversantID);
             currentConversant = conversant;
-            
+
             if (IsConversantSameAsContact() && DialogueManager.currentActor == phoneController.transform)
                 backButton.interactable = false;
         }
@@ -87,8 +82,6 @@ namespace PizzaMaker
         public void Close()
         {
             PlayerPrefs.SetString(GlobalVars.SaveData, PersistentDataManager.GetSaveData());
-            // DialogueManager.Instance.dialogueUI = PlayerController.StandardDialogueUI;
-            // DialogueManager.Instance.displaySettings.dialogueUI = PlayerController.StandardDialogueUI.gameObject;
         }
 
         public void ShowSubtitle(Subtitle subtitle)
@@ -96,7 +89,7 @@ namespace PizzaMaker
             var chatContact = phoneController.GetContactFromActor(currentConversant);
             if (chatContact != null)
                 GameEvents.OnChatReceived?.Invoke(chatContact, subtitle.dialogueEntry.subtitleText);
-                
+
             if (contact == null)
                 return;
 

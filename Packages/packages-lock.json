@@ -7,6 +7,13 @@
       "dependencies": {},
       "hash": "dded1eeaebaee6c14ec1778a915e7b705cc48aa0"
     },
+    "com.gustavopsantos.reflex": {
+      "version": "https://github.com/gustavopsantos/reflex.git?path=/Assets/Reflex/#10.0.2",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {},
+      "hash": "593403f2a14c5a1404d8ccec1729abe2959fd47a"
+    },
     "com.kyrylokuzyk.primetween": {
       "version": "file:../Assets/Plugins/PrimeTween/internal/com.kyrylokuzyk.primetween.tgz",
       "depth": 0,

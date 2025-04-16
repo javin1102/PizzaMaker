@@ -1,8 +1,8 @@
-﻿using System;
-using PixelCrushers.DialogueSystem;
+﻿using PixelCrushers.DialogueSystem;
 using PrimeTween;
+using Reflex.Attributes;
 using UnityEngine;
-using Zenject;
+using DialogueDatabase = PixelCrushers.DialogueSystem.Wrappers.DialogueDatabase;
 
 namespace PizzaMaker.Events
 {
@@ -11,6 +11,7 @@ namespace PizzaMaker.Events
     {
         private DialogueSystemTrigger dialogueSystemTrigger;
         [Inject] private PlayerController playerController;
+        [Inject] private DialogueDatabase dialogueDatabase;
 
         private void Awake()
         {

@@ -1,6 +1,7 @@
-using PixelCrushers.DialogueSystem;
+using PixelCrushers.DialogueSystem.Wrappers;
+using Reflex.Attributes;
+using Reflex.Core;
 using UnityEngine;
-using Zenject;
 
 namespace PizzaMaker
 {
@@ -8,8 +9,7 @@ namespace PizzaMaker
     {
         [SerializeField] private PhoneContactUI[] phoneContactUIs;
         [Inject] private PhoneController phoneController;
-        [Inject(Id = GlobalVars.ZenDialogueMainDatabaseId)] 
-        private DialogueDatabase dialogueDatabase;
+        [Inject] private DialogueDatabase dialogueDatabase;
 
         public void Initialize()
         {
@@ -19,7 +19,7 @@ namespace PizzaMaker
                 phoneContactUIs[i].Contact = phoneController.Contacts[i];
                 phoneContactUIs[i].OnClicked = GoToChatPage;
             }
-            
+
             GameEvents.OnChatReceived += OnChatReceived;
         }
 
@@ -36,7 +36,7 @@ namespace PizzaMaker
                 if (contactUI.Contact == arg1 && IsShowing)
                 {
                     contactUI.ShowNotification(true);
-                   break;
+                    break;
                 }
             }
         }
