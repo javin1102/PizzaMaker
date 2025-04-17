@@ -1,5 +1,3 @@
-using System;
-using PizzaMaker;
 using PizzaMaker.Tools;
 using UnityEngine;
 using UnityEngine.UI;
@@ -11,6 +9,7 @@ namespace PizzaMaker
         [SerializeField] private InformationUI informationUI; // Start is called once before the first execution of Update after the MonoBehaviour is created
         [SerializeField] private Image imageOverlay, imageOverlayScreenSpace;
         [SerializeField] private Canvas canvasOverlay, canvasScreenSpace;
+        [SerializeField] private AdditionalInformationUI additionalInformationUI;
         private int overlayCount = 0;
         private int overlayScreenSpaceCount = 0;
 
@@ -18,6 +17,7 @@ namespace PizzaMaker
         {
             base.Awake();
             informationUI.gameObject.SetActive(false);
+            additionalInformationUI.gameObject.SetActive(false);
         }
 
         private void Start()
@@ -31,6 +31,24 @@ namespace PizzaMaker
             informationUI.FadeIn();
             informationUI.SetText(text);
             informationUI.SetQuest(questId);
+        }
+
+        public void ShowAdditionalInformationUI(string text)
+        {
+            additionalInformationUI.SetText(text);
+
+            if (additionalInformationUI.IsVisible)
+                return;
+
+            additionalInformationUI.FadeIn();
+        }
+
+        public void HideAdditionalInformationUI()
+        {
+            if (!additionalInformationUI.IsVisible)
+                return;
+
+            additionalInformationUI.FadeOut();
         }
 
         public void ShowOverlay()
@@ -75,5 +93,4 @@ namespace PizzaMaker
             informationUI.FadeOut();
         }
     }
-    
 }

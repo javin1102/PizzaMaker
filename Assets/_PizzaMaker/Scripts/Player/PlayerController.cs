@@ -5,7 +5,7 @@ using DialogueDatabase = PixelCrushers.DialogueSystem.Wrappers.DialogueDatabase;
 
 namespace PizzaMaker
 {
-    public class PlayerController : MonoBehaviour 
+    public class PlayerController : MonoBehaviour
     {
         public IGrabbable CurrentIGrabbable { get; set; }
         public bool IsPhoneActive => phoneController.gameObject.activeInHierarchy;
@@ -22,9 +22,11 @@ namespace PizzaMaker
         private Selector selector;
         private IInteractable currentInteractable;
         private ContainerBuilder _cb;
+        private Camera mainCamera;
 
         protected void Awake()
         {
+            mainCamera = Camera.main;
             //Note: Uses PlayerPrefs for temp save data (testing purposes)
             PersistentDataManager.ApplySaveData(PlayerPrefs.GetString(GlobalVars.SaveData));
             // Debug.LogError(PlayerPrefs.GetString(GlobalVars.SaveData));
@@ -83,9 +85,15 @@ namespace PizzaMaker
                 TogglePhone();
             }
 
-            var isHit = Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out RaycastHit hit, 5f);
+            var isHit = Physics.Raycast(mainCamera.transform.position, mainCamera.transform.forward, out RaycastHit hit, 5f);
             if (isHit && hit.collider.TryGetComponent(out IInteractable interactable))
             {
+                if (currentInteractable != null && interactable != currentInteractable)
+                {
+                    currentInteractable.OnUnhover(this);
+                    currentInteractable = null;
+                }
+                
                 if (!IsPhoneActive && currentFocusable == null)
                 {
                     if (Input.GetMouseButtonDown(0))
@@ -96,16 +104,17 @@ namespace PizzaMaker
                         currentInteractable?.OnHover(this);
                     }
                 }
+
             }
             else if (currentInteractable != null)
             {
-                currentInteractable?.OnUnhover(this);
+                currentInteractable.OnUnhover(this);
                 currentInteractable = null;
             }
 
             if (currentFocusable && Input.GetMouseButton(0))
             {
-                currentFocusable.transform.Rotate(new Vector3(-Input.GetAxis("Mouse Y"), -Input.GetAxis("Mouse X"), 0) * Time.deltaTime * 200f);
+                currentFocusable.transform.Rotate(new Vector3(-Input.GetAxis("Mouse Y"), -Input.GetAxis("Mouse X"), 0) * (Time.deltaTime * 200f));
             }
         }
 

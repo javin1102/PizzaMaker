@@ -595,7 +595,7 @@ MonoBehaviour:
   m_text: <sprite name="lmb"/>Talk
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: e66011e4b0dfee745b0bdcceedc236fd, type: 2}
-  m_sharedMaterial: {fileID: -6863981358275783805, guid: e66011e4b0dfee745b0bdcceedc236fd, type: 2}
+  m_sharedMaterial: {fileID: 2100000, guid: c6fd0401228e7a04599bb11568259e81, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []

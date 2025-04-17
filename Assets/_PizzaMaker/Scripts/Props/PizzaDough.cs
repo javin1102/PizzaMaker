@@ -1,23 +1,18 @@
 ﻿using System.Collections.Generic;
+using PixelCrushers.DialogueSystem;
 using UnityEngine;
 
 namespace PizzaMaker
 {
     public class PizzaDough : Interactable, IGrabbable
     {
-        public enum State
-        {
-            None,
-            Placed,
-            Grabbed
-        }
-
         public Collider Collider => _collider;
-        public State CurrentState { get; set; } = State.None;
+        public GrabbableState CurrentGrabbableState { get; set; } = GrabbableState.None;
 
         private Collider _collider;
         private readonly List<string> ingredients = new();
-        
+        private const string defaultUsableName = "<sprite name=\"lmb\">Grab";
+
         protected override void Awake()
         {
             base.Awake();
@@ -30,9 +25,11 @@ namespace PizzaMaker
             if (!IsInteractable)
                 return;
 
-            if(CurrentState == State.Placed && playerController.CurrentIGrabbable?.GetGrabbableObject<PizzaIngredient>() is {} pizzaIngredient)
+            if (CurrentGrabbableState == GrabbableState.Placed && playerController.CurrentIGrabbable?.GetGrabbableObject<PizzaIngredient>() is { } pizzaIngredient)
             {
-                ingredients.Add(pizzaIngredient.IngredientType);
+                if (!ingredients.Contains(pizzaIngredient.IngredientType))
+                    ingredients.Add(pizzaIngredient.IngredientType);
+
                 playerController.CurrentIGrabbable.OnRelease(playerController);
                 playerController.UnGrab();
             }
@@ -44,17 +41,50 @@ namespace PizzaMaker
 
         public override void OnHover(PlayerController playerController)
         {
-            IsInteractable = playerController.CurrentIGrabbable == null || playerController.CurrentIGrabbable?.GetGrabbableObject<PizzaIngredient>() != null;
+            if (CurrentGrabbableState == GrabbableState.None)
+            {
+                IsInteractable = playerController.CurrentIGrabbable == null;
+                usable.overrideUseMessage = defaultUsableName;
+            }
+            else
+            {
+                var pizzaIngredient = playerController.CurrentIGrabbable?.GetGrabbableObject<PizzaIngredient>();
+                IsInteractable = playerController.CurrentIGrabbable == null || pizzaIngredient != null;
+                if (CurrentGrabbableState == GrabbableState.Placed)
+                {
+                    usable.overrideUseMessage = pizzaIngredient ? $"<sprite name=\"lmb\">Add {pizzaIngredient.IngredientType}" : defaultUsableName;
+
+                    if (ingredients.Count <= 0)
+                    {
+                        InGameUIController.Instance.HideAdditionalInformationUI();
+                        return;
+                    }
+
+                    var capitalizedIngredients = new List<string>();
+                    foreach (var ingredient in ingredients)
+                    {
+                        capitalizedIngredients.Add(char.ToUpper(ingredient[0]) + ingredient.Substring(1));
+                    }
+
+                    var addedIngredients = string.Join(" + ", capitalizedIngredients);
+                    InGameUIController.Instance.ShowAdditionalInformationUI(addedIngredients);
+                }
+                else
+                    usable.overrideUseMessage = defaultUsableName;
+            }
+
+            StandardUISelectorElements.instance.useMessageText.text = usable.overrideUseMessage;
         }
 
         public override void OnUnhover(PlayerController playerController)
         {
+            InGameUIController.Instance.HideAdditionalInformationUI();
         }
 
 
         public T GetGrabbableObject<T>() where T : MonoBehaviour, IGrabbable
         {
-            if (CurrentState != State.None)
+            if (CurrentGrabbableState != GrabbableState.None)
             {
                 return this as T;
             }
@@ -67,7 +97,7 @@ namespace PizzaMaker
 
         public void OnGrab(PlayerController playerController)
         {
-            CurrentState = State.Grabbed;
+            CurrentGrabbableState = GrabbableState.Grabbed;
         }
 
 

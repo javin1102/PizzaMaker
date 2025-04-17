@@ -1,4 +1,5 @@
-﻿using Sirenix.OdinInspector;
+﻿using PixelCrushers.DialogueSystem.Wrappers;
+using Sirenix.OdinInspector;
 using UnityEngine;
 
 namespace PizzaMaker
@@ -33,6 +34,7 @@ namespace PizzaMaker
 
         public override void OnHover(PlayerController playerController)
         {
+            IsInteractable = playerController.CurrentIGrabbable == null;
         }
 
         public override void OnUnhover(PlayerController playerController)
