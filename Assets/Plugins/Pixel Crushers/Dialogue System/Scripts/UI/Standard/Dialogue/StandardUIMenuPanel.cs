@@ -1,6 +1,4 @@
-// Recompile at 4/8/2025 4:12:28 PM
-
-// Copyright (c) Pixel Crushers. All rights reserved.
+﻿// Copyright (c) Pixel Crushers. All rights reserved.
 
 using System.Collections;
 using System.Collections.Generic;
@@ -248,10 +246,7 @@ namespace PixelCrushers.DialogueSystem
             }
             else
             {
-                if (InputDeviceManager.autoFocus)
-                {
-                    SetFocus(firstSelected);
-                }
+                if (InputDeviceManager.autoFocus) SetFocus(firstSelected);
                 if (s_isInputDisabled) EnableInput();
             }
 #if TMP_PRESENT

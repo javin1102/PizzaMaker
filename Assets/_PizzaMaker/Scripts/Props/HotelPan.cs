@@ -1,5 +1,4 @@
-﻿using PixelCrushers.DialogueSystem.Wrappers;
-using Sirenix.OdinInspector;
+﻿using Sirenix.OdinInspector;
 using UnityEngine;
 
 namespace PizzaMaker

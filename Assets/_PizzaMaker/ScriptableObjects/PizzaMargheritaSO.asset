@@ -12,7 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e224f520f974d6da49c42332e7c1881, type: 3}
   m_Name: PizzaMargheritaSO
   m_EditorClassIdentifier: 
-  pizzaName: Margherita
-  cookedPizza: {fileID: 3177969630614154374, guid: 87f210b462b1420459ca6ccd1f67c907, type: 3}
+  pizzaMenu:
+    id: 1
+    name: Margherita Pizza
+  cookedPizza: {fileID: -1568819147158735452, guid: 87f210b462b1420459ca6ccd1f67c907, type: 3}
   ingredients:
   - Tomato Sauce
+  - Mozzarella Cheese
+  - Basil

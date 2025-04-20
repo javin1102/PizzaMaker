@@ -95,6 +95,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4013666309583693857}
+  - component: {fileID: -1568819147158735452}
+  - component: {fileID: 2150204433947549716}
+  - component: {fileID: 8475671188387437471}
   m_Layer: 0
   m_Name: PizzaMargherita
   m_TagString: Untagged
@@ -118,6 +121,67 @@ Transform:
   - {fileID: 7962352386541386177}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &-1568819147158735452
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3177969630614154374}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c863606ba4d24886ad4445fb985a048c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pizzaMenu:
+    id: 1
+    name: Margherita Pizza
+--- !u!114 &2150204433947549716
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3177969630614154374}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 790c71b1cb6e96849bf1f48edef20a19, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_overrideName: 
+  m_overrideUseMessage: 
+  maxUseDistance: 5
+  events:
+    onSelect:
+      m_PersistentCalls:
+        m_Calls: []
+    onDeselect:
+      m_PersistentCalls:
+        m_Calls: []
+    onUse:
+      m_PersistentCalls:
+        m_Calls: []
+--- !u!65 &8475671188387437471
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3177969630614154374}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.47404155, y: 0.063109055, z: 0.47404155}
+  m_Center: {x: 0, y: 0.02915453, z: 0}
 --- !u!1 &4179644090178176957
 GameObject:
   m_ObjectHideFlags: 0

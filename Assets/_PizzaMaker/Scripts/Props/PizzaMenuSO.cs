@@ -7,8 +7,8 @@ namespace PizzaMaker
     [CreateAssetMenu(fileName = "PizzaMenu", menuName = "PizzaMaker/PizzaMenu")]
     public class PizzaMenuSO : ScriptableObject
     {
-        public string pizzaName;
-        public GameObject cookedPizza;
+        public PizzaMenu pizzaMenu;
+        public PizzaCooked cookedPizza;
         [ValueDropdown("allIngredients")] public List<string> ingredients;
         private string[] allIngredients => Ingredients.All;
     }

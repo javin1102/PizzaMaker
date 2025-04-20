@@ -712,12 +712,20 @@ namespace PixelCrushers.DialogueSystem
         {
             for (int i = 0; i < m_builtinPanels.Count; i++)
             {
-                var panel = m_builtinPanels[i];
-                if (panel != null && panel.isOpen &&
+                CloseSubtitlePanelOnResponseMenu(m_builtinPanels[i]);
+            }
+            foreach (var panel in m_customPanels)
+            {
+                CloseSubtitlePanelOnResponseMenu(panel);
+            }
+        }
+
+        protected virtual void CloseSubtitlePanelOnResponseMenu(StandardUISubtitlePanel panel)
+        {
+            if (panel != null && panel.isOpen &&
                     panel.visibility == UIVisibility.UntilSupercededOrActorChangeOrMenu)
-                {
-                    panel.Close();
-                }
+            {
+                panel.Close();
             }
         }
 

@@ -1,11 +1,15 @@
 using System;
 using System.Collections.Generic;
+using Sirenix.OdinInspector;
+using Sirenix.Serialization;
+using UnityEngine;
 
 namespace PizzaMaker
 {
     public static class Ingredients
     {
-        public static readonly string[] All = {
+        public static readonly string[] All =
+        {
             SauceTomato,
             Pepperoni,
             SmokedChicken,
@@ -28,7 +32,7 @@ namespace PizzaMaker
             BellPepper,
             RedOnion,
         };
-        
+
         public const string SauceTomato = "Tomato Sauce";
         public const string Pepperoni = "Pepperoni";
         public const string SmokedChicken = "Smoked Chicken";
@@ -51,6 +55,50 @@ namespace PizzaMaker
         public const string BellPepper = "Bell Pepper";
         public const string RedOnion = "Red Onion";
     }
+
+    [Serializable]
+    public struct PizzaMenu : IEquatable<PizzaMenu>
+    {
+        public bool Equals(PizzaMenu other)
+        {
+            return id == other.id && name == other.name;
+        }
+
+        public override bool Equals(object obj)
+        {
+            return obj is PizzaMenu other && Equals(other);
+        }
+
+        public override int GetHashCode()
+        {
+            return HashCode.Combine(id, name);
+        }
+
+        public static PizzaMenu PizzaInvalid = new("Invalid Pizza", -1);
+        public static PizzaMenu PizzaMargherita = new("Margherita Pizza", 1);
+        public static PizzaMenu PizzaBarbeque = new("Barbeque Pizza", 2);
+        public static readonly PizzaMenu[] All = { PizzaMargherita, PizzaBarbeque, PizzaInvalid };
+
+        public static bool operator ==(PizzaMenu a, PizzaMenu b)
+        {
+            return a.id == b.id;
+        }
+
+        public static bool operator !=(PizzaMenu a, PizzaMenu b)
+        {
+            return !(a == b);
+        }
+
+        public int id;
+        public string name;
+
+        public PizzaMenu(string name, int id)
+        {
+            this.name = name;
+            this.id = id;
+        }
+    }
+
 
     public static class GlobalVars
     {

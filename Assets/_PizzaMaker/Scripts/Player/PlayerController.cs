@@ -88,6 +88,7 @@ namespace PizzaMaker
             var isHit = Physics.Raycast(mainCamera.transform.position, mainCamera.transform.forward, out RaycastHit hit, 5f);
             if (isHit && hit.collider.TryGetComponent(out IInteractable interactable))
             {
+                // var interactable = hit.collider.TryGetComponent(out IInteractable interactableComponent) ? interactableComponent : hit.collider.GetComponentInParent<IInteractable>();
                 if (currentInteractable != null && interactable != currentInteractable)
                 {
                     currentInteractable.OnUnhover(this);

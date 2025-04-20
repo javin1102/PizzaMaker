@@ -1095,7 +1095,7 @@ namespace PixelCrushers.DialogueSystem
                     initialDialogueEntryID, stopEvaluationAtFirstValid, false, useLinearGroupMode);
                 var needToSetRandomizeNextEntryAgain = m_calledRandomizeNextEntry; // Special case when START node leads to group node with RandomizeNextEntry().
                 m_calledRandomizeNextEntry = false;
-                if (!model.hasValidEntry)
+                if (!model.hasValidEntry && !useLinearGroupMode) // In linear group mode, model doesn't have responses yet because they're evaluated when subtitle finishes.
                 {
                     // Back out:
                     if (DialogueDebug.logInfo) Debug.Log($"{DialogueDebug.Prefix}: Not starting conversation '{title}' after all. After evaluating possible links, there is no valid state to show.");
@@ -1573,10 +1573,13 @@ namespace PixelCrushers.DialogueSystem
                 }
 
                 // Restore UI:
-                m_originalDialogueUI = record.originalDialogueUI;
-                m_originalDisplaySettings = record.originalDisplaySettings;
-                m_isOverrideUIPrefab = record.isOverrideUIPrefab;
-                RestoreOriginalUI();
+                if (m_currentDialogueUI != record.originalDialogueUI)
+                {
+                    m_originalDialogueUI = record.originalDialogueUI;
+                    m_originalDisplaySettings = record.originalDisplaySettings;
+                    m_isOverrideUIPrefab = record.isOverrideUIPrefab;
+                    RestoreOriginalUI();
+                }
             }
 
             // End of conversation checks:
@@ -1739,7 +1742,7 @@ namespace PixelCrushers.DialogueSystem
                 if (DialogueDebug.logWarnings) Debug.LogWarning($"Dialogue System: Can't bark '{conversationTitle}:[{entryID}]. No barker specified.");
                 return;
             }
-            var barkUI = speaker.GetComponentInChildren(typeof(IBarkUI)) as IBarkUI;
+            var barkUI = DialogueActor.GetBarkUI(speaker); // speaker.GetComponentInChildren(typeof(IBarkUI)) as IBarkUI;
             ConversationModel conversationModel = new ConversationModel(DialogueManager.masterDatabase, conversationTitle, speaker, listener, DialogueManager.allowLuaExceptions, DialogueManager.isDialogueEntryValid, entryID, 
                 stopEvaluationAtFirstValid, useLinearGroupMode);
             var state = conversationModel.firstState;

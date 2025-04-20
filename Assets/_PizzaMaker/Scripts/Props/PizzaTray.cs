@@ -14,12 +14,7 @@ namespace PizzaMaker
             if (playerController.CurrentIGrabbable?.GetGrabbableObject<PizzaDough>() is not { } grabbedPizzaDough || attachPoint.childCount > 0)
                 return;
 
-            grabbedPizzaDough.transform.parent = attachPoint;
-            grabbedPizzaDough.transform.localPosition = Vector3.zero;
-            grabbedPizzaDough.transform.rotation = Quaternion.identity;
-            grabbedPizzaDough.Collider.enabled = true;
-            grabbedPizzaDough.CurrentGrabbableState = GrabbableState.Placed;
-            grabbedPizzaDough.gameObject.SetGameLayerRecursive(GlobalVars.LayerDefault);
+            grabbedPizzaDough.AttachedTo(attachPoint);
             playerController.UnGrab();
         }
 

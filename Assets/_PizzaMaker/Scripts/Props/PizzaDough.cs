@@ -6,6 +6,7 @@ namespace PizzaMaker
 {
     public class PizzaDough : Interactable, IGrabbable
     {
+        public List<string> Ingredients => ingredients;
         public Collider Collider => _collider;
         public GrabbableState CurrentGrabbableState { get; set; } = GrabbableState.None;
 
@@ -109,6 +110,17 @@ namespace PizzaMaker
         {
             Destroy(gameObject);
             IsInteractable = playerController.CurrentIGrabbable == null;
+        }
+
+        public void AttachedTo(Transform parentTransform)
+        {
+            transform.SetParent(parentTransform);
+            transform.localPosition = Vector3.zero;
+            transform.localRotation = Quaternion.identity;
+            transform.localScale = Vector3.one;
+            Collider.enabled = true;
+            gameObject.SetGameLayerRecursive(GlobalVars.LayerDefault);
+            CurrentGrabbableState = GrabbableState.Placed;
         }
     }
 }

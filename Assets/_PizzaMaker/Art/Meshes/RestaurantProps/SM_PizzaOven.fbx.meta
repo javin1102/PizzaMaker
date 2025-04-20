@@ -12,6 +12,11 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
+      name: M_PizzaOven_Glass
+    second: {fileID: 2100000, guid: 0e32c2fa05e8a924789427b8ac2507fd, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
       name: M_PizzaOven_RedMark
     second: {fileID: 2100000, guid: 7f2beacf14e21d941946aaffe958db85, type: 2}
   materials:

@@ -94,6 +94,7 @@ namespace PixelCrushers
                         { 
                             stringAssetProperty.objectReferenceValue = AssetUtility.CreateAssetWithFilename< PixelCrushers.Wrappers.StringAsset>(filename, false);
                         }
+                        GUIUtility.ExitGUI();
                     }
                     yOffset += EditorGUIUtility.singleLineHeight;
                 }

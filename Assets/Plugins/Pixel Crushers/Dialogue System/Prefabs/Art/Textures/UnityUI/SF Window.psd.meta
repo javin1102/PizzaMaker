@@ -4,10 +4,10 @@ AssetOrigin:
   serializedVersion: 1
   productId: 11672
   packageName: Dialogue System for Unity
-  packageVersion: 2.2.51
+  packageVersion: 2.2.52
   assetPath: Assets/Plugins/Pixel Crushers/Dialogue System/Prefabs/Art/Textures/UnityUI/SF
     Window.psd
-  uploadId: 741484
+  uploadId: 749577
 TextureImporter:
   internalIDToNameTable:
   - first:

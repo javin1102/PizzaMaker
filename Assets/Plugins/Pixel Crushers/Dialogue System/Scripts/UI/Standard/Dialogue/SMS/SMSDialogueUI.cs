@@ -319,6 +319,7 @@ namespace PixelCrushers.DialogueSystem
         public override void OnContinueConversation()
         {
             if (continueButton != null) continueButton.gameObject.SetActive(false);
+            shouldShowContinueButton = false;
             base.OnContinueConversation();
         }
 
