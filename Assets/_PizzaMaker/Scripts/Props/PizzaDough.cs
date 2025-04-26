@@ -54,10 +54,10 @@ namespace PizzaMaker
                 if (CurrentGrabbableState == GrabbableState.Placed)
                 {
                     usable.overrideUseMessage = pizzaIngredient ? $"<sprite name=\"lmb\">Add {pizzaIngredient.IngredientType}" : defaultUsableName;
-
                     if (ingredients.Count <= 0)
                     {
                         InGameUIController.Instance.HideAdditionalInformationUI();
+                        StandardUISelectorElements.instance.useMessageText.text = usable.overrideUseMessage;
                         return;
                     }
 
