@@ -74,7 +74,7 @@ namespace PizzaMaker
             return HashCode.Combine(id, name);
         }
 
-        public static PizzaMenu PizzaInvalid = new("Invalid Pizza", -1);
+        public static PizzaMenu PizzaInvalid = new("Burnt Pizza", -1);
         public static PizzaMenu PizzaMargherita = new("Margherita Pizza", 1);
         public static PizzaMenu PizzaBarbeque = new("Barbeque Pizza", 2);
         public static readonly PizzaMenu[] All = { PizzaMargherita, PizzaBarbeque, PizzaInvalid };

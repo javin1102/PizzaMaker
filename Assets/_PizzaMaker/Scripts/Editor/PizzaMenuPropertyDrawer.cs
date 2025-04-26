@@ -19,6 +19,10 @@ namespace PizzaMaker
             {
                selectedIndex = allPizzaMenuName.ToList().IndexOf(ValueEntry.SmartValue.name);
             }
+
+            if (selectedIndex == -1)
+                selectedIndex = 0;
+            
             selectedIndex = EditorGUI.Popup(rect, selectedIndex, allPizzaMenuName.ToArray());
             ValueEntry.SmartValue = PizzaMenu.All[selectedIndex];
         }

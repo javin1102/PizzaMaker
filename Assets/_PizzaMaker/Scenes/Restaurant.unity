@@ -9495,6 +9495,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Core
       objectReference: {fileID: 0}
+    - target: {fileID: 5317468064546568903, guid: e349c1fa5b0bc4b43843006206ff4134, type: 3}
+      propertyPath: pizzaBoxTransform
+      value: 
+      objectReference: {fileID: 2025991792}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -10643,7 +10647,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8435447781592534194, guid: 307217db961ef4f4bbc163d79beb99ca, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.198
+      value: -0.266
       objectReference: {fileID: 0}
     - target: {fileID: 8435447781592534194, guid: 307217db961ef4f4bbc163d79beb99ca, type: 3}
       propertyPath: m_LocalPosition.z
@@ -38980,7 +38984,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8435447781592534194, guid: 307217db961ef4f4bbc163d79beb99ca, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.145
+      value: -0.222
       objectReference: {fileID: 0}
     - target: {fileID: 8435447781592534194, guid: 307217db961ef4f4bbc163d79beb99ca, type: 3}
       propertyPath: m_LocalPosition.z
@@ -42818,6 +42822,7 @@ Transform:
   m_Children:
   - {fileID: 608777213}
   - {fileID: 278004146}
+  - {fileID: 2025991792}
   - {fileID: 767961886}
   - {fileID: 586145615}
   - {fileID: 779593424}
@@ -43516,7 +43521,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8435447781592534194, guid: 307217db961ef4f4bbc163d79beb99ca, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.324
+      value: -0.352
       objectReference: {fileID: 0}
     - target: {fileID: 8435447781592534194, guid: 307217db961ef4f4bbc163d79beb99ca, type: 3}
       propertyPath: m_LocalPosition.z
@@ -46935,7 +46940,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8435447781592534194, guid: 307217db961ef4f4bbc163d79beb99ca, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.083
+      value: -0.178
       objectReference: {fileID: 0}
     - target: {fileID: 8435447781592534194, guid: 307217db961ef4f4bbc163d79beb99ca, type: 3}
       propertyPath: m_LocalPosition.z
@@ -49551,6 +49556,59 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 3302904061980208628, guid: 07116f7f020627b49ac8b4738632cbfd, type: 3}
   m_PrefabInstance: {fileID: 1979533096}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &2025991791
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2025991792}
+  - component: {fileID: 2025991793}
+  m_Layer: 0
+  m_Name: PizzaBoxes
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2025991792
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2025991791}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0.0006792656, y: -0.9999996, z: 0.00045055363, w: -0.00041244575}
+  m_LocalPosition: {x: -4.424999, y: 0.709, z: -0.5089998}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1784052783}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &2025991793
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2025991791}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.5882175, y: 0.06924772, z: 0.5977795}
+  m_Center: {x: 0.0029210448, y: 0.034623742, z: 0.0037242174}
 --- !u!1 &2029567586
 GameObject:
   m_ObjectHideFlags: 0
@@ -50361,7 +50419,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8435447781592534194, guid: 307217db961ef4f4bbc163d79beb99ca, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.028
+      value: -0.13
       objectReference: {fileID: 0}
     - target: {fileID: 8435447781592534194, guid: 307217db961ef4f4bbc163d79beb99ca, type: 3}
       propertyPath: m_LocalPosition.z
@@ -51684,7 +51742,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8435447781592534194, guid: 307217db961ef4f4bbc163d79beb99ca, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.255
+      value: -0.322
       objectReference: {fileID: 0}
     - target: {fileID: 8435447781592534194, guid: 307217db961ef4f4bbc163d79beb99ca, type: 3}
       propertyPath: m_LocalPosition.z

@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using PixelCrushers.DialogueSystem.Wrappers;
 using UnityEngine;
 
 namespace PizzaMaker
@@ -6,6 +7,7 @@ namespace PizzaMaker
     public class PizzaCooked : Interactable, IGrabbable
     {
         public GrabbableState CurrentGrabbableState { get; set; } = GrabbableState.Placed;
+        public PizzaMenu PizzaMenu => pizzaMenu;
         private Collider _collider;
         [SerializeField] private PizzaMenu pizzaMenu;
         private List<string> extraToppingList = new();
@@ -31,14 +33,8 @@ namespace PizzaMaker
 
         public override void OnHover(PlayerController playerController)
         {
-            if (CurrentGrabbableState == GrabbableState.Placed)
-            {
-                usable.overrideUseMessage = "<sprite name=\"lmb\">Grab";
-            }
-            else
-            {
-                usable.overrideUseMessage = "<sprite name=\"lmb\">Place";
-            }
+            usable.overrideUseMessage = CurrentGrabbableState == GrabbableState.Placed ? "<sprite name=\"lmb\">Grab" : "<sprite name=\"lmb\">Place";
+            StandardUISelectorElements.instance.useMessageText.text = usable.overrideUseMessage;
         }
 
         public override void OnUnhover(PlayerController playerController)
