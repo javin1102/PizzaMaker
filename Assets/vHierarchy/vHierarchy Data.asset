@@ -24,6 +24,7 @@ MonoBehaviour:
         - GlobalObjectId_V1-2-3e3b9cd84b9ea8549a8e1d3eae225ff0-2049469327-0
         - GlobalObjectId_V1-2-3e3b9cd84b9ea8549a8e1d3eae225ff0-1120459158-0
         - GlobalObjectId_V1-2-3e3b9cd84b9ea8549a8e1d3eae225ff0-735125672-0
+        - GlobalObjectId_V1-2-3e3b9cd84b9ea8549a8e1d3eae225ff0-3841411014965252826-2647856929517045433
         values:
         - iColor: 0
           icon: Folder Icon
@@ -31,57 +32,19 @@ MonoBehaviour:
           icon: Folder Icon
         - iColor: 0
           icon: Folder Icon
+        - iColor: 0
+          icon: 
       goDatasByInstanceId:
-        keys: aeab0300bea30300fea003002c1604003c0e04007c0b040010560400204e0400604b0400bcb30400ccab04000ca90400d05d0500e05505002053050088140600980c0600d8090600d8740600e86c0600286a060094660700a45e0700e45b0700
+        keys: 94e2000046da00007ed7000008f8ffff
         values:
         - iColor: 0
           icon: Folder Icon
         - iColor: 3
+          icon: Folder Icon
+        - iColor: 0
+          icon: Folder Icon
+        - iColor: 0
           icon: 
-        - iColor: 0
-          icon: Folder Icon
-        - iColor: 0
-          icon: Folder Icon
-        - iColor: 3
-          icon: 
-        - iColor: 0
-          icon: Folder Icon
-        - iColor: 0
-          icon: Folder Icon
-        - iColor: 3
-          icon: 
-        - iColor: 0
-          icon: Folder Icon
-        - iColor: 0
-          icon: Folder Icon
-        - iColor: 3
-          icon: 
-        - iColor: 0
-          icon: Folder Icon
-        - iColor: 0
-          icon: Folder Icon
-        - iColor: 3
-          icon: 
-        - iColor: 0
-          icon: Folder Icon
-        - iColor: 0
-          icon: Folder Icon
-        - iColor: 3
-          icon: 
-        - iColor: 0
-          icon: Folder Icon
-        - iColor: 0
-          icon: Folder Icon
-        - iColor: 3
-          icon: 
-        - iColor: 0
-          icon: Folder Icon
-        - iColor: 0
-          icon: Folder Icon
-        - iColor: 3
-          icon: Folder Icon
-        - iColor: 0
-          icon: Folder Icon
     - goDatasByGlobalId:
         keys: []
         values: []

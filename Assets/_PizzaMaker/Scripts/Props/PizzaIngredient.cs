@@ -4,7 +4,7 @@ namespace PizzaMaker
 {
     public class PizzaIngredient : MonoBehaviour, IGrabbable
     {
-        private GrabbableState CurrentGrabbableState { get; set; } = GrabbableState.None;
+        public GrabbableState CurrentGrabbableState { get; set; } = GrabbableState.None;
          public string IngredientType { get; set; }
         
         public T GetGrabbableObject<T>() where T : MonoBehaviour, IGrabbable
@@ -30,6 +30,11 @@ namespace PizzaMaker
         public void OnRelease(PlayerController playerController)
         {
             Destroy(gameObject);
+        }
+
+        public void AttachedTo(Transform parentTransform)
+        {
+            
         }
     }
 }

@@ -7,7 +7,6 @@ namespace PizzaMaker
     public class PizzaDough : Interactable, IGrabbable
     {
         public List<string> Ingredients => ingredients;
-        public Collider Collider => _collider;
         public GrabbableState CurrentGrabbableState { get; set; } = GrabbableState.None;
 
         private Collider _collider;

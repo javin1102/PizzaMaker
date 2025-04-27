@@ -4,6 +4,7 @@ namespace PizzaMaker
 {
     public interface IGrabbable
     {
+        public GrabbableState CurrentGrabbableState { get; set; }
         public T GetGrabbableObject<T>() where T : MonoBehaviour, IGrabbable;
 
         /// <summary>
@@ -20,5 +21,7 @@ namespace PizzaMaker
         /// Called when the object is released
         /// </summary>
         void OnRelease(PlayerController playerController);
+        
+        void AttachedTo(Transform parentTransform);
     }
 }

@@ -7,6 +7,7 @@ namespace PizzaMaker
     [RequireComponent(typeof(Usable))]
     public abstract class Interactable : MonoBehaviour, IInteractable
     {
+        public Collider Collider { get; private set; }
         public virtual bool IsInteractable
         {
             get => isInteractable;
@@ -23,6 +24,7 @@ namespace PizzaMaker
         protected virtual void Awake()
         {
             usable = GetComponent<Usable>();
+            Collider = GetComponent<Collider>();
         }
 
         public abstract void OnClick(PlayerController playerController);

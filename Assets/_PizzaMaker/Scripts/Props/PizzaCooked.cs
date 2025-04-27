@@ -8,14 +8,9 @@ namespace PizzaMaker
     {
         public GrabbableState CurrentGrabbableState { get; set; } = GrabbableState.Placed;
         public PizzaMenu PizzaMenu => pizzaMenu;
-        private Collider _collider;
         [SerializeField] private PizzaMenu pizzaMenu;
         private List<string> extraToppingList = new();
-        protected override void Awake()
-        {
-            base.Awake();
-            _collider = GetComponent<Collider>();
-        }
+
 
         public void SetExtraToppingList(List<string> extraToppingList)
         {
@@ -66,7 +61,7 @@ namespace PizzaMaker
             transform.localPosition = Vector3.zero;
             transform.localRotation = Quaternion.identity;
             transform.localScale = Vector3.one;
-            _collider.enabled = true;
+            Collider.enabled = true;
             gameObject.SetGameLayerRecursive(GlobalVars.LayerDefault);
             CurrentGrabbableState = GrabbableState.Placed;
         }

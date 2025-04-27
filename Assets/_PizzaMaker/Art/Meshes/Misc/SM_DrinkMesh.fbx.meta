@@ -1,12 +1,5 @@
 fileFormatVersion: 2
-guid: b9c054b445d458c45bcb601fd368e786
-AssetOrigin:
-  serializedVersion: 1
-  productId: 239419
-  packageName: Fast Food Restaurant Kit
-  packageVersion: 1.2
-  assetPath: Assets/Brick Project Studio/Fast Food Restaurant Kit/Common/Models/Burger_01.fbx
-  uploadId: 566212
+guid: 95ba78afa24440649bcc8a2369c89891
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
@@ -50,7 +43,7 @@ ModelImporter:
     importBlendShapes: 1
     importCameras: 1
     importLights: 1
-    nodeNameCollisionStrategy: 0
+    nodeNameCollisionStrategy: 1
     fileIdsGeneration: 2
     swapUVChannels: 0
     generateSecondaryUV: 0
@@ -76,8 +69,8 @@ ModelImporter:
     strictVertexDataChecks: 0
   tangentSpace:
     normalSmoothAngle: 60
-    normalImportMode: 1
-    tangentImportMode: 2
+    normalImportMode: 0
+    tangentImportMode: 3
     normalCalculationMode: 4
     legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
     blendShapeNormalImportMode: 1
@@ -106,7 +99,7 @@ ModelImporter:
   humanoidOversampling: 1
   avatarSetup: 0
   addHumanoidExtraRootOnlyWhenUsingAvatar: 1
-  importBlendShapeDeformPercent: 0
+  importBlendShapeDeformPercent: 1
   remapMaterialsIfMaterialImportModeIsNone: 0
   additionalBone: 0
   userData: 
