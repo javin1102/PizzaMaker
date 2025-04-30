@@ -38,13 +38,16 @@ Material:
     m_Ints: []
     m_Floats:
     - _AlphaCutoff: 0.5
-    - _FlowSpeed: 5
+    - _FlowMode: 1
+    - _FlowSpeed: 8
     - _FlowSpeed1: 2
+    - _MaskControl: 1
     - _QueueControl: 0
     - _QueueOffset: 0
     - _ReceiveShadows: 1
     - _Step: 0.292
     m_Colors:
+    - _ColorNoise: {r: 0.4392582, g: 0.8415094, b: 0.25880376, a: 0.7764706}
     - _EmissionColor: {r: 1, g: 1, b: 1, a: 1}
     - _MainColor: {r: 0.16590291, g: 0.34591186, b: 0.15990262, a: 1}
     - _SecondaryColor: {r: 0.29903868, g: 0.70440245, b: 0.3342877, a: 1}

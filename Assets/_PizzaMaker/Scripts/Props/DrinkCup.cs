@@ -1,4 +1,5 @@
 ﻿using System;
+using PixelCrushers.DialogueSystem.Wrappers;
 using PrimeTween;
 using UnityEngine;
 
@@ -6,31 +7,51 @@ namespace PizzaMaker
 {
     public class DrinkCup : Interactable, IGrabbable
     {
+        private static readonly int ShaderColorProperty = Shader.PropertyToID("_Color");
+        public Sequence FillTween => fillTween;
+        public bool IsFilled { get; private set; }
         public GrabbableState CurrentGrabbableState { get; set; }
         [SerializeField] private Transform drinkMeshTransform;
+        [SerializeField] private MeshRenderer drinkMeshRenderer;
         private Sequence fillTween;
-        private bool isFilled;
 
-        public void FillDrink(Action onComplete = null)
+        public void ChangeColor(Color color)
         {
-            if (isFilled || fillTween.isAlive)
-                return;
-            
-            drinkMeshTransform.gameObject.SetActive(true);
-            fillTween = Tween.LocalPositionY(drinkMeshTransform, -0.01f, 0.275f, 4f)
-                .Group(Tween.Scale(drinkMeshTransform, 0.52f, 0.85f, 4f))
-                .OnComplete(() =>
-                {
-                    isFilled = true;
-                    onComplete?.Invoke();
-                });
+            var mpb = new MaterialPropertyBlock();
+            mpb.SetColor("_BaseColor", color);
+            drinkMeshRenderer.SetPropertyBlock(mpb);
+        }
+
+        public Sequence FillDrink(Action onStart = null, Action onComplete = null)
+        {
+            if (IsFilled || fillTween.isAlive)
+                return Sequence.Create();
+
+            IsInteractable = false;
+            fillTween = Sequence.Create();
+            fillTween.ChainCallback(
+                    callback: () =>
+                    {
+                        onStart?.Invoke();
+                        drinkMeshTransform.gameObject.SetActive(true);
+                    }
+            )
+            .Chain(Tween.LocalPositionY(drinkMeshTransform, -0.01f, 0.275f, 4f))
+            .Group(Tween.Scale(drinkMeshTransform, 0.52f, 0.85f, 4f))
+            .OnComplete(() =>
+            {
+                IsFilled = true;
+                IsInteractable = true;
+                onComplete?.Invoke();
+            });
+            return fillTween;
         }
 
         public override void OnClick(PlayerController playerController)
         {
             if (fillTween.isAlive)
                 return;
-            
+
             playerController.Grab<DrinkCup>(this);
         }
 
@@ -39,12 +60,14 @@ namespace PizzaMaker
             if (CurrentGrabbableState == GrabbableState.None)
             {
                 usable.overrideUseMessage = $"<sprite name=\"lmb\">Grab Cup";
-            } 
+                StandardUISelectorElements.instance.useMessageText.text = usable.overrideUseMessage;
+            }
+
+            IsInteractable = !fillTween.isAlive && playerController.CurrentIGrabbable == null;
         }
 
         public override void OnUnhover(PlayerController playerController)
         {
-            
         }
 
 
@@ -55,7 +78,6 @@ namespace PizzaMaker
             instantiatedDrink.Collider.enabled = false;
             instantiatedDrink.GetComponent<IGrabbable>();
             return instantiatedDrink as T;
-
         }
 
         public void OnGrab(PlayerController playerController)
@@ -65,7 +87,6 @@ namespace PizzaMaker
 
         public void OnGrabUsed(PlayerController playerController)
         {
-            
         }
 
         public void OnRelease(PlayerController playerController)

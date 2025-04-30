@@ -38,7 +38,7 @@ namespace PizzaMaker
                 var boxCollider = drinkCup.Collider as BoxCollider;
                 Matrix4x4 tfMatrix4X4 = Matrix4x4.TRS(transform.position, transform.rotation, new Vector3(1, 0.75f, 1f));
                 var colliders = new Collider[10];
-                var hitCount = Physics.OverlapBoxNonAlloc(transform.position, boxCollider.size / 2f, colliders, Quaternion.identity );
+                var hitCount = Physics.OverlapBoxNonAlloc(transform.position, boxCollider.size , colliders, Quaternion.identity );
 
                 if (hitCount > 0)
                 {

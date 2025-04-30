@@ -97,6 +97,10 @@ namespace PizzaMaker
                         pizzaDough.AttachedTo(pizzaAttachTransform);
                         playerController.UnGrab();
                     }
+                    else
+                    {
+                        CloseCover();
+                    }
                 }
                 else
                 {

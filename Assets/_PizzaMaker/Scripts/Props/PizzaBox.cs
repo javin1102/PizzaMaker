@@ -7,7 +7,7 @@ namespace PizzaMaker
     public class PizzaBox : Interactable
     {
         private PizzaCooked pizzaCooked;
-        [Inject] private Transform pizzaCookedTransform;
+        [SerializeField] private Transform pizzaCookedTransform;
         [SerializeField] private Transform pizzaTop;
 
         public override void OnClick(PlayerController playerController)

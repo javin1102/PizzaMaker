@@ -28,6 +28,7 @@ namespace PizzaMaker
 
         public override void OnHover(PlayerController playerController)
         {
+            IsInteractable = playerController.CurrentIGrabbable == null;
             usable.overrideUseMessage = CurrentGrabbableState == GrabbableState.Placed ? "<sprite name=\"lmb\">Grab" : "<sprite name=\"lmb\">Place";
             StandardUISelectorElements.instance.useMessageText.text = usable.overrideUseMessage;
         }
