@@ -37,13 +37,13 @@ namespace PizzaMaker
             {
                 pizzaOven.CurrentState = PizzaOven.State.Closed;
                 currentBakeTime = 0;
-                var cookedPizzaRef = pizzaMakingManager.BakePizza(PizzaMenu.PizzaMargherita, pizzaOven.PizzaDough);
+                var cookedPizzaRef = pizzaMakingManager.BakePizza(MenuItem.PizzaMargherita, pizzaOven.PizzaDough);
                 OnBakePizza?.Invoke(cookedPizzaRef);
                 Tween.Delay(0.5f, () => bakeTimeText.gameObject.SetActive(false));
             }
         }
 
-        public override void OnClick(PlayerController playerController)
+        public override void OnClick(PlayerController playerController, ref RaycastHit raycastHit)
         {
             if (!IsInteractable)
                 return;
@@ -56,7 +56,7 @@ namespace PizzaMaker
             }
         }
 
-        public override void OnHover(PlayerController playerController)
+        public override void OnHover(PlayerController playerController, ref RaycastHit raycastHit)
         {
             if (pizzaOven.PizzaDough == null || pizzaOven.CurrentState == PizzaOven.State.Baking || pizzaOven.CurrentState == PizzaOven.State.Opened)
                 IsInteractable = false;

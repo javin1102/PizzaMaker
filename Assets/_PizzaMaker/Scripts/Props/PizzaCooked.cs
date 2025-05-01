@@ -1,14 +1,15 @@
 ﻿using System.Collections.Generic;
 using PixelCrushers.DialogueSystem.Wrappers;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace PizzaMaker
 {
     public class PizzaCooked : Interactable, IGrabbable
     {
         public GrabbableState CurrentGrabbableState { get; set; } = GrabbableState.Placed;
-        public PizzaMenu PizzaMenu => pizzaMenu;
-        [SerializeField] private PizzaMenu pizzaMenu;
+        public MenuItem MenuItem => menuItem;
+        [FormerlySerializedAs("pizzaMenu")] [SerializeField] private MenuItem menuItem;
         private List<string> extraToppingList = new();
 
 
@@ -17,7 +18,7 @@ namespace PizzaMaker
             this.extraToppingList = extraToppingList;
         }
 
-        public override void OnClick(PlayerController playerController)
+        public override void OnClick(PlayerController playerController, ref RaycastHit raycastHit)
         {
             if(!IsInteractable)
                 return;
@@ -26,7 +27,7 @@ namespace PizzaMaker
             CurrentGrabbableState = GrabbableState.Grabbed;
         }
 
-        public override void OnHover(PlayerController playerController)
+        public override void OnHover(PlayerController playerController, ref RaycastHit raycastHit)
         {
             IsInteractable = playerController.CurrentIGrabbable == null;
             usable.overrideUseMessage = CurrentGrabbableState == GrabbableState.Placed ? "<sprite name=\"lmb\">Grab" : "<sprite name=\"lmb\">Place";

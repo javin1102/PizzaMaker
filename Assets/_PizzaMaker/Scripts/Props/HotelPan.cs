@@ -23,7 +23,7 @@ namespace PizzaMaker
             }
         }
 
-        public override void OnClick(PlayerController playerController)
+        public override void OnClick(PlayerController playerController, ref RaycastHit raycastHit)
         {
             if (pizzaIngredient == null)
                 return;
@@ -31,7 +31,7 @@ namespace PizzaMaker
             playerController.Grab<PizzaIngredient>(pizzaIngredient);
         }
 
-        public override void OnHover(PlayerController playerController)
+        public override void OnHover(PlayerController playerController, ref RaycastHit raycastHit)
         {
             IsInteractable = playerController.CurrentIGrabbable == null;
         }

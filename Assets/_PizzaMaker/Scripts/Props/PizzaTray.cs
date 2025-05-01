@@ -9,7 +9,7 @@ namespace PizzaMaker
         [SerializeField] private Mesh mesh;
         [SerializeField] private Material mat;
 
-        public void OnClick(PlayerController playerController)
+        public void OnClick(PlayerController playerController, ref RaycastHit raycastHit)
         {
             if (playerController.CurrentIGrabbable?.GetGrabbableObject<PizzaDough>() is not { } grabbedPizzaDough || attachPoint.childCount > 0)
                 return;
@@ -18,7 +18,7 @@ namespace PizzaMaker
             playerController.UnGrab();
         }
 
-        public void OnHover(PlayerController playerController)
+        public void OnHover(PlayerController playerController, ref RaycastHit raycastHit)
         {
             if (playerController.CurrentIGrabbable?.GetGrabbableObject<PizzaDough>() is null || attachPoint.childCount > 0)
                 return;

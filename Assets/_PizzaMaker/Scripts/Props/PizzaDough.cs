@@ -20,7 +20,7 @@ namespace PizzaMaker
         }
 
 
-        public override void OnClick(PlayerController playerController)
+        public override void OnClick(PlayerController playerController, ref RaycastHit raycastHit)
         {
             if (!IsInteractable)
                 return;
@@ -39,7 +39,7 @@ namespace PizzaMaker
             }
         }
 
-        public override void OnHover(PlayerController playerController)
+        public override void OnHover(PlayerController playerController, ref RaycastHit raycastHit)
         {
             if (CurrentGrabbableState == GrabbableState.None)
             {

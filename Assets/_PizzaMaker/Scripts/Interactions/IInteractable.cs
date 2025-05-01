@@ -1,3 +1,5 @@
+using UnityEngine;
+
 namespace PizzaMaker
 {
     public interface IInteractable
@@ -6,12 +8,12 @@ namespace PizzaMaker
         /// <summary>
         /// Called when the object is clicked
         /// </summary>
-        void OnClick(PlayerController playerController);
+        void OnClick(PlayerController playerController, ref RaycastHit raycastHit);
 
         /// <summary>
         /// Called when the object is hovered
         /// </summary>
-        void OnHover(PlayerController playerController);
+        void OnHover(PlayerController playerController, ref RaycastHit raycastHit);
 
         /// <summary>
         /// Called when the object is unhovered

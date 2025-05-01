@@ -11,6 +11,7 @@ namespace PizzaMaker
         [SerializeField] private GameObject flowGameObject;
         [SerializeField] private Material flowSharedMaterial;
         [SerializeField] private Color drinkColor;
+        [SerializeField] private MenuItem drinkMenuType;
         [Inject] private DrinkMachine drinkMachine { get; set; }
         private DrinkMachineAttachment attachment;
         private Sequence tweenFlow;
@@ -21,7 +22,7 @@ namespace PizzaMaker
             usable.overrideUseMessage = "<sprite name=\"lmb\"> Fill Cup";
         }
 
-        public override void OnClick(PlayerController playerController)
+        public override void OnClick(PlayerController playerController, ref RaycastHit raycastHit)
         {
             if (attachment.DrinkCup != null && !tweenFlow.isAlive && !attachment.DrinkCup.IsFilled)
             {
@@ -29,6 +30,7 @@ namespace PizzaMaker
                 flowSharedMaterial.SetInt(FlowMode, 0);
                 tweenFlow = Sequence.Create();
                 flowGameObject.gameObject.SetActive(true);
+                attachment.DrinkCup.FilledDrink = drinkMenuType;
                 tweenFlow.Chain(Tween.Custom(0f, 1f, 0.65f, val => flowSharedMaterial.SetFloat(MaskControl, val)))
                     .Chain(
                         attachment.DrinkCup.FillDrink(
@@ -43,7 +45,7 @@ namespace PizzaMaker
             }
         }
 
-        public override void OnHover(PlayerController playerController)
+        public override void OnHover(PlayerController playerController, ref RaycastHit raycastHit)
         {
             if (!attachment)
                 attachment = drinkMachine.DrinkPairs[this];

@@ -29,12 +29,12 @@ namespace PizzaMaker
         }
 
 
-        public void OnClick(PlayerController playerController)
+        public void OnClick(PlayerController playerController, ref RaycastHit raycastHit)
         {
             
         }
 
-        public void OnHover(PlayerController playerController)
+        public void OnHover(PlayerController playerController, ref RaycastHit raycastHit)
         {
             
         }

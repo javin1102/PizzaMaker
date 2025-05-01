@@ -95,6 +95,9 @@ MonoBehaviour:
   flowGameObject: {fileID: 2910353924723567832}
   flowSharedMaterial: {fileID: 2100000, guid: 36d41473233b56e419849523809fd420, type: 2}
   drinkColor: {r: 0.2509804, g: 0.2901961, b: 0.84313726, a: 1}
+  drinkMenuType:
+    id: 1005
+    name: Phoenixin
 --- !u!1 &374027605360048436
 GameObject:
   m_ObjectHideFlags: 0
@@ -371,6 +374,9 @@ MonoBehaviour:
   flowGameObject: {fileID: 3080092160995178811}
   flowSharedMaterial: {fileID: 2100000, guid: ea5770e1a3b86e743bbff890e1bace51, type: 2}
   drinkColor: {r: 0.4264151, g: 0.2689268, b: 0.1504521, a: 1}
+  drinkMenuType:
+    id: 1000
+    name: Drink Chrono Cola
 --- !u!1 &2330112182082049837
 GameObject:
   m_ObjectHideFlags: 0
@@ -1425,6 +1431,9 @@ MonoBehaviour:
   flowGameObject: {fileID: 2354838493568450807}
   flowSharedMaterial: {fileID: 2100000, guid: 3a9d808188ee3624cb3c31ff60039546, type: 2}
   drinkColor: {r: 0.20754719, g: 0.115218945, b: 0.051299397, a: 1}
+  drinkMenuType:
+    id: 1003
+    name: Soja Cola
 --- !u!1 &4215162703108255172
 GameObject:
   m_ObjectHideFlags: 0
@@ -1613,6 +1622,9 @@ MonoBehaviour:
   flowGameObject: {fileID: 374027605360048436}
   flowSharedMaterial: {fileID: 2100000, guid: f4f7b83c4a695dd4ba94ccc122aa3cf5, type: 2}
   drinkColor: {r: 0.5849056, g: 0.54267144, b: 0.24610177, a: 1}
+  drinkMenuType:
+    id: 1001
+    name: Yo Seott
 --- !u!1 &4399496042224408591
 GameObject:
   m_ObjectHideFlags: 0
@@ -2800,6 +2812,9 @@ MonoBehaviour:
   flowGameObject: {fileID: 5403826000035519472}
   flowSharedMaterial: {fileID: 2100000, guid: 9fec8baa2c7aefa428b53c92c37e1126, type: 2}
   drinkColor: {r: 0.6754716, g: 0.26381624, b: 0.6386801, a: 1}
+  drinkMenuType:
+    id: 1002
+    name: Unicorn Pop
 --- !u!1 &8882379308970753932
 GameObject:
   m_ObjectHideFlags: 0
@@ -2895,3 +2910,6 @@ MonoBehaviour:
   flowGameObject: {fileID: 7586626710246955830}
   flowSharedMaterial: {fileID: 2100000, guid: 867eb0dca8117054192f80b75339b992, type: 2}
   drinkColor: {r: 0.16470589, g: 0.34509805, b: 0.16078432, a: 1}
+  drinkMenuType:
+    id: 1004
+    name: Mr Right

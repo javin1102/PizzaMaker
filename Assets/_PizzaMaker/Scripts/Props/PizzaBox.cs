@@ -10,9 +10,12 @@ namespace PizzaMaker
         [SerializeField] private Transform pizzaCookedTransform;
         [SerializeField] private Transform pizzaTop;
 
-        public override void OnClick(PlayerController playerController)
+        public override void OnClick(PlayerController playerController, ref RaycastHit raycastHit)
         {
-            if (pizzaCooked == null && playerController.CurrentIGrabbable?.GetGrabbableObject<PizzaCooked>() is { } grabbedPizzaCooked)
+            if (pizzaCooked == null 
+                && playerController.CurrentIGrabbable?.GetGrabbableObject<PizzaCooked>() is { } grabbedPizzaCooked
+                && grabbedPizzaCooked.MenuItem != MenuItem.PizzaBurnt
+            )
             {
                 var childCount = pizzaCookedTransform.childCount;
                 var instantiatedPizzaBox = Instantiate(this, pizzaCookedTransform);
@@ -27,15 +30,17 @@ namespace PizzaMaker
             }
         }
 
-        public override void OnHover(PlayerController playerController)
+        public override void OnHover(PlayerController playerController, ref RaycastHit raycastHit)
         {
             if (pizzaCooked)
             {
-                usable.overrideUseMessage = $"{pizzaCooked.PizzaMenu.name}";
+                usable.overrideUseMessage = $"{pizzaCooked.MenuItem.name}";
                 usable.enabled = true;
             }
             
-            else if (pizzaCooked == null && playerController.CurrentIGrabbable?.GetGrabbableObject<PizzaCooked>() is { } grabbedPizzaCooked)
+            else if (pizzaCooked == null 
+                     && playerController.CurrentIGrabbable?.GetGrabbableObject<PizzaCooked>() is { } grabbedPizzaCooked 
+                     && grabbedPizzaCooked.MenuItem != MenuItem.PizzaBurnt)
             {
                 usable.overrideUseMessage = "Wrap Pizza";
                 usable.enabled = true;

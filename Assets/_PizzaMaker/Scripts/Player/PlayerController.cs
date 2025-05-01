@@ -17,6 +17,7 @@ namespace PizzaMaker
         [SerializeField] private PhoneController phoneController;
         [SerializeField] private Transform grabAttachPoint;
         [SerializeField] private DialogueDatabase demoDatabase;
+        [SerializeField] private EventChannel grabEventChannel;
 
         private Focusable currentFocusable;
         private Selector selector;
@@ -98,11 +99,11 @@ namespace PizzaMaker
                 if (!IsPhoneActive && currentFocusable == null)
                 {
                     if (Input.GetMouseButtonDown(0))
-                        currentInteractable?.OnClick(this);
+                        currentInteractable?.OnClick(this, ref hit);
                     else
                     {
                         currentInteractable = interactable;
-                        currentInteractable?.OnHover(this);
+                        currentInteractable?.OnHover(this, ref hit);
                     }
                 }
 
@@ -234,6 +235,7 @@ namespace PizzaMaker
             objectToGrab.gameObject.SetGameLayerRecursive(GlobalVars.LayerFocus);
             CurrentIGrabbable = objectToGrab.GetComponent<IGrabbable>();
             CurrentIGrabbable.OnGrab(this);
+            grabEventChannel.GrabAction?.Invoke(grabbable);
         }
 
         public void UnGrab()

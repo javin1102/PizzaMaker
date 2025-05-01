@@ -78,7 +78,7 @@ namespace PizzaMaker
                 OpenCover();
         }
 
-        public override void OnClick(PlayerController playerController)
+        public override void OnClick(PlayerController playerController, ref RaycastHit raycastHit)
         {
             if (CurrentState == State.Baking)
                 return;
@@ -109,7 +109,7 @@ namespace PizzaMaker
             }
         }
 
-        public override void OnHover(PlayerController playerController)
+        public override void OnHover(PlayerController playerController, ref RaycastHit raycastHit)
         {
             if (CurrentState == State.Baking)
             {

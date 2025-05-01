@@ -40,7 +40,7 @@ namespace PizzaMaker
                 IsInteractable = true;
         }
 
-        public override void OnClick(PlayerController playerController)
+        public override void OnClick(PlayerController playerController, ref RaycastHit raycastHit)
         {
             if (!IsInteractable)
                 return;
@@ -48,7 +48,7 @@ namespace PizzaMaker
             focusable.Focus();
         }
 
-        public override void OnHover(PlayerController playerController)
+        public override void OnHover(PlayerController playerController, ref RaycastHit raycastHit)
         {
             IsInteractable = hasConversationCompleted && playerController.CurrentIGrabbable == null;
         }

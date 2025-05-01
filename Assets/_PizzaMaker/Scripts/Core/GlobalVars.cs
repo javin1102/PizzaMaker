@@ -57,16 +57,16 @@ namespace PizzaMaker
     }
 
     [Serializable]
-    public struct PizzaMenu : IEquatable<PizzaMenu>
+    public struct MenuItem : IEquatable<MenuItem>
     {
-        public bool Equals(PizzaMenu other)
+        public bool Equals(MenuItem other)
         {
             return id == other.id && name == other.name;
         }
 
         public override bool Equals(object obj)
         {
-            return obj is PizzaMenu other && Equals(other);
+            return obj is MenuItem other && Equals(other);
         }
 
         public override int GetHashCode()
@@ -74,17 +74,24 @@ namespace PizzaMaker
             return HashCode.Combine(id, name);
         }
 
-        public static PizzaMenu PizzaInvalid = new("Burnt Pizza", -1);
-        public static PizzaMenu PizzaMargherita = new("Margherita Pizza", 1);
-        public static PizzaMenu PizzaBarbeque = new("Barbeque Pizza", 2);
-        public static readonly PizzaMenu[] All = { PizzaMargherita, PizzaBarbeque, PizzaInvalid };
+        public static MenuItem PizzaBurnt = new("Burnt Pizza", -1);
+        public static MenuItem PizzaMargherita = new("Margherita Pizza", 1);
+        public static MenuItem PizzaBarbeque = new("Barbeque Pizza", 2);
+        public static MenuItem DrinkChronoCola = new("Drink Chrono Cola", 1000);
+        public static MenuItem DrinkYoSeott = new ("Yo Seott", 1001);
+        public static MenuItem DrinkUnicornPop = new ("Unicorn Pop", 1002);
+        public static MenuItem DrinkSojaCola = new ("Soja Cola", 1003);
+        public static MenuItem DrinkMrRight = new ("Mr Right", 1004);
+        public static MenuItem DrinkPhoenixin = new ("Phoenixin", 1005);
+        
+        public static readonly MenuItem[] All = { PizzaMargherita, PizzaBarbeque, PizzaBurnt, DrinkChronoCola, DrinkYoSeott, DrinkUnicornPop, DrinkSojaCola, DrinkMrRight, DrinkPhoenixin };
 
-        public static bool operator ==(PizzaMenu a, PizzaMenu b)
+        public static bool operator ==(MenuItem a, MenuItem b)
         {
             return a.id == b.id;
         }
 
-        public static bool operator !=(PizzaMenu a, PizzaMenu b)
+        public static bool operator !=(MenuItem a, MenuItem b)
         {
             return !(a == b);
         }
@@ -92,7 +99,7 @@ namespace PizzaMaker
         public int id;
         public string name;
 
-        public PizzaMenu(string name, int id)
+        public MenuItem(string name, int id)
         {
             this.name = name;
             this.id = id;

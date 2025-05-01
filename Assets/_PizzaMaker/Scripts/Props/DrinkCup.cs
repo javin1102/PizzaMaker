@@ -7,18 +7,19 @@ namespace PizzaMaker
 {
     public class DrinkCup : Interactable, IGrabbable
     {
-        private static readonly int ShaderColorProperty = Shader.PropertyToID("_Color");
+        private static readonly int BaseColor = Shader.PropertyToID("_BaseColor");
         public Sequence FillTween => fillTween;
         public bool IsFilled { get; private set; }
         public GrabbableState CurrentGrabbableState { get; set; }
         [SerializeField] private Transform drinkMeshTransform;
         [SerializeField] private MeshRenderer drinkMeshRenderer;
+        public MenuItem FilledDrink { get; set; }
         private Sequence fillTween;
 
         public void ChangeColor(Color color)
         {
             var mpb = new MaterialPropertyBlock();
-            mpb.SetColor("_BaseColor", color);
+            mpb.SetColor(BaseColor, color);
             drinkMeshRenderer.SetPropertyBlock(mpb);
         }
 
@@ -47,7 +48,7 @@ namespace PizzaMaker
             return fillTween;
         }
 
-        public override void OnClick(PlayerController playerController)
+        public override void OnClick(PlayerController playerController, ref RaycastHit raycastHit)
         {
             if (fillTween.isAlive)
                 return;
@@ -55,7 +56,7 @@ namespace PizzaMaker
             playerController.Grab<DrinkCup>(this);
         }
 
-        public override void OnHover(PlayerController playerController)
+        public override void OnHover(PlayerController playerController, ref RaycastHit raycastHit)
         {
             if (CurrentGrabbableState == GrabbableState.None)
             {

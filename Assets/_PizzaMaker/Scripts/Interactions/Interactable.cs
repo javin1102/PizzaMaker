@@ -27,9 +27,9 @@ namespace PizzaMaker
             Collider = GetComponent<Collider>();
         }
 
-        public abstract void OnClick(PlayerController playerController);
+        public abstract void OnClick(PlayerController playerController, ref RaycastHit raycastHit);
 
-        public abstract void OnHover(PlayerController playerController);
+        public abstract void OnHover(PlayerController playerController, ref RaycastHit raycastHit);
 
         public abstract void OnUnhover(PlayerController playerController);
     }
