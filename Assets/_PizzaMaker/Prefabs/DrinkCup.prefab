@@ -73,6 +73,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   drinkMeshTransform: {fileID: 1872019514436853050}
+  drinkLidTransform: {fileID: 2751865324848414887}
   drinkMeshRenderer: {fileID: 698501083387160149}
 --- !u!65 &8297529269256560528
 BoxCollider:

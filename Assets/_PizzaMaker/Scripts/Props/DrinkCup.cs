@@ -12,6 +12,7 @@ namespace PizzaMaker
         public bool IsFilled { get; private set; }
         public GrabbableState CurrentGrabbableState { get; set; }
         [SerializeField] private Transform drinkMeshTransform;
+        [SerializeField] private Transform drinkLidTransform;
         [SerializeField] private MeshRenderer drinkMeshRenderer;
         private Sequence fillTween;
 
@@ -58,10 +59,14 @@ namespace PizzaMaker
         public override void OnHover(PlayerController playerController, ref RaycastHit raycastHit)
         {
             if (CurrentGrabbableState == GrabbableState.None)
-            {
                 usable.overrideUseMessage = $"<sprite name=\"lmb\">Grab Cup";
-                StandardUISelectorElements.instance.useMessageText.text = usable.overrideUseMessage;
+            else
+            {
+                var cupName = IsFilled ? $"{MenuType.name}" : "Cup";
+                usable.overrideUseMessage = $"<sprite name=\"lmb\">Grab {cupName}";
             }
+
+            StandardUISelectorElements.instance.useMessageText.text = usable.overrideUseMessage;
 
             IsInteractable = !fillTween.isAlive && playerController.CurrentIGrabbable == null;
         }
@@ -83,6 +88,11 @@ namespace PizzaMaker
         public void OnGrab(PlayerController playerController)
         {
             CurrentGrabbableState = GrabbableState.Grabbed;
+            if (IsFilled)
+            {
+                drinkMeshTransform.gameObject.SetActive(false);
+                drinkLidTransform.gameObject.SetActive(true);
+            }
         }
 
         public void OnGrabUsed(PlayerController playerController)
