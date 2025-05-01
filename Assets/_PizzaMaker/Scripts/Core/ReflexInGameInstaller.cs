@@ -18,6 +18,7 @@ namespace PizzaMaker
             cb.AddSingleton(dialogueMainDatabase);
             cb.AddSingleton(pizzaMakingManager);
             cb.AddSingleton(typeof(DrinkMachine));
+            cb.AddSingleton(typeof(OrderFulFillManager));
         }
     }
 }

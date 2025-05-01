@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace PizzaMaker
 {
-    public class DrinkCup : Interactable, IGrabbable
+    public class DrinkCup : OrderItem, IGrabbable
     {
         private static readonly int BaseColor = Shader.PropertyToID("_BaseColor");
         public Sequence FillTween => fillTween;
@@ -13,7 +13,6 @@ namespace PizzaMaker
         public GrabbableState CurrentGrabbableState { get; set; }
         [SerializeField] private Transform drinkMeshTransform;
         [SerializeField] private MeshRenderer drinkMeshRenderer;
-        public MenuItem FilledDrink { get; set; }
         private Sequence fillTween;
 
         public void ChangeColor(Color color)

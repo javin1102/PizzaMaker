@@ -9,11 +9,11 @@ namespace PizzaMaker
         [field: SerializeField] public List<PizzaMenuSO> PizzaMenuSOList { get; set; }
         [SerializeField] private PizzaCooked invalidPizza;
 
-        public PizzaCooked BakePizza(MenuItem menuItem, PizzaDough pizzaDough)
+        public PizzaCooked BakePizza(MenuType menuType, PizzaDough pizzaDough)
         {
             foreach (PizzaMenuSO pizzaMenuSo in PizzaMenuSOList)
             {
-                if (pizzaMenuSo.menuItem != menuItem) continue;
+                if (pizzaMenuSo.menuType != menuType) continue;
                 HashSet<string> requiredIngredients = new(pizzaMenuSo.ingredients);
                 pizzaDough.Ingredients.ForEach(i => requiredIngredients.Remove(i));
                 if (requiredIngredients.Count > 0)

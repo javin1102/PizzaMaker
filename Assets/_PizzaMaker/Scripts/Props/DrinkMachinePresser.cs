@@ -11,7 +11,7 @@ namespace PizzaMaker
         [SerializeField] private GameObject flowGameObject;
         [SerializeField] private Material flowSharedMaterial;
         [SerializeField] private Color drinkColor;
-        [SerializeField] private MenuItem drinkMenuType;
+        [SerializeField] private MenuType drinkMenuType;
         [Inject] private DrinkMachine drinkMachine { get; set; }
         private DrinkMachineAttachment attachment;
         private Sequence tweenFlow;
@@ -30,7 +30,7 @@ namespace PizzaMaker
                 flowSharedMaterial.SetInt(FlowMode, 0);
                 tweenFlow = Sequence.Create();
                 flowGameObject.gameObject.SetActive(true);
-                attachment.DrinkCup.FilledDrink = drinkMenuType;
+                attachment.DrinkCup.MenuType = drinkMenuType;
                 tweenFlow.Chain(Tween.Custom(0f, 1f, 0.65f, val => flowSharedMaterial.SetFloat(MaskControl, val)))
                     .Chain(
                         attachment.DrinkCup.FillDrink(

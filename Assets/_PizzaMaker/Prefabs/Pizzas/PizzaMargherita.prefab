@@ -133,7 +133,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c863606ba4d24886ad4445fb985a048c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pizzaMenu:
+  menuType:
     id: 1
     name: Margherita Pizza
 --- !u!114 &2150204433947549716

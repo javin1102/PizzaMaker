@@ -8,8 +8,10 @@ namespace PizzaMaker
     public class PizzaCooked : Interactable, IGrabbable
     {
         public GrabbableState CurrentGrabbableState { get; set; } = GrabbableState.Placed;
-        public MenuItem MenuItem => menuItem;
-        [FormerlySerializedAs("pizzaMenu")] [SerializeField] private MenuItem menuItem;
+        public MenuType MenuType => menuType;
+        [FormerlySerializedAs("menuItem")] [SerializeField]
+        private MenuType menuType;
+
         private List<string> extraToppingList = new();
 
 
@@ -20,9 +22,9 @@ namespace PizzaMaker
 
         public override void OnClick(PlayerController playerController, ref RaycastHit raycastHit)
         {
-            if(!IsInteractable)
+            if (!IsInteractable)
                 return;
-            
+
             playerController.Grab<PizzaCooked>(this);
             CurrentGrabbableState = GrabbableState.Grabbed;
         }

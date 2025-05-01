@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using PixelCrushers.DialogueSystem.Wrappers;
+using Reflex.Attributes;
 using UnityEngine;
 
 namespace PizzaMaker
@@ -10,7 +11,7 @@ namespace PizzaMaker
         [SerializeField] private Material cupMaterial;
         [SerializeField] private Material invalidCupMaterial;
         [SerializeField] private EventChannel eventChannel;
-        private readonly Dictionary<MenuItem, List<DrinkCup>> placedCups = new();
+        [Inject] private OrderFulFillManager _orderFulFillManager;
         private bool isFailPlacement;
         private Vector3 cupPosition;
 
@@ -27,9 +28,8 @@ namespace PizzaMaker
 
         private void OnGrab(IGrabbable grabbable)
         {
-            if (grabbable.GetGrabbableObject<DrinkCup>() is not { } drinkCup || !placedCups.TryGetValue(drinkCup.FilledDrink, out var cupList)) return;
-            if (cupList.Remove(drinkCup) && cupList.Count <= 0)
-                placedCups.Remove(drinkCup.FilledDrink);
+            if (grabbable.GetGrabbableObject<DrinkCup>() is not { } drinkCup) return;
+            _orderFulFillManager.RemoveItem(drinkCup);
         }
 
         public override void OnClick(PlayerController playerController, ref RaycastHit raycastHit)
@@ -41,10 +41,7 @@ namespace PizzaMaker
                 drinkCup.transform.position = cupPosition;
                 drinkCup.Collider.enabled = true;
                 playerController.UnGrab();
-                if (!placedCups.TryGetValue(drinkCup.FilledDrink, out var cupList))
-                    placedCups.Add(drinkCup.FilledDrink, new List<DrinkCup>() { drinkCup });
-                else
-                    cupList.Add(drinkCup);
+                _orderFulFillManager.AddItem(drinkCup);
             }
         }
 

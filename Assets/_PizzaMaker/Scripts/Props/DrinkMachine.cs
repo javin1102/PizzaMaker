@@ -13,12 +13,13 @@ namespace PizzaMaker
         private void Awake()
         {
             var parentContainer = gameObject.scene.GetSceneContainer();
-            using var objectContainer = parentContainer.Scope(builder =>
+            var objectContainer = parentContainer.Scope(builder =>
             {
                 builder.SetName("DrinkMachine");
                 builder.AddSingleton(this);
-                GameObjectInjector.InjectRecursive(gameObject, builder.Build());
             });
+            GameObjectInjector.InjectRecursive(gameObject, objectContainer);
+            objectContainer.Dispose();
         }
     }
 }

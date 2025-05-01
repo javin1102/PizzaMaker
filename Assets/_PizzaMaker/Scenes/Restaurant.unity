@@ -5726,7 +5726,9 @@ PrefabInstance:
       propertyPath: m_Name
       value: PizzaBox (5)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1455851352055758521, guid: 768c9af3542cf9e419dd6d257fb6e018, type: 3}
+    - {fileID: 3585587521896206954, guid: 768c9af3542cf9e419dd6d257fb6e018, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -12040,7 +12042,7 @@ Transform:
   m_GameObject: {fileID: 548511016}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -2.212, y: 0, z: -1.597}
   m_LocalScale: {x: 0.75, y: 1, z: 0.75}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -13987,7 +13989,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: -6099944169849338487, guid: 8576dd7889cd9f8469913bc337b640fd, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 608777233}
   m_SourcePrefab: {fileID: 100100000, guid: 8576dd7889cd9f8469913bc337b640fd, type: 3}
 --- !u!4 &608777213 stripped
 Transform:
@@ -14029,6 +14034,27 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: -6099944169849338487, guid: 8576dd7889cd9f8469913bc337b640fd, type: 3}
   m_PrefabInstance: {fileID: 608777212}
   m_PrefabAsset: {fileID: 0}
+--- !u!65 &608777233
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 608777226}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 2.081319, y: 1.0026567, z: 1.0564938}
+  m_Center: {x: 0, y: -0.011322752, z: -0.064729095}
 --- !u!1 &608783564 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: e13248b71b2733040968103bb6695ba2, type: 3}
@@ -18380,7 +18406,9 @@ PrefabInstance:
       propertyPath: m_Name
       value: PizzaBox (1)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1455851352055758521, guid: 768c9af3542cf9e419dd6d257fb6e018, type: 3}
+    - {fileID: 3585587521896206954, guid: 768c9af3542cf9e419dd6d257fb6e018, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -30784,7 +30812,9 @@ PrefabInstance:
       propertyPath: m_Name
       value: PizzaBox (3)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1455851352055758521, guid: 768c9af3542cf9e419dd6d257fb6e018, type: 3}
+    - {fileID: 3585587521896206954, guid: 768c9af3542cf9e419dd6d257fb6e018, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -33934,7 +33964,9 @@ PrefabInstance:
       propertyPath: m_Name
       value: PizzaBox (4)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1455851352055758521, guid: 768c9af3542cf9e419dd6d257fb6e018, type: 3}
+    - {fileID: 3585587521896206954, guid: 768c9af3542cf9e419dd6d257fb6e018, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -42478,6 +42510,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1784052783}
+  - component: {fileID: 1784052784}
   m_Layer: 0
   m_Name: Counter
   m_TagString: Untagged
@@ -42507,6 +42540,18 @@ Transform:
   - {fileID: 2021551959}
   m_Father: {fileID: 1120459159}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1784052784
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1784052782}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d9e3f1eba96145379219f994f9a0c99d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1786766511
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -42563,7 +42608,9 @@ PrefabInstance:
       propertyPath: m_Name
       value: PizzaBox (2)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1455851352055758521, guid: 768c9af3542cf9e419dd6d257fb6e018, type: 3}
+    - {fileID: 3585587521896206954, guid: 768c9af3542cf9e419dd6d257fb6e018, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []

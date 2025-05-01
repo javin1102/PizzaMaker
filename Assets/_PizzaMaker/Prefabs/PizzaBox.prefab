@@ -93,6 +93,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ccd993acd5b64dd58434a95943493e97, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pizzaCookedTransform: {fileID: 0}
   pizzaTop: {fileID: 776547052569492808}
 --- !u!1001 &8807833857967939559
 PrefabInstance:
