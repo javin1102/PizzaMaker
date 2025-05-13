@@ -4,6 +4,6 @@ namespace PizzaMaker
 {
     public abstract class OrderItem : Interactable
     {
-        public MenuType MenuType { get; set; }
+        public virtual MenuType? MenuType { get; set; }
     }
 }

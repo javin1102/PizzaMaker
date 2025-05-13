@@ -44,9 +44,9 @@ Light:
   m_Enabled: 1
   serializedVersion: 11
   m_Type: 0
-  m_Color: {r: 0.84599996, g: 0.8425041, b: 0.713157, a: 1}
-  m_Intensity: 7.5
-  m_Range: 10.09
+  m_Color: {r: 0.9764706, g: 0.95686275, b: 0.7882353, a: 1}
+  m_Intensity: 1.5
+  m_Range: 3
   m_SpotAngle: 179
   m_InnerSpotAngle: 0
   m_CookieSize: 10
@@ -87,8 +87,8 @@ Light:
   m_Lightmapping: 2
   m_LightShadowCasterMode: 0
   m_AreaSize: {x: 1, y: 1}
-  m_BounceIntensity: 2
-  m_ColorTemperature: 6123
+  m_BounceIntensity: 1
+  m_ColorTemperature: 5388
   m_UseColorTemperature: 1
   m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
   m_UseBoundingSphereOverride: 0
@@ -134,7 +134,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 57f24a4aaa0761b45ba25e7e5108e2c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  UID: 326096106
+  UID: 1377616247
   color: {r: 0.84599996, g: 0.8425041, b: 0.713157, a: 1}
   intensity: 7.5
   shadowSpread: 0.05
@@ -164,7 +164,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: a9fd727e515727448b164a217d2e537d, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -2.63
+      value: 6.01
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: a9fd727e515727448b164a217d2e537d, type: 3}
       propertyPath: m_LocalPosition.y
@@ -172,7 +172,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: a9fd727e515727448b164a217d2e537d, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -14.37
+      value: -16.056
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: a9fd727e515727448b164a217d2e537d, type: 3}
       propertyPath: m_LocalRotation.w

@@ -34,7 +34,7 @@ ModelImporter:
     animationWrapMode: 0
     extraExposedTransformPaths: []
     extraUserProperties:
-    - '#BAKERY{"meshName":["Toilet","ToiletSeatMount","ToiletSeatCover","ToiletSeat","ToiletFlushHandle"],"padding":[35,256,82,103,256],"unwrapper":[0,0,0,0,0]}'
+    - '#BAKERY{"meshName":["Toilet","ToiletSeatMount","ToiletSeatCover","ToiletSeat","ToiletFlushHandle"],"padding":[71,256,82,206,256],"unwrapper":[0,0,0,0,0]}'
     clipAnimations: []
     isReadable: 0
   meshes:

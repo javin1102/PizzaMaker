@@ -44,7 +44,7 @@ ModelImporter:
     animationWrapMode: 0
     extraExposedTransformPaths: []
     extraUserProperties:
-    - '#BAKERY{"meshName":["SM_BuildingWall_2x4_Corner"],"padding":[12],"unwrapper":[0]}'
+    - '#BAKERY{"meshName":["SM_BuildingWall_2x4_Corner"],"padding":[24],"unwrapper":[0]}'
     clipAnimations: []
     isReadable: 0
   meshes:

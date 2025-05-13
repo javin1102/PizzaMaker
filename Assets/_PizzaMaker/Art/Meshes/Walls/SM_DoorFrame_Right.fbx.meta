@@ -34,7 +34,7 @@ ModelImporter:
     animationWrapMode: 0
     extraExposedTransformPaths: []
     extraUserProperties:
-    - '#BAKERY{"meshName":["SM_DoorFrame_Right"],"padding":[21],"unwrapper":[0]}'
+    - '#BAKERY{"meshName":["SM_DoorFrame_Right"],"padding":[43],"unwrapper":[0]}'
     clipAnimations: []
     isReadable: 0
   meshes:

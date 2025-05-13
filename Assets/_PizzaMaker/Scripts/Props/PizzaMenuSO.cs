@@ -11,6 +11,6 @@ namespace PizzaMaker
         [FormerlySerializedAs("menuItem")] [FormerlySerializedAs("pizzaMenu")] public MenuType menuType;
         public PizzaCooked cookedPizza;
         [ValueDropdown("allIngredients")] public List<string> ingredients;
-        private string[] allIngredients => Ingredients.All;
+        private string[] allIngredients => Ingredient.All;
     }
 }

@@ -8,7 +8,7 @@ namespace PizzaMaker
         [ValueDropdown("ingredients"), SerializeField]
         private string ingredientType;
 
-        private string[] ingredients => Ingredients.All;
+        private string[] ingredients => Ingredient.All;
         private PizzaIngredient pizzaIngredient;
 
         protected override void Awake()

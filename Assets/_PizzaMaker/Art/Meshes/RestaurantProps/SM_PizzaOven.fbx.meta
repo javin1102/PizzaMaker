@@ -44,7 +44,7 @@ ModelImporter:
     animationWrapMode: 0
     extraExposedTransformPaths: []
     extraUserProperties:
-    - '#BAKERY{"meshName":["Plane.003","Bar.001","SM_PizzaOven_Base","SM_PizzaOven_Opener","SM_PizzaOven_Timer"],"padding":[208,225,24,72,256],"unwrapper":[0,0,0,0,0]}'
+    - '#BAKERY{"meshName":["SM_PizzaOven_Timer","SM_PizzaOven_Base","SM_PizzaOven_Opener","Plane.003","Bar.001"],"padding":[256,49,72,208,225],"unwrapper":[0,0,0,0,0]}'
     clipAnimations: []
     isReadable: 0
   meshes:

@@ -10,6 +10,7 @@ namespace PizzaMaker
         [SerializeField] private PlayerController playerController;
         [SerializeField] private PhoneController phoneController;
         [SerializeField] private PizzaMakingManager pizzaMakingManager;
+        [SerializeField] private OrderFulFillManager orderFulFillManager;
 
         public void InstallBindings(ContainerBuilder cb)
         {
@@ -18,7 +19,7 @@ namespace PizzaMaker
             cb.AddSingleton(dialogueMainDatabase);
             cb.AddSingleton(pizzaMakingManager);
             cb.AddSingleton(typeof(DrinkMachine));
-            cb.AddSingleton(typeof(OrderFulFillManager));
+            cb.AddSingleton(orderFulFillManager);
         }
     }
 }

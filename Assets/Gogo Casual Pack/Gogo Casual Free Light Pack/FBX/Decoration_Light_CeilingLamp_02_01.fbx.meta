@@ -36,7 +36,7 @@ ModelImporter:
     animationWrapMode: 0
     extraExposedTransformPaths: []
     extraUserProperties:
-    - '#BAKERY{"meshName":["Decoration_Light_CeilingLamp_02_01"],"padding":[98],"unwrapper":[0]}'
+    - '#BAKERY{"meshName":["Decoration_Light_CeilingLamp_02_01"],"padding":[197],"unwrapper":[0]}'
     clipAnimations: []
     isReadable: 0
   meshes:

@@ -34,7 +34,7 @@ ModelImporter:
     animationWrapMode: 0
     extraExposedTransformPaths: []
     extraUserProperties:
-    - '#BAKERY{"meshName":["T_Seperator","T_Seperator.002"],"padding":[16,24],"unwrapper":[0,0]}'
+    - '#BAKERY{"meshName":["T_Seperator","T_Seperator.002"],"padding":[33,24],"unwrapper":[0,0]}'
     clipAnimations: []
     isReadable: 0
   meshes:

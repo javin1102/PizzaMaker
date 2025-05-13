@@ -34,7 +34,7 @@ ModelImporter:
     animationWrapMode: 0
     extraExposedTransformPaths: []
     extraUserProperties:
-    - '#BAKERY{"meshName":["SM_CountertopCabinet_Top"],"padding":[38],"unwrapper":[0]}'
+    - '#BAKERY{"meshName":["SM_CountertopCabinet_Top","SM_CountertopCabinet_Opener","SM_CountertopCabinet_Base"],"padding":[76,21,9],"unwrapper":[0,0,0]}'
     clipAnimations: []
     isReadable: 0
   meshes:

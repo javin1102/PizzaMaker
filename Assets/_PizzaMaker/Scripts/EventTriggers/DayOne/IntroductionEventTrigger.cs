@@ -23,13 +23,13 @@ namespace PizzaMaker.Events
 
         private void Start()
         {
-           if(DialogueLua.GetVariable(LuaVariables.Conversations.Day1BossIntro).asBool)
+           if(DialogueLua.GetVariable(CustomLua.Conversations.Day1BossIntro).asBool)
                gameObject.SetActive(false);
         }
 
         private void OnTriggerEnter(Collider other)
         {
-            if (isTriggered || DialogueLua.GetVariable(LuaVariables.Conversations.Day1BossIntro).asBool)
+            if (isTriggered || DialogueLua.GetVariable(CustomLua.Conversations.Day1BossIntro).asBool)
             {
                 gameObject.SetActive(false);
                 return;
@@ -39,12 +39,12 @@ namespace PizzaMaker.Events
             {
                 isTriggered = true;
                 DialogueManager.Instance.DialogueUI.ShowAlert("You got a message", 2f);
-                QuestLog.SetQuestState(LuaVariables.Quests.Day1OpenPhone.id, QuestState.Active);
+                QuestLog.SetQuestState(CustomLua.Quests.Day1OpenPhone.id, QuestState.Active);
                 dialogueSystemTrigger.enabled = true;
                 Tween.Delay(3f, () =>
                 {
-                    if(QuestLog.GetQuestState(LuaVariables.Quests.Day1OpenPhone.id) == QuestState.Active)
-                        InGameUIController.Instance.ShowQuestInformationUI("Press <b>Tab</b> to Show/Hide your phone", LuaVariables.Quests.Day1OpenPhone);
+                    if(QuestLog.GetQuestState(CustomLua.Quests.Day1OpenPhone.id) == QuestState.Active)
+                        InGameUIController.Instance.ShowQuestInformationUI("Press <b>Tab</b> to Show/Hide your phone", CustomLua.Quests.Day1OpenPhone);
                 });
             }
         }

@@ -286,6 +286,36 @@ MonoBehaviour:
       value: False
       type: 2
       typeString: CustomFieldType_Boolean
+  - id: 2
+    fields:
+    - title: Name
+      value: day1_azis_pizza-order
+      type: 0
+      typeString: CustomFieldType_Text
+    - title: Pictures
+      value: '[]'
+      type: 3
+      typeString: CustomFieldType_Files
+    - title: Description
+      value: 
+      type: 0
+      typeString: CustomFieldType_Text
+    - title: Success Description
+      value: 
+      type: 0
+      typeString: CustomFieldType_Text
+    - title: Failure Description
+      value: 
+      type: 0
+      typeString: CustomFieldType_Text
+    - title: State
+      value: unassigned
+      type: 0
+      typeString: CustomFieldType_QuestState
+    - title: Is Item
+      value: False
+      type: 2
+      typeString: CustomFieldType_Boolean
   locations: []
   variables:
   - id: 1
@@ -848,8 +878,8 @@ MonoBehaviour:
         height: 30
     entryGroups: []
     canvasScrollPosition: {x: 0, y: 0}
-    canvasZoom: 1.1199999
-  - id: 3
+    canvasZoom: 0.8500001
+  - id: 2
     fields:
     - title: Title
       value: day1/azis/pizza_order
@@ -945,7 +975,7 @@ MonoBehaviour:
         value: None()
         type: 0
         typeString: 
-      conversationID: 3
+      conversationID: 2
       isRoot: 0
       isGroup: 0
       nodeColor: 
@@ -953,10 +983,22 @@ MonoBehaviour:
       falseConditionAction: Block
       conditionPriority: 2
       outgoingLinks:
-      - originConversationID: 3
+      - originConversationID: 2
         originDialogueID: 0
-        destinationConversationID: 3
+        destinationConversationID: 2
         destinationDialogueID: 1
+        isConnector: 0
+        priority: 2
+      - originConversationID: 2
+        originDialogueID: 0
+        destinationConversationID: 2
+        destinationDialogueID: 7
+        isConnector: 0
+        priority: 2
+      - originConversationID: 2
+        originDialogueID: 0
+        destinationConversationID: 2
+        destinationDialogueID: 9
         isConnector: 0
         priority: 2
       conditionsString: 
@@ -966,8 +1008,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 362.66666
-        y: 44.66667
+        x: 255.19272
+        y: 28.44365
         width: 160
         height: 30
     - id: 1
@@ -1016,7 +1058,7 @@ MonoBehaviour:
         value: 
         type: 0
         typeString: CustomFieldType_Text
-      conversationID: 3
+      conversationID: 2
       isRoot: 0
       isGroup: 0
       nodeColor: 
@@ -1024,21 +1066,21 @@ MonoBehaviour:
       falseConditionAction: Block
       conditionPriority: 2
       outgoingLinks:
-      - originConversationID: 3
+      - originConversationID: 2
         originDialogueID: 1
-        destinationConversationID: 3
+        destinationConversationID: 2
         destinationDialogueID: 2
         isConnector: 0
         priority: 2
-      conditionsString: 
+      conditionsString: CurrentQuestState("day1_azis_pizza-order") == "unassigned"
       userScript: 
       onExecute:
         m_PersistentCalls:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 348
-        y: 132.66672
+        x: 44.70601
+        y: 140.7767
         width: 160
         height: 30
     - id: 2
@@ -1087,7 +1129,7 @@ MonoBehaviour:
         value: 
         type: 0
         typeString: CustomFieldType_Text
-      conversationID: 3
+      conversationID: 2
       isRoot: 0
       isGroup: 0
       nodeColor: 
@@ -1095,9 +1137,9 @@ MonoBehaviour:
       falseConditionAction: Block
       conditionPriority: 2
       outgoingLinks:
-      - originConversationID: 3
+      - originConversationID: 2
         originDialogueID: 2
-        destinationConversationID: 3
+        destinationConversationID: 2
         destinationDialogueID: 3
         isConnector: 0
         priority: 2
@@ -1108,8 +1150,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 348.00006
-        y: 196.66666
+        x: 35.644608
+        y: 204.77664
         width: 160
         height: 30
     - id: 3
@@ -1158,7 +1200,7 @@ MonoBehaviour:
         value: 
         type: 0
         typeString: CustomFieldType_Text
-      conversationID: 3
+      conversationID: 2
       isRoot: 0
       isGroup: 0
       nodeColor: 
@@ -1166,9 +1208,9 @@ MonoBehaviour:
       falseConditionAction: Block
       conditionPriority: 2
       outgoingLinks:
-      - originConversationID: 3
+      - originConversationID: 2
         originDialogueID: 3
-        destinationConversationID: 3
+        destinationConversationID: 2
         destinationDialogueID: 4
         isConnector: 0
         priority: 2
@@ -1179,8 +1221,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 346.66675
-        y: 257.3333
+        x: 34.958527
+        y: 264.79605
         width: 160
         height: 30
     - id: 4
@@ -1229,7 +1271,7 @@ MonoBehaviour:
         value: 
         type: 0
         typeString: CustomFieldType_Text
-      conversationID: 3
+      conversationID: 2
       isRoot: 0
       isGroup: 0
       nodeColor: 
@@ -1237,9 +1279,9 @@ MonoBehaviour:
       falseConditionAction: Block
       conditionPriority: 2
       outgoingLinks:
-      - originConversationID: 3
+      - originConversationID: 2
         originDialogueID: 4
-        destinationConversationID: 3
+        destinationConversationID: 2
         destinationDialogueID: 5
         isConnector: 0
         priority: 2
@@ -1250,8 +1292,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 358.0001
-        y: 311.3333
+        x: 46.29187
+        y: 318.79605
         width: 160
         height: 30
     - id: 5
@@ -1300,7 +1342,7 @@ MonoBehaviour:
         value: 
         type: 0
         typeString: CustomFieldType_Text
-      conversationID: 3
+      conversationID: 2
       isRoot: 0
       isGroup: 0
       nodeColor: 
@@ -1308,10 +1350,16 @@ MonoBehaviour:
       falseConditionAction: Block
       conditionPriority: 2
       outgoingLinks:
-      - originConversationID: 3
+      - originConversationID: 2
         originDialogueID: 5
-        destinationConversationID: 3
+        destinationConversationID: 2
         destinationDialogueID: 6
+        isConnector: 0
+        priority: 2
+      - originConversationID: 2
+        originDialogueID: 5
+        destinationConversationID: 2
+        destinationDialogueID: 8
         isConnector: 0
         priority: 2
       conditionsString: 
@@ -1321,8 +1369,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 358.0001
-        y: 361.3333
+        x: 46.29187
+        y: 368.79605
         width: 160
         height: 30
     - id: 6
@@ -1371,7 +1419,72 @@ MonoBehaviour:
         value: 
         type: 0
         typeString: CustomFieldType_Text
-      conversationID: 3
+      conversationID: 2
+      isRoot: 0
+      isGroup: 0
+      nodeColor: 
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks: []
+      conditionsString: 
+      userScript: SetQuestState("day1_azis_pizza-order", "active")
+      onExecute:
+        m_PersistentCalls:
+          m_Calls: []
+      canvasRect:
+        serializedVersion: 2
+        x: 1
+        y: 452.91904
+        width: 160
+        height: 30
+    - id: 7
+      fields:
+      - title: Title
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Pictures
+        value: '[]'
+        type: 3
+        typeString: CustomFieldType_Files
+      - title: Description
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Actor
+        value: 2
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Conversant
+        value: 1
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Menu Text
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Dialogue Text
+        value: Can I have 1 margherita pizza and 1 coke, please?
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Parenthetical
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Audio Files
+        value: '[]'
+        type: 3
+        typeString: CustomFieldType_Files
+      - title: Video File
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Sequence
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      conversationID: 2
       isRoot: 0
       isGroup: 0
       nodeColor: 
@@ -1386,13 +1499,143 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 364.0001
-        y: 427.3333
+        x: 246.32819
+        y: 142.80089
+        width: 160
+        height: 30
+    - id: 8
+      fields:
+      - title: Title
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Pictures
+        value: '[]'
+        type: 3
+        typeString: CustomFieldType_Files
+      - title: Description
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Actor
+        value: 1
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Conversant
+        value: 2
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Menu Text
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Dialogue Text
+        value: Ok
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Parenthetical
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Audio Files
+        value: '[]'
+        type: 3
+        typeString: CustomFieldType_Files
+      - title: Video File
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Sequence
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      conversationID: 2
+      isRoot: 0
+      isGroup: 0
+      nodeColor: 
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks: []
+      conditionsString: 
+      userScript: SetQuestState("day1_azis_pizza-order", "active")
+      onExecute:
+        m_PersistentCalls:
+          m_Calls: []
+      canvasRect:
+        serializedVersion: 2
+        x: 195.15921
+        y: 450.51126
+        width: 160
+        height: 30
+    - id: 9
+      fields:
+      - title: Title
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Pictures
+        value: '[]'
+        type: 3
+        typeString: CustomFieldType_Files
+      - title: Description
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Actor
+        value: 2
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Conversant
+        value: 1
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Menu Text
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Dialogue Text
+        value: Thank you
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Parenthetical
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Audio Files
+        value: '[]'
+        type: 3
+        typeString: CustomFieldType_Files
+      - title: Video File
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Sequence
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      conversationID: 2
+      isRoot: 0
+      isGroup: 0
+      nodeColor: 
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks: []
+      conditionsString: 
+      userScript: 
+      onExecute:
+        m_PersistentCalls:
+          m_Calls: []
+      canvasRect:
+        serializedVersion: 2
+        x: 442.46545
+        y: 143.89821
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 0, y: 0}
-    canvasZoom: 1
+    canvasScrollPosition: {x: 236.39145, y: 0}
+    canvasZoom: 1.2700015
   syncInfo:
     syncActors: 0
     syncItems: 0

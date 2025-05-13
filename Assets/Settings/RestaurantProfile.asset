@@ -95,7 +95,7 @@ MonoBehaviour:
     m_Value: 0
   reflectionsMultiplier:
     m_OverrideState: 1
-    m_Value: 0.424
+    m_Value: 0.08
   showInSceneView:
     m_OverrideState: 1
     m_Value: 1
@@ -122,7 +122,7 @@ MonoBehaviour:
     m_Value: 0.05
   jitter:
     m_OverrideState: 1
-    m_Value: 0.034
+    m_Value: 0.15
   animatedJitter:
     m_OverrideState: 1
     m_Value: 1
@@ -142,13 +142,13 @@ MonoBehaviour:
     m_Value: 1
   depthBias:
     m_OverrideState: 0
-    m_Value: 0.03
+    m_Value: 107.35
   temporalFilter:
     m_OverrideState: 1
-    m_Value: 0
-  temporalFilterResponseSpeed:
-    m_OverrideState: 0
     m_Value: 1
+  temporalFilterResponseSpeed:
+    m_OverrideState: 1
+    m_Value: 2.44
   smoothnessThreshold:
     m_OverrideState: 0
     m_Value: 0
@@ -185,7 +185,7 @@ MonoBehaviour:
       m_PostInfinity: 2
       m_RotationOrder: 4
   reflectionsSmoothnessCurve:
-    m_OverrideState: 0
+    m_OverrideState: 1
     m_Value:
       serializedVersion: 2
       m_Curve:
@@ -220,8 +220,8 @@ MonoBehaviour:
       m_PostInfinity: 2
       m_RotationOrder: 4
   fresnel:
-    m_OverrideState: 0
-    m_Value: 0.75
+    m_OverrideState: 1
+    m_Value: 0.64
   decay:
     m_OverrideState: 0
     m_Value: 2

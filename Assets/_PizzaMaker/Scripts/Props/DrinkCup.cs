@@ -22,7 +22,7 @@ namespace PizzaMaker
             mpb.SetColor(BaseColor, color);
             drinkMeshRenderer.SetPropertyBlock(mpb);
         }
-
+        
         public Sequence FillDrink(Action onStart = null, Action onComplete = null)
         {
             if (IsFilled || fillTween.isAlive)
@@ -62,7 +62,7 @@ namespace PizzaMaker
                 usable.overrideUseMessage = $"<sprite name=\"lmb\">Grab Cup";
             else
             {
-                var cupName = IsFilled ? $"{MenuType.name}" : "Cup";
+                var cupName = IsFilled ? $"{MenuType?.name}" : "Cup";
                 usable.overrideUseMessage = $"<sprite name=\"lmb\">Grab {cupName}";
             }
 

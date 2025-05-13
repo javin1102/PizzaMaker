@@ -1,23 +1,29 @@
 ﻿using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using PixelCrushers.DialogueSystem.Wrappers;
 using UnityEngine;
 using UnityEngine.Serialization;
-
+[assembly: InternalsVisibleTo("Tests")]
 namespace PizzaMaker
 {
     public class PizzaCooked : Interactable, IGrabbable
     {
+        public List<string> ExtraToppingList { get; private set; } = new();
         public GrabbableState CurrentGrabbableState { get; set; } = GrabbableState.Placed;
-        public MenuType MenuType => menuType;
+
+        public MenuType MenuType
+        {
+            get => menuType;
+            internal set => menuType = value;
+        }
+
         [FormerlySerializedAs("menuItem")] [SerializeField]
         private MenuType menuType;
-
-        private List<string> extraToppingList = new();
 
 
         public void SetExtraToppingList(List<string> extraToppingList)
         {
-            this.extraToppingList = extraToppingList;
+            this.ExtraToppingList = extraToppingList;
         }
 
         public override void OnClick(PlayerController playerController, ref RaycastHit raycastHit)

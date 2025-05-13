@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 6176860406528887944}
   - component: {fileID: 1392352487531620456}
   - component: {fileID: 2136808813648269547}
+  - component: {fileID: 6363549475669378020}
   m_Layer: 0
   m_Name: PizzaBox
   m_TagString: Untagged
@@ -95,6 +96,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pizzaCookedTransform: {fileID: 0}
   pizzaTop: {fileID: 776547052569492808}
+--- !u!114 &6363549475669378020
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9183822320836789649}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 20620ae30fdd0164c9bb5bdc717d3ada, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _injectionStrategy: 2
 --- !u!1001 &8807833857967939559
 PrefabInstance:
   m_ObjectHideFlags: 0

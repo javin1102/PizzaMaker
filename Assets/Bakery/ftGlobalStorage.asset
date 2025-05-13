@@ -59,7 +59,7 @@ MonoBehaviour:
   - Assets/_PizzaMaker/Art/Meshes/PizzaToppings/SM_PizzaTopping_Ham_Grouped.fbx
   - Assets/_PizzaMaker/Art/Meshes/PizzaToppings/SM_PizzaTopping_Tomato.fbx
   - Assets/_PizzaMaker/Art/Meshes/PizzaToppings/SM_PizzaTopping_Mushroom_Grouped.fbx
-  modifiedAssetPaddingHash: aaf8cc2e1b3a8033af67e2a8363fd3d914f33a06343fd3d9e55031ee4adc894b393fd3d9f83980333c4efff0567e9363de09ecc0b45634b70ca3dddeeec3a693e6ebe68b733603738c67e2a88c67e2a88c67e2a8de09ecc0dc4608c8be4608c89c09ecc0f8398033d7c2a693344ffff0ba4608c838c2a6939f398033fa4dfff098583469cfc3a6931c7e93636c0f4967c8a55afa650b43819561d67c4adc894be1c4d8908f50cf35ecc124912aa3dddeecc12491ecc12491
+  modifiedAssetPaddingHash: aaf8cc2e1b3a8033af67e2a8363fd3d914f33a06343fd3d9e55031ee9c09ecc0333fd3d998f23a06a35031eeeddb894b5dc5d890ecc12491ecc12491ce318883e6ebe68bfc33347b1c7e93631c7e93631c7e93635dc5d890dc4608c8be4608c89c09ecc03367e2a8fa4dfff09250cf35d05634b7b95634b7bb4608c88cdb894beb1374e6cfc3a693fc5131eeaac7742ee19bf62d6f6b838ce4ff3ba8377e9363f437ed048f50cf35ecc124912aa3dddeecc12491ecc12491
   modifiedMeshList: []
   modifiedMeshPaddingList: 
   modifiedAssets:
@@ -468,39 +468,39 @@ MonoBehaviour:
     unwrapper: 00000000
   - meshName:
     - SM_BuildingWall_2x4
-    padding: 10000000
+    padding: 20000000
     unwrapper: 00000000
   - meshName:
     - SM_Ground
-    padding: 02000000
+    padding: 04000000
     unwrapper: 00000000
   - meshName:
     - SM_BuildingWallRoof_2x1.5
-    padding: 19000000
+    padding: 32000000
     unwrapper: 00000000
   - meshName:
     - SM_BuildingWallCornerRoof_1x1.5
-    padding: 12000000
+    padding: 25000000
     unwrapper: 00000000
   - meshName:
     - SM_Frame_MainDoor
-    padding: 17000000
+    padding: 2e000000
     unwrapper: 00000000
   - meshName:
     - SM_BuildingWall_2x4_Corner
-    padding: 0c000000
+    padding: 18000000
     unwrapper: 00000000
   - meshName:
     - SM_HotelPan_Medium
-    padding: 85000000
+    padding: 00010000
     unwrapper: 00000000
   - meshName:
     - SM_HotelPan_Small
-    padding: 8e000000
+    padding: 00010000
     unwrapper: 00000000
   - meshName:
     - SM_HotelPan_Large
-    padding: 59000000
+    padding: b4000000
     unwrapper: 00000000
   - meshName:
     - SM_PizzaHolder_BaseFloor
@@ -518,23 +518,23 @@ MonoBehaviour:
     - SM_PizzaHolder_Base
     - SM_PizzaHolder_FrontGlass
     - SM_PizzaHolder_BaseFloor
-    padding: 3a0000003300000033000000170000002700000024000000
+    padding: 7400000066000000660000002f0000004e00000049000000
     unwrapper: 000000000000000000000000000000000000000000000000
   - meshName:
     - SM_DoorFrame_Middle
-    padding: 15000000
+    padding: 2b000000
     unwrapper: 00000000
   - meshName:
     - SM_DoorFrame_Left
-    padding: 15000000
+    padding: 2b000000
     unwrapper: 00000000
   - meshName:
     - SM_DoorFrame_Right
-    padding: 15000000
+    padding: 2b000000
     unwrapper: 00000000
   - meshName:
     - SM_Roof
-    padding: 0c000000
+    padding: 18000000
     unwrapper: 00000000
   - meshName:
     - SM_BottleSauce
@@ -550,31 +550,31 @@ MonoBehaviour:
     unwrapper: 00000000
   - meshName:
     - SM_WallRegular_2x4
-    padding: 19000000
+    padding: 33000000
     unwrapper: 00000000
   - meshName:
     - SM_WallRegularDoor_2x4
-    padding: 13000000
+    padding: 26000000
     unwrapper: 00000000
   - meshName:
     - Decoration_Light_CeilingLamp_02_01
-    padding: 62000000
+    padding: c5000000
     unwrapper: 00000000
   - meshName:
     - Decoration_Light_CeilingLamp_04_01
-    padding: 75000000
+    padding: ea000000
     unwrapper: 00000000
   - meshName:
     - Decoration_Plant_03_03
-    padding: 45000000
+    padding: 8a000000
     unwrapper: 00000000
   - meshName:
     - Decoration_Plant_05_01
-    padding: 37000000
+    padding: 6e000000
     unwrapper: 00000000
   - meshName:
     - Decoration_Vase_02_03
-    padding: 26000000
+    padding: 4c000000
     unwrapper: 00000000
   - meshName:
     - Seat.004
@@ -600,7 +600,7 @@ MonoBehaviour:
     - Icon
     - Dispenser
     - FFK_DrinkMachine_01_01
-    padding: 450000005800000020000000430000002e0000002000000017000000140000003e00000000010000720000001c0000002200000000010000320000003e00000030000000e1000000440000000001000000010000560000001b000000
+    padding: 8a000000b000000041000000860000005d000000410000002f000000280000003e00000000010000e4000000380000004400000000010000650000007c0000006000000000010000880000000001000000010000ad00000037000000
     unwrapper: 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
   - meshName:
     - SM_BowlSauce
@@ -608,13 +608,13 @@ MonoBehaviour:
     unwrapper: 00000000
   - meshName:
     - SM_Computer
-    padding: 2b000000
+    padding: 57000000
     unwrapper: 00000000
   - meshName:
     - SM_CountertopCabinet_Top
     - SM_CountertopCabinet_Opener
     - SM_CountertopCabinet_Base
-    padding: 260000001500000009000000
+    padding: 4c0000001500000009000000
     unwrapper: 000000000000000000000000
   - meshName:
     - SM_PizzaOven_Timer
@@ -622,7 +622,7 @@ MonoBehaviour:
     - SM_PizzaOven_Opener
     - Plane.003
     - Bar.001
-    padding: 000100001800000048000000d0000000e1000000
+    padding: 000100003100000048000000d0000000e1000000
     unwrapper: 0000000000000000000000000000000000000000
   - meshName:
     - Toilet
@@ -630,20 +630,20 @@ MonoBehaviour:
     - ToiletSeatCover
     - ToiletSeat
     - ToiletFlushHandle
-    padding: 2300000000010000520000006700000000010000
+    padding: 470000000001000052000000ce00000000010000
     unwrapper: 0000000000000000000000000000000000000000
   - meshName:
     - T_Seperator
     - T_Seperator.002
-    padding: 1000000018000000
+    padding: 2100000018000000
     unwrapper: 0000000000000000
   - meshName:
     - T_Seperator.001
-    padding: 10000000
+    padding: 21000000
     unwrapper: 00000000
   - meshName:
     - SM_Toilet_Sink
-    padding: 40000000
+    padding: 80000000
     unwrapper: 00000000
   - meshName:
     - SM_PizzaTopping_Chicken_Grouped
@@ -854,5 +854,5 @@ MonoBehaviour:
   renderSettingsRTPVSceneView: 0
   renderSettingsRTPVWidth: 640
   renderSettingsRTPVHeight: 360
-  modifiedMeshPaddingArray: 000100001800000048000000d0000000e1000000
-  modifiedMeshUnwrapperArray: 0000000000000000000000000000000000000000
+  modifiedMeshPaddingArray: 8a000000
+  modifiedMeshUnwrapperArray: 00000000

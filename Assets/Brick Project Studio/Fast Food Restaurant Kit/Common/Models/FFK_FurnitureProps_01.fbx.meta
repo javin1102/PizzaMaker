@@ -37,7 +37,7 @@ ModelImporter:
     extraExposedTransformPaths: []
     extraUserProperties:
     - '#BAKERY{"meshName":["Seat.004","FFK_Stool_02_01","Table Top","FFK_Table_03_01","FFK_Bench_02_01","FFK_Table_07_01.001","Seat.001","TableTop.001","Seat.002","Circle.006","FFK_Chair_01_01","Table
-      Top.001","FFK_Table_02_01","Tap","Part_02","Display","Part_01","IceSpout","Drain","Press","Icon","Dispenser","FFK_DrinkMachine_01_01"],"padding":[69,88,32,67,46,32,23,20,62,256,114,28,34,256,50,62,48,225,68,256,256,86,27],"unwrapper":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]}'
+      Top.001","FFK_Table_02_01","Tap","Part_02","Display","Part_01","IceSpout","Drain","Press","Icon","Dispenser","FFK_DrinkMachine_01_01"],"padding":[138,176,65,134,93,65,47,40,62,256,228,56,68,256,101,124,96,256,136,256,256,173,55],"unwrapper":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]}'
     clipAnimations: []
     isReadable: 0
   meshes:

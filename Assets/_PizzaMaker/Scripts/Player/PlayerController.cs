@@ -154,11 +154,11 @@ namespace PizzaMaker
             firstPersonController.cameraCanMove = false;
             selector.enabled = false;
 
-            var openPhoneQuestState = QuestLog.GetQuestState(LuaVariables.Quests.Day1OpenPhone.id);
+            var openPhoneQuestState = QuestLog.GetQuestState(CustomLua.Quests.Day1OpenPhone.id);
             if (openPhoneQuestState == QuestState.Active)
             {
-                QuestLog.SetQuestState(LuaVariables.Quests.Day1OpenPhone.id, QuestState.Success);
-                GameEvents.OnQuestStateChanged?.Invoke(LuaVariables.Quests.Day1OpenPhone, QuestState.Success);
+                QuestLog.SetQuestState(CustomLua.Quests.Day1OpenPhone.id, QuestState.Success);
+                GameEvents.OnQuestStateChanged?.Invoke(CustomLua.Quests.Day1OpenPhone, QuestState.Success);
             }
         }
 

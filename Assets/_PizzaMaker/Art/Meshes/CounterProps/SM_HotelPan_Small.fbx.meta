@@ -29,7 +29,7 @@ ModelImporter:
     animationWrapMode: 0
     extraExposedTransformPaths: []
     extraUserProperties:
-    - '#BAKERY{"meshName":["SM_HotelPan_Small"],"padding":[142],"unwrapper":[0]}'
+    - '#BAKERY{"meshName":["SM_HotelPan_Small"],"padding":[256],"unwrapper":[0]}'
     clipAnimations: []
     isReadable: 0
   meshes:
