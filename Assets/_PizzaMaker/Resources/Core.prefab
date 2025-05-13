@@ -202,7 +202,6 @@ GameObject:
   m_Component:
   - component: {fileID: 6150735659469126047}
   - component: {fileID: 6676140596644170524}
-  - component: {fileID: 3941003640976291430}
   - component: {fileID: 3563514236569737928}
   m_Layer: 6
   m_Name: Camera
@@ -265,7 +264,7 @@ Camera:
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 183
+    m_Bits: 64
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
@@ -277,14 +276,6 @@ Camera:
   m_OcclusionCulling: 0
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
---- !u!81 &3941003640976291430
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5809825960152145775}
-  m_Enabled: 1
 --- !u!114 &3563514236569737928
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -308,7 +299,7 @@ MonoBehaviour:
     m_Bits: 1
   m_VolumeTrigger: {fileID: 0}
   m_VolumeFrameworkUpdateModeOption: 2
-  m_RenderPostProcessing: 1
+  m_RenderPostProcessing: 0
   m_Antialiasing: 0
   m_AntialiasingQuality: 2
   m_StopNaN: 0
@@ -341,6 +332,10 @@ PrefabInstance:
       propertyPath: demoDatabase
       value: 
       objectReference: {fileID: 11400000, guid: c1cc03cd82f6cdb40afbc0575be25564, type: 2}
+    - target: {fileID: 3002593841377199331, guid: 6e308d41e30f54841a15b98ca3a4c8d4, type: 3}
+      propertyPath: m_Antialiasing
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 3002593841377199331, guid: 6e308d41e30f54841a15b98ca3a4c8d4, type: 3}
       propertyPath: m_Cameras.Array.size
       value: 1
@@ -392,6 +387,10 @@ PrefabInstance:
     - target: {fileID: 5819133988814604731, guid: 6e308d41e30f54841a15b98ca3a4c8d4, type: 3}
       propertyPath: m_Name
       value: FirstPersonController
+      objectReference: {fileID: 0}
+    - target: {fileID: 7662696599271280710, guid: 6e308d41e30f54841a15b98ca3a4c8d4, type: 3}
+      propertyPath: m_CullingMask.m_Bits
+      value: 183
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

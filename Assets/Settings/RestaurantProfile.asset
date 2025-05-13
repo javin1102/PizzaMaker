@@ -487,8 +487,8 @@ MonoBehaviour:
     m_OverrideState: 1
     m_Value: 0
   sharpenIntensity:
-    m_OverrideState: 0
-    m_Value: 3.2
+    m_OverrideState: 1
+    m_Value: 0.9
   sharpenDepthThreshold:
     m_OverrideState: 0
     m_Value: 0.0293
@@ -514,7 +514,7 @@ MonoBehaviour:
     m_Value: 0.5
   antialiasStrength:
     m_OverrideState: 0
-    m_Value: 0.8
+    m_Value: 0
   antialiasDepthThreshold:
     m_OverrideState: 0
     m_Value: 0.00002
@@ -535,16 +535,16 @@ MonoBehaviour:
     m_Value: 1000
   tonemapExposurePre:
     m_OverrideState: 1
-    m_Value: 0.8
+    m_Value: 1.02
   tonemapBrightnessPost:
     m_OverrideState: 1
-    m_Value: 1
+    m_Value: 1.27
   saturate:
     m_OverrideState: 1
     m_Value: 0
   brightness:
     m_OverrideState: 1
-    m_Value: 0.65
+    m_Value: 0.63
   contrast:
     m_OverrideState: 1
     m_Value: 1
@@ -559,10 +559,10 @@ MonoBehaviour:
     m_Value: {r: 1, g: 1, b: 1, a: 0}
   colorTemp:
     m_OverrideState: 1
-    m_Value: 1080
+    m_Value: 6683
   colorTempBlend:
     m_OverrideState: 1
-    m_Value: 0.144
+    m_Value: 0.12
   lut:
     m_OverrideState: 0
     m_Value: 0

@@ -5889,6 +5889,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 767961886}
     m_Modifications:
     - target: {fileID: 2136808813648269547, guid: 768c9af3542cf9e419dd6d257fb6e018, type: 3}
+      propertyPath: pizzaBoxAttachment
+      value: 
+      objectReference: {fileID: 2025991794}
+    - target: {fileID: 2136808813648269547, guid: 768c9af3542cf9e419dd6d257fb6e018, type: 3}
       propertyPath: pizzaCookedTransform
       value: 
       objectReference: {fileID: 2025991792}
@@ -9634,6 +9638,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3563514236569737928, guid: e349c1fa5b0bc4b43843006206ff4134, type: 3}
+      propertyPath: m_VolumeLayerMask.m_Bits
+      value: 64
+      objectReference: {fileID: 0}
     - target: {fileID: 5045655961561691540, guid: e349c1fa5b0bc4b43843006206ff4134, type: 3}
       propertyPath: m_Name
       value: Core
@@ -9642,12 +9650,7 @@ PrefabInstance:
       propertyPath: orderFulFillManager
       value: 
       objectReference: {fileID: 1784052784}
-    - target: {fileID: 5809825960152145775, guid: e349c1fa5b0bc4b43843006206ff4134, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 3941003640976291430, guid: e349c1fa5b0bc4b43843006206ff4134, type: 3}
+    m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -11709,7 +11712,7 @@ MonoBehaviour:
     m_Bits: 4294967295
   lowestSubdivLevelOverride: 0
   highestSubdivLevelOverride: 7
-  overridesSubdivLevels: 0
+  overridesSubdivLevels: 1
   mightNeedRebaking: 0
   cachedTransform:
     e00: 1
@@ -11728,7 +11731,7 @@ MonoBehaviour:
     e31: 0
     e32: 0
     e33: 1
-  cachedHashCode: -802173718
+  cachedHashCode: -654137829
   fillEmptySpaces: 1
   version: 2
   globalVolume: 0
@@ -17928,6 +17931,39 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 865e28ab77de3044399bd436ed1c5b4d, type: 3}
   m_PrefabInstance: {fileID: 675522065}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &765287860
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 765287861}
+  m_Layer: 0
+  m_Name: CounterAttachments
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &765287861
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 765287860}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 2025991792}
+  - {fileID: 2021551959}
+  m_Father: {fileID: 1784052783}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &767086609
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -18984,6 +19020,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 767961886}
     m_Modifications:
+    - target: {fileID: 2136808813648269547, guid: 768c9af3542cf9e419dd6d257fb6e018, type: 3}
+      propertyPath: pizzaBoxAttachment
+      value: 
+      objectReference: {fileID: 2025991794}
     - target: {fileID: 2136808813648269547, guid: 768c9af3542cf9e419dd6d257fb6e018, type: 3}
       propertyPath: pizzaCookedTransform
       value: 
@@ -31764,6 +31804,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 767961886}
     m_Modifications:
     - target: {fileID: 2136808813648269547, guid: 768c9af3542cf9e419dd6d257fb6e018, type: 3}
+      propertyPath: pizzaBoxAttachment
+      value: 
+      objectReference: {fileID: 2025991794}
+    - target: {fileID: 2136808813648269547, guid: 768c9af3542cf9e419dd6d257fb6e018, type: 3}
       propertyPath: pizzaCookedTransform
       value: 
       objectReference: {fileID: 2025991792}
@@ -35019,6 +35063,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 767961886}
     m_Modifications:
+    - target: {fileID: 2136808813648269547, guid: 768c9af3542cf9e419dd6d257fb6e018, type: 3}
+      propertyPath: pizzaBoxAttachment
+      value: 
+      objectReference: {fileID: 2025991794}
     - target: {fileID: 2136808813648269547, guid: 768c9af3542cf9e419dd6d257fb6e018, type: 3}
       propertyPath: pizzaCookedTransform
       value: 
@@ -44033,11 +44081,10 @@ Transform:
   m_Children:
   - {fileID: 608777213}
   - {fileID: 278004146}
-  - {fileID: 2025991792}
   - {fileID: 767961886}
   - {fileID: 586145615}
   - {fileID: 779593424}
-  - {fileID: 2021551959}
+  - {fileID: 765287861}
   m_Father: {fileID: 1120459159}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1784052784
@@ -44060,6 +44107,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 767961886}
     m_Modifications:
+    - target: {fileID: 2136808813648269547, guid: 768c9af3542cf9e419dd6d257fb6e018, type: 3}
+      propertyPath: pizzaBoxAttachment
+      value: 
+      objectReference: {fileID: 2025991794}
     - target: {fileID: 2136808813648269547, guid: 768c9af3542cf9e419dd6d257fb6e018, type: 3}
       propertyPath: pizzaCookedTransform
       value: 
@@ -46447,7 +46498,7 @@ MonoBehaviour:
   renderSettingsRTPVSceneView: 0
   renderSettingsRTPVWidth: 640
   renderSettingsRTPVHeight: 360
-  lastBakeTime: 59
+  lastBakeTime: 53
   enlightenWarningShown: 0
   enlightenWarningShown2: 0
   lightUIDs: effed0d897e9ca4c166f000fa9278a377d23ba3705b59ecb555852fb3a2e5d52be4e2c2ca5b0bf949e259efd9d98a78e3b60d19c61fdd294cbdbc094
@@ -47898,13 +47949,23 @@ MonoBehaviour:
     - Decoration_Plant_03_03
     padding: 8a000000
     unwrapper: 00000000
-  maps: []
-  masks: []
+  maps:
+  - {fileID: 2800000, guid: 921c2c780897b7d4981c881a45d56df1, type: 3}
+  - {fileID: 2800000, guid: 3d9a4f36bdd2e6e40803b6b45c778dd2, type: 3}
+  masks:
+  - {fileID: 2800000, guid: 5b57c53a2cdf6f5448eedbc13115a615, type: 3}
+  - {fileID: 2800000, guid: 60c944d2a9b583941846bad20c5e77e3, type: 3}
   dirMaps: []
-  rnmMaps0: []
-  rnmMaps1: []
-  rnmMaps2: []
-  mapsMode: 
+  rnmMaps0:
+  - {fileID: 2800000, guid: d2e83c63944d4fb49b02303017588474, type: 3}
+  - {fileID: 2800000, guid: a29701f09e157e84bae5481b73aa4b25, type: 3}
+  rnmMaps1:
+  - {fileID: 2800000, guid: 8ab806179a6bdd348ba45eb53d37c01a, type: 3}
+  - {fileID: 2800000, guid: 5a52dd0b064bcb04c8b2c41a5bc4cdfa, type: 3}
+  rnmMaps2:
+  - {fileID: 2800000, guid: a26422eebc366824a94bb4553a322bf1, type: 3}
+  - {fileID: 2800000, guid: 69d2e4935867f72409aaa966a756f3f4, type: 3}
+  mapsMode: 0300000003000000
   bakedRenderers:
   - {fileID: 2078588}
   - {fileID: 5253367}
@@ -53422,12 +53483,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2021551958}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.537, y: 0.645, z: -0.484}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -3.537, y: 0.645, z: -0.4840002}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1784052783}
+  m_Father: {fileID: 765287861}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &2021551960
 BoxCollider:
@@ -53554,6 +53615,8 @@ GameObject:
   m_Component:
   - component: {fileID: 2025991792}
   - component: {fileID: 2025991793}
+  - component: {fileID: 2025991795}
+  - component: {fileID: 2025991794}
   m_Layer: 0
   m_Name: PizzaBoxesReadyAttachment
   m_TagString: Untagged
@@ -53574,7 +53637,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1784052783}
+  m_Father: {fileID: 765287861}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &2025991793
 BoxCollider:
@@ -53595,8 +53658,45 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.5882175, y: 0.06924772, z: 0.5977795}
-  m_Center: {x: 0.0029210448, y: 0.034623742, z: 0.0037242174}
+  m_Size: {x: 0.71397, y: 0.06924772, z: 0.6887117}
+  m_Center: {x: 0.052680433, y: 0.034623746, z: -0.041741893}
+--- !u!114 &2025991794
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2025991791}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c2eb9bd47f06e2a47adee7655130abb9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &2025991795
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2025991791}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 790c71b1cb6e96849bf1f48edef20a19, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_overrideName: 
+  m_overrideUseMessage: 
+  maxUseDistance: 5
+  events:
+    onSelect:
+      m_PersistentCalls:
+        m_Calls: []
+    onDeselect:
+      m_PersistentCalls:
+        m_Calls: []
+    onUse:
+      m_PersistentCalls:
+        m_Calls: []
 --- !u!1 &2029567586
 GameObject:
   m_ObjectHideFlags: 0
@@ -56461,6 +56561,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 767961886}
     m_Modifications:
+    - target: {fileID: 2136808813648269547, guid: 768c9af3542cf9e419dd6d257fb6e018, type: 3}
+      propertyPath: pizzaBoxAttachment
+      value: 
+      objectReference: {fileID: 2025991794}
     - target: {fileID: 2136808813648269547, guid: 768c9af3542cf9e419dd6d257fb6e018, type: 3}
       propertyPath: pizzaCookedTransform
       value: 

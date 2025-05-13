@@ -10,7 +10,7 @@ namespace PizzaMaker
     {
         public override MenuType? MenuType => PizzaCooked != null ? PizzaCooked.MenuType : null;
         public PizzaCooked PizzaCooked { get; internal set; }
-        [SerializeField] private Transform pizzaCookedTransform;
+        [SerializeField] private PizzaBoxAttachment pizzaBoxAttachment;
         [SerializeField] private Transform pizzaTop;
         [Inject] internal OrderFulFillManager orderFulFillManager;
         public GrabbableState CurrentGrabbableState { get; set; } = GrabbableState.Placed;
@@ -44,11 +44,8 @@ namespace PizzaMaker
                 && grabbedPizzaCooked.MenuType != PizzaMaker.MenuType.PizzaBurnt
             )
             {
-                var childCount = pizzaCookedTransform.childCount;
-                var instantiatedPizzaBox = Instantiate(this, pizzaCookedTransform);
-                instantiatedPizzaBox.transform.localRotation = Quaternion.identity;
-                instantiatedPizzaBox.pizzaTop.transform.localRotation = Quaternion.identity;
-                instantiatedPizzaBox.transform.localPosition = new Vector3(0f, childCount * 0.05f, 0f);
+                var instantiatedPizzaBox = Instantiate(this);
+                pizzaBoxAttachment.AttachPizzaBox(instantiatedPizzaBox);
                 instantiatedPizzaBox.PizzaCooked = grabbedPizzaCooked;
                 grabbedPizzaCooked.AttachedTo(instantiatedPizzaBox.transform);
                 grabbedPizzaCooked.transform.position = instantiatedPizzaBox.transform.position;
@@ -60,15 +57,26 @@ namespace PizzaMaker
             else if (PizzaCooked && playerController.CurrentIGrabbable == null)
             {
                 playerController.Grab<PizzaBox>(this);
+                pizzaBoxAttachment.UpdateStack();
+            }
+            else if (PizzaCooked && playerController.CurrentIGrabbable?.GetGrabbableObject<PizzaBox>() is { } pizzaBox)
+            {
+                pizzaBoxAttachment.AttachPizzaBox(pizzaBox);
+                playerController.UnGrab();
             }
         }
 
         public override void OnHover(PlayerController playerController, ref RaycastHit raycastHit)
         {
-            if (PizzaCooked)
+            
+            if (PizzaCooked && playerController.CurrentIGrabbable == null)
             {
                 usable.overrideUseMessage = $"<sprite name=\"lmb\">Grab {PizzaCooked.MenuType.name}";
                 usable.enabled = true;
+            }
+            else if (PizzaCooked && playerController.CurrentIGrabbable?.GetGrabbableObject<PizzaBox>())
+            {
+                usable.overrideUseMessage = $"<sprite name=\"lmb\">Place {PizzaCooked.MenuType.name}";
             }
             
             else if (PizzaCooked == null 
