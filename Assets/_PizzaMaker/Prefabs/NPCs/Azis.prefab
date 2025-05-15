@@ -283,3 +283,4 @@ MonoBehaviour:
       id: 1003
       name: Soja Cola
     extraToppings: []
+  orderFulFillChannel: {fileID: 11400000, guid: c935bdf6d3f6e93468ca19c58aecd649, type: 2}

@@ -48,7 +48,7 @@ namespace PizzaMaker
         {
             if (!npcOrders.TryGetValue(customerName, out NPCOrder npcOrder))
                 return;
-            
+
             var matchingItems = GetMatchingOrderItems(npcOrder);
             for (int i = 0; i < matchingItems.Count; i++)
             {
@@ -56,6 +56,7 @@ namespace PizzaMaker
                 RemoveItem(matchingItem);
                 Destroy(matchingItem.gameObject);
             }
+
             npcOrders.Remove(customerName);
         }
 
@@ -89,7 +90,7 @@ namespace PizzaMaker
                     {
                         if (item is PizzaBox pizzaBox)
                         {
-                            if (pizzaBox.PizzaCooked.ExtraToppingList is not { Count: > 0 })
+                            if (pizzaBox.PizzaCooked.ExtraToppingList is { Count: <= 0 })
                             {
                                 matchingItems.Add(item);
                                 break; // Found matching pizza for this order menu
@@ -109,6 +110,7 @@ namespace PizzaMaker
 
         public bool CanFulFillOrder(List<OrderMenu> orderMenus)
         {
+            var orderFulfilled = 0;
             foreach (var orderMenu in orderMenus)
             {
                 if (!orderedItems.TryGetValue(orderMenu.menuType, out var itemList))
@@ -128,7 +130,12 @@ namespace PizzaMaker
                                                   pizzaBox.PizzaCooked.ExtraToppingList.Count == orderMenu.extraToppings.Count;
 
                         if (containsAllExtraTopping)
-                            break;
+                        {
+                            orderFulfilled++;
+                            if (orderFulfilled == orderMenus.Count)
+                                return true;
+                            break; // Found matching pizza for this order menu
+                        }
                     }
 
                     if (!containsAllExtraTopping)
@@ -136,9 +143,13 @@ namespace PizzaMaker
                 }
                 else
                 {
-                    var quantityNotMatch = itemList.Any(item => item is PizzaBox pizzaBox && pizzaBox.PizzaCooked.ExtraToppingList is { Count: > 0 });
-                    if (quantityNotMatch)
-                        return false;
+                    var quantityMatch = itemList.Any(item => item is PizzaBox pizzaBox && pizzaBox.PizzaCooked.ExtraToppingList is { Count: <= 0 });
+                    if (quantityMatch)
+                    {
+                        orderFulfilled++;
+                        if (orderFulfilled == orderMenus.Count)
+                            return true;
+                    }
                 }
             }
 

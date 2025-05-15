@@ -1,28 +1,36 @@
-﻿using UnityEngine;
+﻿using Obvious.Soap;
+using UnityEngine;
 using PixelCrushers.DialogueSystem;
 using PizzaMaker;
 using Reflex.Attributes;
 
-public class OrderChecker : MonoBehaviour
+namespace PizzaMaker
 {
-    [Inject] private OrderFulFillManager orderFulFillManager;
-
-    void OnEnable()
+    public class OrderChecker : MonoBehaviour
     {
-        Lua.RegisterFunction(nameof(CheckOrder), this, SymbolExtensions.GetMethodInfo(() => CheckOrder(string.Empty)));
-    }
+        [Inject] private OrderFulFillManager orderFulFillManager;
+        [SerializeField] private ScriptableEventString onFulFillOrder;
 
-    void OnDisable()
-    {
-        Lua.UnregisterFunction(nameof(CheckOrder));
-    }
+        void OnEnable()
+        {
+            Lua.RegisterFunction(nameof(CheckOrder), this, SymbolExtensions.GetMethodInfo(() => CheckOrder(string.Empty)));
+        }
 
-    public bool CheckOrder(string customerName)
-    {
-        bool canFulFillOrder = orderFulFillManager.CanFulFillOrder(customerName);
-        if(canFulFillOrder)
-            orderFulFillManager.FulFillOrder(customerName);
-        return canFulFillOrder;
-    }
+        void OnDisable()
+        {
+            Lua.UnregisterFunction(nameof(CheckOrder));
+        }
 
+        public bool CheckOrder(string customerName)
+        {
+            bool canFulFillOrder = orderFulFillManager.CanFulFillOrder(customerName);
+            if (canFulFillOrder)
+            {
+                orderFulFillManager.FulFillOrder(customerName);
+                onFulFillOrder.Raise(customerName);
+            }
+
+            return canFulFillOrder;
+        }
+    }
 }

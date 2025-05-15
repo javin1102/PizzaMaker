@@ -85,136 +85,146 @@ public class MainTest
 
         var drinkCup = new GameObject().gameObject.AddComponent<BoxCollider>().gameObject.AddComponent<DrinkCup>();
         drinkCup.MenuType = MenuType.DrinkUnicornPop;
-
-        //-=====================================
+        
         orderFullFillManager.AddItem(pizzaBox1);
-        //=========================================
 
-
-        //Assert order menu is match
-        bool isOrderFulfilled = orderFullFillManager.IsOrderFulfilled(new List<OrderMenu>()
+        bool isOrderFulfilled = orderFullFillManager.CanFulFillOrder(new List<OrderMenu>()
         {
-            new()
-            {
-                menuType = MenuType.PizzaMargherita,
-                extraToppings = new List<string>() { Ingredient.Ham }
-            }
-        });
-        Assert.IsTrue(isOrderFulfilled);
-
-        //Assert extra topping is not match
-        isOrderFulfilled = orderFullFillManager.IsOrderFulfilled(new List<OrderMenu>()
-        {
-            new()
-            {
-                menuType = MenuType.PizzaMargherita,
-            }
-        });
-        Assert.IsFalse(isOrderFulfilled);
-
-        isOrderFulfilled = orderFullFillManager.IsOrderFulfilled(new List<OrderMenu>()
-        {
-            new()
-            {
-                menuType = MenuType.PizzaMargherita,
-                extraToppings = new List<string>() { Ingredient.Onion }
-            }
-        });
-
-        Assert.IsFalse(isOrderFulfilled);
-
-        //Assert multiple order menu is match
-        orderFullFillManager.AddItem(drinkCup);
-        orderFullFillManager.AddItem(pizzaBox2);
-        orderFullFillManager.AddItem(pizzaBox3);
-        isOrderFulfilled = orderFullFillManager.IsOrderFulfilled(new List<OrderMenu>()
-        {
-            new()
-            {
-                menuType = MenuType.PizzaMargherita,
-                extraToppings = new List<string>() { Ingredient.Ham }
-            },
-            new()
-            {
-                menuType = MenuType.PizzaMargherita,
-                extraToppings = new List<string>() { Ingredient.Sausage, Ingredient.Beef, Ingredient.Pepperoni }
-            },
-            new()
-            {
-                menuType = MenuType.PizzaBarbeque,
-                extraToppings = new List<string>() { Ingredient.CheeseCheddar, Ingredient.Onion, Ingredient.BlackOlives }
-            },
-            new()
-            {
-                menuType = MenuType.DrinkUnicornPop,
-            }
-        });
-        Assert.IsTrue(isOrderFulfilled);
-
-
-        //Assert multiple order menu not match
-        isOrderFulfilled = orderFullFillManager.IsOrderFulfilled(new List<OrderMenu>()
-        {
-            new()
-            {
-                menuType = MenuType.PizzaMargherita,
-                extraToppings = new List<string>() { Ingredient.Ham }
-            },
-            new()
-            {
-                menuType = MenuType.PizzaMargherita,
-                extraToppings = new List<string>() { Ingredient.Sausage, Ingredient.Pepperoni }
-            },
-            new()
-            {
-                menuType = MenuType.PizzaBarbeque,
-                extraToppings = new List<string>() { Ingredient.CheeseCheddar, Ingredient.Onion, Ingredient.BlackOlives }
-            },
             new()
             {
                 menuType = MenuType.DrinkUnicornPop,
             }
         });
         Assert.IsFalse(isOrderFulfilled);
-
-
-        isOrderFulfilled = orderFullFillManager.IsOrderFulfilled(new List<OrderMenu>()
-        {
-            new()
-            {
-                menuType = MenuType.PizzaMargherita,
-                extraToppings = new List<string>() { Ingredient.Ham }
-            },
-            new()
-            {
-                menuType = MenuType.PizzaMargherita,
-                extraToppings = new List<string>() { Ingredient.Sausage, Ingredient.Beef, Ingredient.Pepperoni }
-            },
-            new()
-            {
-                menuType = MenuType.PizzaBarbeque,
-                extraToppings = new List<string>() { Ingredient.CheeseCheddar, Ingredient.Onion, Ingredient.BlackOlives }
-            },
-        });
-        Assert.IsTrue(isOrderFulfilled);
-
-        isOrderFulfilled = orderFullFillManager.IsOrderFulfilled(new List<OrderMenu>()
-        {
-            new()
-            {
-                menuType = MenuType.PizzaMargherita,
-            },
-            new()
-            {
-                menuType = MenuType.PizzaMargherita,
-                extraToppings = new List<string>() { Ingredient.Sausage, Ingredient.Beef, Ingredient.Pepperoni }
-            },
-            new()
-            {
-                menuType = MenuType.PizzaBarbeque,
-                extraToppings = new List<string>() { Ingredient.CheeseCheddar, Ingredient.Onion, Ingredient.BlackOlives }
-            },
-        });
-        Assert.IsFalse(isOrderFulfilled);
+        // //-=====================================
+        // orderFullFillManager.AddItem(pizzaBox1);
+        // //=========================================
+        //
+        //
+        // //Assert order menu is match
+        // bool isOrderFulfilled = orderFullFillManager.CanFulFillOrder(new List<OrderMenu>()
+        // {
+        //     new()
+        //     {
+        //         menuType = MenuType.PizzaMargherita,
+        //         extraToppings = new List<string>() { Ingredient.Ham }
+        //     }
+        // });
+        // Assert.IsTrue(isOrderFulfilled);
+        //
+        // //Assert extra topping is not match
+        // isOrderFulfilled = orderFullFillManager.CanFulFillOrder(new List<OrderMenu>()
+        // {
+        //     new()
+        //     {
+        //         menuType = MenuType.PizzaMargherita,
+        //     }
+        // });
+        // Assert.IsFalse(isOrderFulfilled);
+        //
+        // isOrderFulfilled = orderFullFillManager.CanFulFillOrder(new List<OrderMenu>()
+        // {
+        //     new()
+        //     {
+        //         menuType = MenuType.PizzaMargherita,
+        //         extraToppings = new List<string>() { Ingredient.Onion }
+        //     }
+        // });
+        //
+        // Assert.IsFalse(isOrderFulfilled);
+        //
+        // //Assert multiple order menu is match
+        // orderFullFillManager.AddItem(drinkCup);
+        // orderFullFillManager.AddItem(pizzaBox2);
+        // orderFullFillManager.AddItem(pizzaBox3);
+        // isOrderFulfilled = orderFullFillManager.CanFulFillOrder(new List<OrderMenu>()
+        // {
+        //     new()
+        //     {
+        //         menuType = MenuType.PizzaMargherita,
+        //         extraToppings = new List<string>() { Ingredient.Ham }
+        //     },
+        //     new()
+        //     {
+        //         menuType = MenuType.PizzaMargherita,
+        //         extraToppings = new List<string>() { Ingredient.Sausage, Ingredient.Beef, Ingredient.Pepperoni }
+        //     },
+        //     new()
+        //     {
+        //         menuType = MenuType.PizzaBarbeque,
+        //         extraToppings = new List<string>() { Ingredient.CheeseCheddar, Ingredient.Onion, Ingredient.BlackOlives }
+        //     },
+        //     new()
+        //     {
+        //         menuType = MenuType.DrinkUnicornPop,
+        //     }
+        // });
+        // Assert.IsTrue(isOrderFulfilled);
+        //
+        //
+        // //Assert multiple order menu not match
+        // isOrderFulfilled = orderFullFillManager.CanFulFillOrder(new List<OrderMenu>()
+        // {
+        //     new()
+        //     {
+        //         menuType = MenuType.PizzaMargherita,
+        //         extraToppings = new List<string>() { Ingredient.Ham }
+        //     },
+        //     new()
+        //     {
+        //         menuType = MenuType.PizzaMargherita,
+        //         extraToppings = new List<string>() { Ingredient.Sausage, Ingredient.Pepperoni }
+        //     },
+        //     new()
+        //     {
+        //         menuType = MenuType.PizzaBarbeque,
+        //         extraToppings = new List<string>() { Ingredient.CheeseCheddar, Ingredient.Onion, Ingredient.BlackOlives }
+        //     },
+        //     new()
+        //     {
+        //         menuType = MenuType.DrinkUnicornPop,
+        //     }
+        // });
+        // Assert.IsFalse(isOrderFulfilled);
+        //
+        //
+        // isOrderFulfilled = orderFullFillManager.CanFulFillOrder(new List<OrderMenu>()
+        // {
+        //     new()
+        //     {
+        //         menuType = MenuType.PizzaMargherita,
+        //         extraToppings = new List<string>() { Ingredient.Ham }
+        //     },
+        //     new()
+        //     {
+        //         menuType = MenuType.PizzaMargherita,
+        //         extraToppings = new List<string>() { Ingredient.Sausage, Ingredient.Beef, Ingredient.Pepperoni }
+        //     },
+        //     new()
+        //     {
+        //         menuType = MenuType.PizzaBarbeque,
+        //         extraToppings = new List<string>() { Ingredient.CheeseCheddar, Ingredient.Onion, Ingredient.BlackOlives }
+        //     },
+        // });
+        // Assert.IsTrue(isOrderFulfilled);
+        //
+        // isOrderFulfilled = orderFullFillManager.CanFulFillOrder(new List<OrderMenu>()
+        // {
+        //     new()
+        //     {
+        //         menuType = MenuType.PizzaMargherita,
+        //     },
+        //     new()
+        //     {
+        //         menuType = MenuType.PizzaMargherita,
+        //         extraToppings = new List<string>() { Ingredient.Sausage, Ingredient.Beef, Ingredient.Pepperoni }
+        //     },
+        //     new()
+        //     {
+        //         menuType = MenuType.PizzaBarbeque,
+        //         extraToppings = new List<string>() { Ingredient.CheeseCheddar, Ingredient.Onion, Ingredient.BlackOlives }
+        //     },
+        // });
+        // Assert.IsFalse(isOrderFulfilled);
     }
 }

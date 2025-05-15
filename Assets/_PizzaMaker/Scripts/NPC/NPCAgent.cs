@@ -17,6 +17,7 @@ namespace PizzaMaker
         }
         private bool isInteractable = true;
         private Usable usable;
+        public bool ForceDisableInteractable { get; set; }
 
         private void Awake()
         {
@@ -25,6 +26,8 @@ namespace PizzaMaker
 
         private void Update()
         {
+            if (ForceDisableInteractable)
+                return;
             IsInteractable = !DialogueManager.IsConversationActive;
         }
 
