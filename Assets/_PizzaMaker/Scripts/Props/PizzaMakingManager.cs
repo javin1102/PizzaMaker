@@ -9,15 +9,15 @@ namespace PizzaMaker
         [field: SerializeField] public List<PizzaMenuSO> PizzaMenuSOList { get; set; }
         [SerializeField] private PizzaCooked invalidPizza;
 
-        public PizzaCooked BakePizza(MenuType menuType, PizzaDough pizzaDough)
+        public PizzaCooked BakePizza(PizzaDough pizzaDough)
         {
             foreach (PizzaMenuSO pizzaMenuSo in PizzaMenuSOList)
             {
-                if (pizzaMenuSo.menuType != menuType) continue;
-                HashSet<string> requiredIngredients = new(pizzaMenuSo.ingredients);
-                pizzaDough.Ingredients.ForEach(i => requiredIngredients.Remove(i));
-                if (requiredIngredients.Count > 0)
-                    return Instantiate(invalidPizza);
+                var isAllIngredients = pizzaDough.Ingredients?.Count >= pizzaMenuSo.ingredients.Count && 
+                                      pizzaMenuSo.ingredients.AsValueEnumerable().All(i => pizzaDough.Ingredients.Contains(i));
+                
+                if (!isAllIngredients)
+                    continue;
 
                 var pizzaCooked = Instantiate(pizzaMenuSo.cookedPizza);
                 var extraToppingList = pizzaDough.Ingredients.AsValueEnumerable().Except(pizzaMenuSo.ingredients).ToList();
@@ -25,7 +25,8 @@ namespace PizzaMaker
                 return pizzaCooked;
             }
 
-            return null;
+            return Instantiate(invalidPizza);
+            ;
         }
     }
 }

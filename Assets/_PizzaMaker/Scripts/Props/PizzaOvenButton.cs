@@ -37,7 +37,7 @@ namespace PizzaMaker
             {
                 pizzaOven.CurrentState = PizzaOven.State.Closed;
                 currentBakeTime = 0;
-                var cookedPizzaRef = pizzaMakingManager.BakePizza(MenuType.PizzaMargherita, pizzaOven.PizzaDough);
+                var cookedPizzaRef = pizzaMakingManager.BakePizza(pizzaOven.PizzaDough);
                 OnBakePizza?.Invoke(cookedPizzaRef);
                 Tween.Delay(0.5f, () => bakeTimeText.gameObject.SetActive(false));
             }

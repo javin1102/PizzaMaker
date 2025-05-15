@@ -31,7 +31,7 @@
         public const string SauceTomato = "Tomato Sauce";
         public const string Pepperoni = "Pepperoni";
         public const string SmokedChicken = "Smoked Chicken";
-        public const string SauceBarbecue = "Barbecue Sauce";
+        public const string SauceBarbecue = "Barbeque Sauce";
         public const string Beef = "Beef";
         public const string CheeseMozzarella = "Mozzarella Cheese";
         public const string CheeseCheddar = "Cheddar Cheese";

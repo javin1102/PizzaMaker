@@ -40353,7 +40353,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c949443710f645809836484c854e0297, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ingredientType: Barbecue Sauce
+  ingredientType: Barbeque Sauce
 --- !u!114 &1684026573
 MonoBehaviour:
   m_ObjectHideFlags: 0

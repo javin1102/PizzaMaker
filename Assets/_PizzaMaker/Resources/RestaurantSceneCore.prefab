@@ -112,6 +112,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <PizzaMenuSOList>k__BackingField:
   - {fileID: 11400000, guid: e1cd8c9a6c28e014ba394f0b6976f7a1, type: 2}
+  - {fileID: 11400000, guid: 24606c5cbc8762f46b1df4d3cadb1d74, type: 2}
   invalidPizza: {fileID: -1568819147158735452, guid: e17ca4b97e866394793d9469c09db2f3, type: 3}
 --- !u!1 &5516584964047321935
 GameObject:
