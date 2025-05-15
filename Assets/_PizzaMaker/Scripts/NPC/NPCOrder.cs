@@ -30,17 +30,5 @@ namespace PizzaMaker
         {
             orderFulFillManager.RemoveNPCOrder(this);
         }
-
-        private void OnUse()
-        {
-            if (orderFulFillManager.IsOrderFulfilled(OrderMenus))
-            {
-                DialogueLua.SetVariable(CustomLua.Variables.Day1AzisOrderFulfilled, true);
-            }
-            else
-            {
-                Debug.LogError("NO");
-            }
-        }
     }
 }

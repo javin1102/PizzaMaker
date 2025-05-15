@@ -235,7 +235,7 @@ namespace PizzaMaker
             objectToGrab.gameObject.SetGameLayerRecursive(GlobalVars.LayerFocus);
             CurrentIGrabbable = objectToGrab.GetComponent<IGrabbable>();
             CurrentIGrabbable.OnGrab(this);
-            grabEventChannel.GrabAction?.Invoke(grabbable);
+            grabEventChannel.GrabAction?.Invoke(CurrentIGrabbable);
         }
 
         public void UnGrab()

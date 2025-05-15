@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using ZLinq;
 
 namespace PizzaMaker
 {
@@ -13,7 +14,7 @@ namespace PizzaMaker
         {
             npcOrders.Add(npcOrder.CustomerName, npcOrder);
         }
-        
+
         public void RemoveNPCOrder(NPCOrder npcOrder)
         {
             npcOrders.Remove(npcOrder.CustomerName);
@@ -21,7 +22,7 @@ namespace PizzaMaker
 
         public void AddItem(OrderItem orderItem)
         {
-            if(orderItem.MenuType == null) 
+            if (orderItem.MenuType == null)
                 return;
             if (!orderedItems.TryGetValue(orderItem.MenuType.Value, out var itemList))
                 orderedItems.Add(orderItem.MenuType.Value, new List<OrderItem>() { orderItem });
@@ -38,12 +39,75 @@ namespace PizzaMaker
                 orderedItems.Remove(orderItem.MenuType.Value);
         }
 
-        public bool IsOrderFulfilled(string customerName)
+        public bool CanFulFillOrder(string customerName)
         {
-            return IsOrderFulfilled(npcOrders[customerName].OrderMenus);
+            return npcOrders.TryGetValue(customerName, out NPCOrder order) && CanFulFillOrder(order.OrderMenus);
         }
 
-        public bool IsOrderFulfilled(List<OrderMenu> orderMenus)
+        public void FulFillOrder(string customerName)
+        {
+            if (!npcOrders.TryGetValue(customerName, out NPCOrder npcOrder))
+                return;
+            
+            var matchingItems = GetMatchingOrderItems(npcOrder);
+            for (int i = 0; i < matchingItems.Count; i++)
+            {
+                var matchingItem = matchingItems[i];
+                RemoveItem(matchingItem);
+                Destroy(matchingItem.gameObject);
+            }
+            npcOrders.Remove(customerName);
+        }
+
+        public List<OrderItem> GetMatchingOrderItems(NPCOrder npcOrder)
+        {
+            List<OrderItem> matchingItems = new();
+
+            foreach (var orderMenu in npcOrder.OrderMenus)
+            {
+                if (!orderedItems.TryGetValue(orderMenu.menuType, out var itemList))
+                    continue;
+
+                foreach (var item in itemList)
+                {
+                    if (orderMenu.extraToppings is { Count: > 0 })
+                    {
+                        if (item is PizzaBox pizzaBox)
+                        {
+                            bool extraToppingsMatch = pizzaBox.PizzaCooked.ExtraToppingList is { Count: > 0 } &&
+                                                      pizzaBox.PizzaCooked.ExtraToppingList.All(topping => orderMenu.extraToppings.Contains(topping)) &&
+                                                      pizzaBox.PizzaCooked.ExtraToppingList.Count == orderMenu.extraToppings.Count;
+
+                            if (extraToppingsMatch)
+                            {
+                                matchingItems.Add(item);
+                                break; // Found matching pizza for this order menu
+                            }
+                        }
+                    }
+                    else
+                    {
+                        if (item is PizzaBox pizzaBox)
+                        {
+                            if (pizzaBox.PizzaCooked.ExtraToppingList is not { Count: > 0 })
+                            {
+                                matchingItems.Add(item);
+                                break; // Found matching pizza for this order menu
+                            }
+                        }
+                        else
+                        {
+                            matchingItems.Add(item);
+                            break; // Found matching item for this order menu
+                        }
+                    }
+                }
+            }
+
+            return matchingItems;
+        }
+
+        public bool CanFulFillOrder(List<OrderMenu> orderMenus)
         {
             foreach (var orderMenu in orderMenus)
             {
@@ -62,7 +126,7 @@ namespace PizzaMaker
                         containsAllExtraTopping = pizzaBox.PizzaCooked.ExtraToppingList is { Count: > 0 } &&
                                                   pizzaBox.PizzaCooked.ExtraToppingList.All(topping => orderMenu.extraToppings.Contains(topping)) &&
                                                   pizzaBox.PizzaCooked.ExtraToppingList.Count == orderMenu.extraToppings.Count;
-                        
+
                         if (containsAllExtraTopping)
                             break;
                     }

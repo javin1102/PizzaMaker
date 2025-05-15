@@ -30,18 +30,18 @@ MonoBehaviour:
           icon: Folder Icon
         - iColor: 3
           icon: Folder Icon
-        - iColor: 0
+        - iColor: 8
           icon: Folder Icon
         - iColor: 0
           icon: 
       goDatasByInstanceId:
-        keys: 94e2000046da00007ed7000008f8ffff
+        keys: 84e50000dedb00008ad8000044efffff
         values:
         - iColor: 0
           icon: Folder Icon
         - iColor: 3
           icon: Folder Icon
-        - iColor: 0
+        - iColor: 8
           icon: Folder Icon
         - iColor: 0
           icon: 

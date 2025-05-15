@@ -19,7 +19,10 @@ public class OrderChecker : MonoBehaviour
 
     public bool CheckOrder(string customerName)
     {
-        return orderFulFillManager.IsOrderFulfilled(customerName);
+        bool canFulFillOrder = orderFulFillManager.CanFulFillOrder(customerName);
+        if(canFulFillOrder)
+            orderFulFillManager.FulFillOrder(customerName);
+        return canFulFillOrder;
     }
 
 }

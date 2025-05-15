@@ -35,4 +35,16 @@ public static class Utils
                 SetGameLayerRecursive(child.gameObject, _layer);
         }
     }
+
+    public static string FormatIngredients(List<string> ingredients)
+    {
+        var capitalizedIngredients = new List<string>();
+        foreach (var ingredient in ingredients)
+        {
+            capitalizedIngredients.Add(char.ToUpper(ingredient[0]) + ingredient.Substring(1));
+        }
+
+        var addedIngredients = string.Join(" + ", capitalizedIngredients);
+        return addedIngredients;
+    }
 }

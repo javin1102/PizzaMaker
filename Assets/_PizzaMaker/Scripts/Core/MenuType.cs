@@ -23,7 +23,7 @@ namespace PizzaMaker
         public static MenuType PizzaBurnt = new("Burnt Pizza", -1);
         public static MenuType PizzaMargherita = new("Margherita Pizza", 1);
         public static MenuType PizzaBarbeque = new("Barbeque Pizza", 2);
-        public static MenuType DrinkChronoCola = new("Drink Chrono Cola", 1000);
+        public static MenuType DrinkChronoCola = new("Chrono Cola", 1000);
         public static MenuType DrinkYoSeott = new("Yo Seott", 1001);
         public static MenuType DrinkUnicornPop = new("Unicorn Pop", 1002);
         public static MenuType DrinkSojaCola = new("Soja Cola", 1003);

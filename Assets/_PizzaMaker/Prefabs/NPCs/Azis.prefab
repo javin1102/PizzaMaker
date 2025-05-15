@@ -278,11 +278,8 @@ MonoBehaviour:
   - menuType:
       id: 1
       name: Margherita Pizza
-    extraToppings:
-    - Pepperoni
+    extraToppings: []
   - menuType:
-      id: 1
-      name: Margherita Pizza
-    extraToppings:
-    - Sausage
-    - Tomato
+      id: 1003
+      name: Soja Cola
+    extraToppings: []

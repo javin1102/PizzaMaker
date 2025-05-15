@@ -24,7 +24,7 @@ namespace PizzaMaker
 
         public void FadeOut()
         {
-            Tween.Alpha(canvasGroup, 0f, 0.1f).OnComplete(() => { gameObject.SetActive(false); });
+            Tween.Alpha(canvasGroup, 0f, 0.03f).OnComplete(() => { gameObject.SetActive(false); });
         }
     }
 }

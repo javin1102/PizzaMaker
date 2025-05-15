@@ -30,7 +30,7 @@ namespace PizzaMaker
                 if (!ingredients.Contains(pizzaIngredient.IngredientType))
                     ingredients.Add(pizzaIngredient.IngredientType);
 
-                playerController.CurrentIGrabbable.OnRelease(playerController);
+                pizzaIngredient.OnRelease(playerController);
                 playerController.UnGrab();
             }
             else
@@ -60,14 +60,8 @@ namespace PizzaMaker
                         return;
                     }
 
-                    var capitalizedIngredients = new List<string>();
-                    foreach (var ingredient in ingredients)
-                    {
-                        capitalizedIngredients.Add(char.ToUpper(ingredient[0]) + ingredient.Substring(1));
-                    }
-
-                    var addedIngredients = string.Join(" + ", capitalizedIngredients);
-                    InGameUIController.Instance.ShowAdditionalInformationUI(addedIngredients);
+                    var formatIngredients = Utils.FormatIngredients(ingredients);
+                    InGameUIController.Instance.ShowAdditionalInformationUI(formatIngredients);
                 }
                 else
                     usable.overrideUseMessage = defaultUsableName;

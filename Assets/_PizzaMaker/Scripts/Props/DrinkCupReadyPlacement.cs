@@ -52,7 +52,6 @@ namespace PizzaMaker
                 var boxCollider = drinkCup.Collider as BoxCollider;
                 var colliders = new Collider[10];
                 var hitCount = Physics.OverlapBoxNonAlloc(raycastHit.point, boxCollider.size, colliders, Quaternion.identity);
-                Matrix4x4 tfMatrix4X4 = Matrix4x4.TRS(raycastHit.point, Quaternion.identity, new Vector3(1, 0.75f, 1f));
 
                 if (hitCount > 0)
                 {
@@ -62,7 +61,15 @@ namespace PizzaMaker
                         if (hitCollider && hitCollider.TryGetComponent(out DrinkCup _))
                         {
                             if (invalidCupMaterial.SetPass(0))
-                                Graphics.DrawMesh(cupMesh, tfMatrix4X4, invalidCupMaterial, 0);
+                            {
+                                var meshFilters = drinkCup.GetComponentsInChildren<MeshFilter>();
+                                foreach (var meshFilter in meshFilters)
+                                {
+                                    var localPositionY = meshFilter.transform.localPosition.y > 0 ? meshFilter.transform.localPosition.y - 0.08f : 0;
+                                    Matrix4x4 tfMatrix4X4 = Matrix4x4.TRS(raycastHit.point + new Vector3(0, localPositionY, 0), Quaternion.identity, meshFilter.transform.localScale);
+                                    Graphics.DrawMesh(meshFilter.mesh, tfMatrix4X4, invalidCupMaterial, 0);
+                                }
+                            }
 
                             usable.overrideUseMessage = " ";
                             usable.enabled = false;
@@ -74,11 +81,18 @@ namespace PizzaMaker
 
                 if (!isFailPlacement && cupMaterial.SetPass(0))
                 {
-                    Graphics.DrawMesh(cupMesh, tfMatrix4X4, cupMaterial, 0);
+                    var meshFilters = drinkCup.GetComponentsInChildren<MeshFilter>();
+                    foreach (var meshFilter in meshFilters)
+                    {
+                        var localPositionY = meshFilter.transform.localPosition.y > 0 ? meshFilter.transform.localPosition.y - 0.08f : 0;
+                        Matrix4x4 tfMatrix4X4 = Matrix4x4.TRS(raycastHit.point + new Vector3(0, localPositionY, 0), Quaternion.identity, meshFilter.transform.localScale);
+                        Graphics.DrawMesh(meshFilter.mesh, tfMatrix4X4, cupMaterial, 0);
+                    }
+                    
                     usable.overrideUseMessage = "<sprite name=\"lmb\"> Place Cup";
                     StandardUISelectorElements.instance.useMessageText.text = usable.overrideUseMessage;
                     usable.enabled = true;
-                    cupPosition = tfMatrix4X4.GetPosition();
+                    cupPosition = raycastHit.point;
                 }
 
                 IsInteractable = true;

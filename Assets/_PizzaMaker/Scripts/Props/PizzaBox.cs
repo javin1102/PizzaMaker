@@ -25,6 +25,7 @@ namespace PizzaMaker
                 PizzaCooked.gameObject.SetActive(false);
             
             CurrentGrabbableState = GrabbableState.Grabbed;
+            orderFulFillManager.RemoveItem(this);
         }
 
         public void OnGrabUsed(PlayerController playerController)
@@ -73,6 +74,8 @@ namespace PizzaMaker
             {
                 usable.overrideUseMessage = $"<sprite name=\"lmb\">Grab {PizzaCooked.MenuType.name}";
                 usable.enabled = true;
+                if(PizzaCooked.ExtraToppingList is {Count: > 0})
+                    InGameUIController.Instance.ShowAdditionalInformationUI(Utils.FormatIngredients(PizzaCooked.ExtraToppingList));
             }
             else if (PizzaCooked && playerController.CurrentIGrabbable?.GetGrabbableObject<PizzaBox>())
             {
@@ -96,6 +99,7 @@ namespace PizzaMaker
 
         public override void OnUnhover(PlayerController playerController)
         {
+            InGameUIController.Instance.HideAdditionalInformationUI();
         }
         
         public void AttachedTo(Transform parentTransform)
