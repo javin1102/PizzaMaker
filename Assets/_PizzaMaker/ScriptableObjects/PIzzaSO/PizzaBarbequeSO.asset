@@ -18,6 +18,6 @@ MonoBehaviour:
   cookedPizza: {fileID: -1568819147158735452, guid: 05cc603db546a834ca246d76fba8852f, type: 3}
   ingredients:
   - Barbeque Sauce
-  - Smoked Chicken
+  - Beef
   - Mozzarella Cheese
   - Onion

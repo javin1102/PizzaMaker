@@ -134,8 +134,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   menuType:
-    id: 2
-    name: Barbeque Pizza
+    id: 8
+    name: Hawaiian Pizza
 --- !u!114 &2150204433947549716
 MonoBehaviour:
   m_ObjectHideFlags: 0

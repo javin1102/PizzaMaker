@@ -11,7 +11,7 @@ namespace PizzaMaker
     [System.Serializable]
     public class OrderMenu
     {
-        public MenuType menuType;
+        public Menu menuType;
         [ValueDropdown("allIngredients")] public List<string> extraToppings;
         private string[] allIngredients => Ingredient.All;
     }

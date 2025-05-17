@@ -65,26 +65,26 @@ public class MainTest
         var pizzaBox1 = Object.Instantiate(pizzaBox, orderFullFillManager.transform, true);
         var pizzaCooked1 = new GameObject().gameObject.AddComponent<BoxCollider>().gameObject.AddComponent<PizzaCooked>();
         pizzaBox1.PizzaCooked = pizzaCooked1;
-        pizzaCooked1.MenuType = MenuType.PizzaMargherita;
+        pizzaCooked1.MenuType = Menu.PizzaMargherita;
         pizzaCooked1.SetExtraToppingList(new List<string>() { Ingredient.Ham });
         pizzaCooked1.AttachedTo(pizzaBox1.transform);
 
         var pizzaBox2 = Object.Instantiate(pizzaBox, orderFullFillManager.transform, true);
         var pizzaCooked2 = new GameObject().gameObject.AddComponent<BoxCollider>().gameObject.AddComponent<PizzaCooked>();
         pizzaBox2.PizzaCooked = pizzaCooked2;
-        pizzaCooked2.MenuType = MenuType.PizzaBarbeque;
+        pizzaCooked2.MenuType = Menu.PizzaBarbeque;
         pizzaCooked2.SetExtraToppingList(new List<string>() { Ingredient.CheeseCheddar, Ingredient.Onion, Ingredient.BlackOlives });
         pizzaCooked2.AttachedTo(pizzaBox2.transform);
 
         var pizzaBox3 = Object.Instantiate(pizzaBox, orderFullFillManager.transform, true);
         var pizzaCooked3 = new GameObject().gameObject.AddComponent<BoxCollider>().gameObject.AddComponent<PizzaCooked>();
         pizzaBox3.PizzaCooked = pizzaCooked3;
-        pizzaCooked3.MenuType = MenuType.PizzaMargherita;
+        pizzaCooked3.MenuType = Menu.PizzaMargherita;
         pizzaCooked3.SetExtraToppingList(new List<string>() { Ingredient.Sausage, Ingredient.Beef, Ingredient.Pepperoni });
         pizzaCooked3.AttachedTo(pizzaBox3.transform);
 
         var drinkCup = new GameObject().gameObject.AddComponent<BoxCollider>().gameObject.AddComponent<DrinkCup>();
-        drinkCup.MenuType = MenuType.DrinkUnicornPop;
+        drinkCup.MenuType = Menu.DrinkUnicornPop;
         
         orderFullFillManager.AddItem(pizzaBox1);
 
@@ -92,7 +92,7 @@ public class MainTest
         {
             new()
             {
-                menuType = MenuType.DrinkUnicornPop,
+                menuType = Menu.DrinkUnicornPop,
             }
         });
         Assert.IsFalse(isOrderFulfilled);

@@ -8,7 +8,7 @@ namespace PizzaMaker
 {
     public class PizzaBox : OrderItem, IGrabbable
     {
-        public override MenuType? MenuType => PizzaCooked != null ? PizzaCooked.MenuType : null;
+        public override Menu? MenuType => PizzaCooked != null ? PizzaCooked.MenuType : null;
         public PizzaCooked PizzaCooked { get; internal set; }
         [SerializeField] private PizzaBoxAttachment pizzaBoxAttachment;
         [SerializeField] private Transform pizzaTop;
@@ -42,7 +42,7 @@ namespace PizzaMaker
         {
             if (PizzaCooked == null 
                 && playerController.CurrentIGrabbable?.GetGrabbableObject<PizzaCooked>() is { } grabbedPizzaCooked
-                && grabbedPizzaCooked.MenuType != PizzaMaker.MenuType.PizzaBurnt
+                && grabbedPizzaCooked.MenuType != PizzaMaker.Menu.PizzaBurnt
             )
             {
                 var instantiatedPizzaBox = Instantiate(this);
@@ -84,7 +84,7 @@ namespace PizzaMaker
             
             else if (PizzaCooked == null 
                      && playerController.CurrentIGrabbable?.GetGrabbableObject<PizzaCooked>() is { } grabbedPizzaCooked 
-                     && grabbedPizzaCooked.MenuType != PizzaMaker.MenuType.PizzaBurnt)
+                     && grabbedPizzaCooked.MenuType != PizzaMaker.Menu.PizzaBurnt)
             {
                 usable.overrideUseMessage = "Wrap Pizza";
                 usable.enabled = true;

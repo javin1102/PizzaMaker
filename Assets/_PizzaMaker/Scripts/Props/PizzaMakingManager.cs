@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using UnityEngine;
 using ZLinq;
 
@@ -8,6 +9,12 @@ namespace PizzaMaker
     {
         [field: SerializeField] public List<PizzaMenuSO> PizzaMenuSOList { get; set; }
         [SerializeField] private PizzaCooked invalidPizza;
+
+        private void Awake()
+        {
+            // Sort by number of ingredients descendingly
+            PizzaMenuSOList.Sort((a, b) => b.ingredients.Count.CompareTo(a.ingredients.Count));
+        }
 
         public PizzaCooked BakePizza(PizzaDough pizzaDough)
         {
@@ -24,9 +31,7 @@ namespace PizzaMaker
                 pizzaCooked.SetExtraToppingList(extraToppingList);
                 return pizzaCooked;
             }
-
             return Instantiate(invalidPizza);
-            ;
         }
     }
 }

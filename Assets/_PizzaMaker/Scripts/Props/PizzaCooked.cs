@@ -11,14 +11,14 @@ namespace PizzaMaker
         public List<string> ExtraToppingList { get; private set; } = new();
         public GrabbableState CurrentGrabbableState { get; set; } = GrabbableState.Placed;
 
-        public MenuType MenuType
+        public Menu MenuType
         {
             get => menuType;
             internal set => menuType = value;
         }
 
         [FormerlySerializedAs("menuItem")] [SerializeField]
-        private MenuType menuType;
+        private Menu menuType;
 
 
         public void SetExtraToppingList(List<string> extraToppingList)

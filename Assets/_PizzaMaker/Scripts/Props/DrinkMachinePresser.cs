@@ -11,7 +11,7 @@ namespace PizzaMaker
         [SerializeField] private GameObject flowGameObject;
         [SerializeField] private Material flowSharedMaterial;
         [SerializeField] private Color drinkColor;
-        [SerializeField] private MenuType drinkMenuType;
+        [SerializeField] private Menu drinkMenuType;
         [Inject] private DrinkMachine drinkMachine { get; set; }
         private DrinkMachineAttachment attachment;
         private Sequence tweenFlow;

@@ -5,14 +5,14 @@ using ZLinq;
 
 namespace PizzaMaker
 {
-    public class MenuItemPropertyDrawer : OdinValueDrawer<MenuType>
+    public class MenuItemPropertyDrawer : OdinValueDrawer<Menu>
     {
         protected override void DrawPropertyLayout(GUIContent label)
         {
             Rect rect = EditorGUILayout.GetControlRect();
             if (label != null)
                 rect = EditorGUI.PrefixLabel(rect, label);
-            var pizzaNameEnum = MenuType.All.AsValueEnumerable();
+            var pizzaNameEnum = Menu.All.AsValueEnumerable();
             var allPizzaMenuName = pizzaNameEnum.Select(pm => pm.name);
             var selectedIndex = 0;
             if (!string.IsNullOrEmpty(ValueEntry.SmartValue.name))
@@ -24,7 +24,7 @@ namespace PizzaMaker
                 selectedIndex = 0;
             
             selectedIndex = EditorGUI.Popup(rect, selectedIndex, allPizzaMenuName.ToArray());
-            ValueEntry.SmartValue = MenuType.All[selectedIndex];
+            ValueEntry.SmartValue = Menu.All[selectedIndex];
         }
     }
 }

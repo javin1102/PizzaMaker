@@ -8,7 +8,7 @@ namespace PizzaMaker
     public class OrderFulFillManager : MonoBehaviour
     {
         private readonly Dictionary<string, NPCOrder> npcOrders = new();
-        private readonly Dictionary<MenuType, List<OrderItem>> orderedItems = new();
+        private readonly Dictionary<Menu, List<OrderItem>> orderedItems = new();
 
         public void AddNPCOrder(NPCOrder npcOrder)
         {
