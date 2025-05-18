@@ -2,6 +2,7 @@ using Obvious.Soap;
 using PixelCrushers.DialogueSystem;
 using PizzaMaker.Tools;
 using PrimeTween;
+using Reflex.Attributes;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -44,7 +45,19 @@ namespace PizzaMaker
             GameEvents.OnQuestStateChanged += OnQuestStateChange;
             iGrabbableEvent.OnRaised += OnGrab;
             unGrabEvent.OnRaised += UnGrab;
+            Focusable.OnFocus += OnFocus;
+            Focusable.OnOutFocus += OnOutFocus;
 
+        }
+
+
+        private void OnDisable()
+        {
+            GameEvents.OnQuestStateChanged -= OnQuestStateChange;
+            iGrabbableEvent.OnRaised -= OnGrab;
+            unGrabEvent.OnRaised -= UnGrab;
+            Focusable.OnFocus -= OnFocus;
+            Focusable.OnOutFocus -= OnOutFocus;
         }
 
         private void UnGrab()
@@ -56,13 +69,19 @@ namespace PizzaMaker
         {
             bottomLeftInformationUI.gameObject.SetActive(true);
             bottomLeftInformationUI.FadeIn(0.05f);
+            bottomLeftInformationUI.SetText("<sprite name=\"Q\">Discard Item");
+        }
+        
+        private void OnOutFocus()
+        {
+            bottomLeftInformationUI.FadeOut(0.05f);
         }
 
-        private void OnDisable()
+        private void OnFocus()
         {
-            GameEvents.OnQuestStateChanged -= OnQuestStateChange;
-            iGrabbableEvent.OnRaised -= OnGrab;
-            unGrabEvent.OnRaised -= UnGrab;
+            bottomLeftInformationUI.gameObject.SetActive(true);
+            bottomLeftInformationUI.FadeIn(0.05f);
+            bottomLeftInformationUI.SetText("<sprite name=\"Q\">Exit");
         }
 
         public void ShowAdditionalInformationUI(string text)

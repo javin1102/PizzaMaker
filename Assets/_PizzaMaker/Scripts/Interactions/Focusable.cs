@@ -9,8 +9,8 @@ namespace PizzaMaker
         private Vector3 originalPosition;
         private Vector3 originalRotation;
 
-        public Action OnFocus { get; set; }
-        public Action OnOutFocus { get; set; }
+        public static Action OnFocus { get; set; }
+        public static Action OnOutFocus { get; set; }
         [Inject] private PlayerController playerController;
         private void Awake()
         {
