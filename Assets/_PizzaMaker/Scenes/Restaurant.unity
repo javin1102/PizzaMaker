@@ -9643,10 +9643,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2560120534974802424, guid: e349c1fa5b0bc4b43843006206ff4134, type: 3}
-      propertyPath: m_StopNaN
-      value: 1
-      objectReference: {fileID: 0}
+    - target: {fileID: 1565434908881702298, guid: e349c1fa5b0bc4b43843006206ff4134, type: 3}
+      propertyPath: unGrabEvent
+      value: 
+      objectReference: {fileID: 11400000, guid: c86be26a8d855b54d8adefc05b7ec5ba, type: 2}
     - target: {fileID: 3411218202971829324, guid: e349c1fa5b0bc4b43843006206ff4134, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -12412,9 +12412,41 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.x
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4160007595136004753, guid: 01d37bb5b4a85fc4d85d70b833aa2753, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4160007595136004753, guid: 01d37bb5b4a85fc4d85d70b833aa2753, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4160007595136004753, guid: 01d37bb5b4a85fc4d85d70b833aa2753, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4160007595136004753, guid: 01d37bb5b4a85fc4d85d70b833aa2753, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4160007595136004753, guid: 01d37bb5b4a85fc4d85d70b833aa2753, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4160007595136004753, guid: 01d37bb5b4a85fc4d85d70b833aa2753, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4973906979294106983, guid: 01d37bb5b4a85fc4d85d70b833aa2753, type: 3}
       propertyPath: m_Name
       value: InGameUIController
+      objectReference: {fileID: 0}
+    - target: {fileID: 5908414443749628180, guid: 01d37bb5b4a85fc4d85d70b833aa2753, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5908414443749628180, guid: 01d37bb5b4a85fc4d85d70b833aa2753, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9145439919010240896, guid: 01d37bb5b4a85fc4d85d70b833aa2753, type: 3}
       propertyPath: m_AnchorMax.y
@@ -53670,8 +53702,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1.2065258, y: 0.06866872, z: 1}
-  m_Center: {x: 0.1032629, y: 0.019485295, z: 0}
+  m_Size: {x: 1.3620124, y: 0.06866872, z: 0.5713568}
+  m_Center: {x: 0.2018621, y: 0.019485295, z: 0.08674669}
 --- !u!23 &2021551961
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -53740,7 +53772,7 @@ MonoBehaviour:
   cupMesh: {fileID: 8198619208410799617, guid: b9c054b445d458c45bcb601fd368e786, type: 3}
   cupMaterial: {fileID: 2100000, guid: d175a96e6852b1145831064b8645290b, type: 2}
   invalidCupMaterial: {fileID: 2100000, guid: 539ced99178ce53498feef1a9e3f97fe, type: 2}
-  eventChannel: {fileID: 11400000, guid: c5464b3be10531c48987f692c016f416, type: 2}
+  iGrabbableEvent: {fileID: 11400000, guid: 1fbf7e3baa0d4f3419d72656793f1736, type: 2}
 --- !u!114 &2021551964
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -72,21 +72,37 @@ namespace PizzaMaker
             
             if (PizzaCooked && playerController.CurrentIGrabbable == null)
             {
-                usable.overrideUseMessage = $"<sprite name=\"lmb\">Grab {PizzaCooked.MenuType.name}";
+                usable.overrideUseMessage = $"<sprite name=\"lmb\">Grab";
                 usable.enabled = true;
-                if(PizzaCooked.ExtraToppingList is {Count: > 0})
-                    InGameUIController.Instance.ShowAdditionalInformationUI(Utils.FormatIngredients(PizzaCooked.ExtraToppingList));
+                if (PizzaCooked.ExtraToppingList is { Count: > 0 })
+                {
+                    var infoText = $"{PizzaCooked.MenuType.name} \n ({Utils.FormatIngredients(PizzaCooked.ExtraToppingList)})";
+                    InGameUIController.Instance.ShowAdditionalInformationUI(infoText);
+                }
+                else
+                {
+                    InGameUIController.Instance.ShowAdditionalInformationUI(PizzaCooked.MenuType.name);
+                }
             }
             else if (PizzaCooked && playerController.CurrentIGrabbable?.GetGrabbableObject<PizzaBox>())
             {
-                usable.overrideUseMessage = $"<sprite name=\"lmb\">Place {PizzaCooked.MenuType.name}";
+                usable.overrideUseMessage = $"<sprite name=\"lmb\">Place";
+                 if (PizzaCooked.ExtraToppingList is { Count: > 0 })
+                {
+                    var infoText = $"{PizzaCooked.MenuType.name} \n ({Utils.FormatIngredients(PizzaCooked.ExtraToppingList)})";
+                    InGameUIController.Instance.ShowAdditionalInformationUI(infoText);
+                }
+                else
+                {
+                    InGameUIController.Instance.ShowAdditionalInformationUI(PizzaCooked.MenuType.name);
+                }
             }
             
             else if (PizzaCooked == null 
                      && playerController.CurrentIGrabbable?.GetGrabbableObject<PizzaCooked>() is { } grabbedPizzaCooked 
-                     && grabbedPizzaCooked.MenuType != PizzaMaker.Menu.PizzaBurnt)
+                     && grabbedPizzaCooked.MenuType != Menu.PizzaBurnt)
             {
-                usable.overrideUseMessage = "Wrap Pizza";
+                usable.overrideUseMessage = "<sprite name=\"lmb\">Pack";
                 usable.enabled = true;
             }
             else

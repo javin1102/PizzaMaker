@@ -19,7 +19,7 @@ namespace PizzaMaker
         private void Start()
         {
             IsInteractable = false;
-            usable.overrideUseMessage = "<sprite name=\"lmb\"> Fill Cup";
+            usable.overrideUseMessage = "<sprite name=\"lmb\"> Press";
         }
 
         public override void OnClick(PlayerController playerController, ref RaycastHit raycastHit)

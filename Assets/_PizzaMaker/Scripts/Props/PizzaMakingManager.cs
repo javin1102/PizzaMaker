@@ -7,7 +7,7 @@ namespace PizzaMaker
 {
     public class PizzaMakingManager : MonoBehaviour
     {
-        [field: SerializeField] public List<PizzaMenuSO> PizzaMenuSOList { get; set; }
+        [field: SerializeField] public List<PizzaMenuSO> PizzaMenuSOList { get; private set; }
         [SerializeField] private PizzaCooked invalidPizza;
 
         private void Awake()

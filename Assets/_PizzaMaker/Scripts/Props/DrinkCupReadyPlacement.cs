@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using PixelCrushers.DialogueSystem.Wrappers;
+﻿using PixelCrushers.DialogueSystem.Wrappers;
 using Reflex.Attributes;
 using UnityEngine;
 
@@ -10,7 +9,7 @@ namespace PizzaMaker
         [SerializeField] private Mesh cupMesh;
         [SerializeField] private Material cupMaterial;
         [SerializeField] private Material invalidCupMaterial;
-        [SerializeField] private EventChannel eventChannel;
+        [SerializeField] private ScriptableEventIGrabbable iGrabbableEvent;
         [Inject] private OrderFulFillManager _orderFulFillManager;
         private bool isFailPlacement;
         private Vector3 cupPosition;
@@ -18,12 +17,12 @@ namespace PizzaMaker
         protected override void Awake()
         {
             base.Awake();
-            eventChannel.GrabAction += OnGrab;
+            iGrabbableEvent.OnRaised += OnGrab;
         }
 
         private void OnDestroy()
         {
-            eventChannel.GrabAction -= OnGrab;
+            iGrabbableEvent.OnRaised -= OnGrab;
         }
 
         private void OnGrab(IGrabbable grabbable)
@@ -89,7 +88,7 @@ namespace PizzaMaker
                         Graphics.DrawMesh(meshFilter.mesh, tfMatrix4X4, cupMaterial, 0);
                     }
                     
-                    usable.overrideUseMessage = "<sprite name=\"lmb\"> Place Cup";
+                    usable.overrideUseMessage = "<sprite name=\"lmb\"> Place";
                     StandardUISelectorElements.instance.useMessageText.text = usable.overrideUseMessage;
                     usable.enabled = true;
                     cupPosition = raycastHit.point;

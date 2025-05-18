@@ -58,21 +58,20 @@ namespace PizzaMaker
 
         public override void OnHover(PlayerController playerController, ref RaycastHit raycastHit)
         {
-            if (CurrentGrabbableState == GrabbableState.None)
-                usable.overrideUseMessage = $"<sprite name=\"lmb\">Grab Cup";
-            else
+            usable.overrideUseMessage = $"<sprite name=\"lmb\">Grab";
+            if (CurrentGrabbableState != GrabbableState.None)
             {
-                var cupName = IsFilled ? $"{MenuType?.name}" : "Cup";
-                usable.overrideUseMessage = $"<sprite name=\"lmb\">Grab {cupName}";
+                if(MenuType.HasValue && IsInteractable)
+                    InGameUIController.Instance.ShowAdditionalInformationUI(MenuType.Value.name);
             }
 
             StandardUISelectorElements.instance.useMessageText.text = usable.overrideUseMessage;
-
             IsInteractable = !fillTween.isAlive && playerController.CurrentIGrabbable == null;
         }
 
         public override void OnUnhover(PlayerController playerController)
         {
+            InGameUIController.Instance.HideAdditionalInformationUI();
         }
 
 

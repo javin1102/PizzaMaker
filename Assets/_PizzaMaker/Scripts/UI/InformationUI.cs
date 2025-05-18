@@ -9,29 +9,32 @@ namespace PizzaMaker
 {
     public class InformationUI : MonoBehaviour
     {
+        [SerializeField] private CanvasGroup canvasGroup;
         [SerializeField] private Image imageBackground;
         [SerializeField] private TMP_Text text;
-        private QuestId currentQuestId;
+        public QuestId CurrentQuestId { get; set; }
 
-        private void OnEnable()
-        {
-            GameEvents.OnQuestStateChanged += OnQuestStateChange;
-        }
 
-        private void OnDisable()
-        {
-            GameEvents.OnQuestStateChanged -= OnQuestStateChange;
-        }
 
         public void FadeIn()
         {
-            gameObject.SetActive(true);
-            Tween.Alpha(imageBackground, 0f, 0.8f, 0.25f);
+            FadeIn(0.25f);
         }
 
+        public void FadeIn(float duration)
+        {
+            gameObject.SetActive(true);
+            Tween.Alpha(canvasGroup, 0f, 0.8f, duration);
+        }
+        
         public void FadeOut()
         {
-            Tween.Alpha(imageBackground, 0f, 0.25f).OnComplete(() => { gameObject.SetActive(false); });
+            FadeOut(0.25f);
+        }
+
+        public void FadeOut(float duration)
+        {
+            Tween.Alpha(canvasGroup, 0f, duration).OnComplete(() => { gameObject.SetActive(false); });
         }
 
         public void SetText(string text)
@@ -41,23 +44,10 @@ namespace PizzaMaker
         
         public void SetQuest(QuestId questId)
         {
-            currentQuestId = questId;
+            CurrentQuestId = questId;
         }
 
-        public void OnQuestStateChange(QuestId quest, QuestState state)
-        {
-            if(string.IsNullOrEmpty(currentQuestId))
-                return;
-            
-            if (quest != currentQuestId)
-                return;
-
-            if (state == QuestState.Success)
-            {
-                Tween.Delay(2, FadeOut);
-                currentQuestId = "";
-            }
-        }
+       
     }
     
 }

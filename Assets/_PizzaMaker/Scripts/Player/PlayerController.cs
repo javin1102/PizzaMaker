@@ -1,3 +1,4 @@
+using Obvious.Soap;
 using PixelCrushers.DialogueSystem;
 using Reflex.Core;
 using UnityEngine;
@@ -17,7 +18,8 @@ namespace PizzaMaker
         [SerializeField] private PhoneController phoneController;
         [SerializeField] private Transform grabAttachPoint;
         [SerializeField] private DialogueDatabase demoDatabase;
-        [SerializeField] private EventChannel grabEventChannel;
+        [SerializeField] private ScriptableEventIGrabbable iGrabbableEvent;
+        [SerializeField] private ScriptableEventNoParam unGrabEvent;
 
         private Focusable currentFocusable;
         private Selector selector;
@@ -29,7 +31,7 @@ namespace PizzaMaker
         {
             mainCamera = Camera.main;
             //Note: Uses PlayerPrefs for temp save data (testing purposes)
-            PersistentDataManager.ApplySaveData(PlayerPrefs.GetString(GlobalVars.SaveData));
+            // PersistentDataManager.ApplySaveData(PlayerPrefs.GetString(GlobalVars.SaveData));
             // Debug.LogError(PlayerPrefs.GetString(GlobalVars.SaveData));
             selector = GetComponent<Selector>();
             var spawnPoint = GameObject.FindGameObjectWithTag(GlobalVars.TagSpawn);
@@ -235,7 +237,7 @@ namespace PizzaMaker
             objectToGrab.gameObject.SetGameLayerRecursive(GlobalVars.LayerFocus);
             CurrentIGrabbable = objectToGrab.GetComponent<IGrabbable>();
             CurrentIGrabbable.OnGrab(this);
-            grabEventChannel.GrabAction?.Invoke(CurrentIGrabbable);
+            iGrabbableEvent.Raise(CurrentIGrabbable);
         }
 
         public void UnGrab()
@@ -244,6 +246,7 @@ namespace PizzaMaker
                 return;
 
             CurrentIGrabbable = null;
+            unGrabEvent.Raise();
         }
     }
 }

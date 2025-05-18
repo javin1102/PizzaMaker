@@ -339,6 +339,14 @@ PrefabInstance:
       propertyPath: demoDatabase
       value: 
       objectReference: {fileID: 11400000, guid: c1cc03cd82f6cdb40afbc0575be25564, type: 2}
+    - target: {fileID: 2275920891917934721, guid: 6e308d41e30f54841a15b98ca3a4c8d4, type: 3}
+      propertyPath: iGrabbableEvent
+      value: 
+      objectReference: {fileID: 11400000, guid: 1fbf7e3baa0d4f3419d72656793f1736, type: 2}
+    - target: {fileID: 3002593841377199331, guid: 6e308d41e30f54841a15b98ca3a4c8d4, type: 3}
+      propertyPath: m_StopNaN
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3002593841377199331, guid: 6e308d41e30f54841a15b98ca3a4c8d4, type: 3}
       propertyPath: m_Antialiasing
       value: 0

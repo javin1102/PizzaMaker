@@ -8,7 +8,7 @@ namespace PizzaMaker
         protected override void Awake()
         {
             base.Awake();
-            usable.overrideUseMessage = $"<sprite name=\"lmb\"> Place Pizza";
+            usable.overrideUseMessage = $"<sprite name=\"lmb\"> Place";
         }
 
         public override void OnClick(PlayerController playerController, ref RaycastHit raycastHit)

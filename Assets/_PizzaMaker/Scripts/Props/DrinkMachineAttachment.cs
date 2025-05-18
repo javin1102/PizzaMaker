@@ -13,7 +13,14 @@ namespace PizzaMaker
         [SerializeField] private Material invalidCupMaterial;
         
         [Inject] private DrinkMachine drinkMachine;
+        [Inject] private PlayerController playerController;
         private bool isFailPlacement;
+
+        protected override void Awake()
+        {
+            base.Awake();
+            Collider.enabled = false;
+        }
 
         public override void OnClick(PlayerController playerController, ref RaycastHit raycastHit)
         {
@@ -28,7 +35,11 @@ namespace PizzaMaker
 
         private void Update()
         {
-            Collider.enabled = transform.childCount <= 0;
+            if (playerController is null)
+                return;
+            
+            Collider.enabled = transform.childCount <= 0 && playerController.CurrentIGrabbable?.GetGrabbableObject<DrinkCup>() is not null;
+            
         }
 
         public override void OnHover(PlayerController playerController, ref RaycastHit raycastHit)
@@ -61,7 +72,7 @@ namespace PizzaMaker
                 if (!isFailPlacement && cupMaterial.SetPass(0))
                 {
                     Graphics.DrawMesh(cupMesh, tfMatrix4X4, cupMaterial, 0);
-                    usable.overrideUseMessage = "<sprite name=\"lmb\"> Place Cup";
+                    usable.overrideUseMessage = "<sprite name=\"lmb\"> Place";
                     StandardUISelectorElements.instance.useMessageText.text = usable.overrideUseMessage;
                     usable.enabled = true;
                 }
