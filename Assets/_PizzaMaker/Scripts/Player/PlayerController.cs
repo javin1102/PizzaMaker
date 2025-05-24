@@ -86,13 +86,14 @@ namespace PizzaMaker
             }
 
             var isHit = Physics.Raycast(mainCamera.transform.position, mainCamera.transform.forward, out RaycastHit hit);
-            if (isHit && selector.CurrentUsable)
-            {
+            if (isHit && hit.collider.TryGetComponent(out Usable usable))
+                selector.maxSelectionDistance = usable.maxUseDistance;
+            
+            if(selector.CurrentUsable)
                 StandardUISelectorElements.instance.mainGraphic.gameObject.SetActive(!string.IsNullOrEmpty(selector.CurrentUsable.overrideUseMessage));
-                selector.maxSelectionDistance = selector.CurrentUsable.maxUseDistance;
-            }
-
-            if (selector.CurrentUsable && hit.collider && hit.collider.TryGetComponent(out IInteractable interactable))
+            
+            Physics.Raycast(mainCamera.transform.position, mainCamera.transform.forward, out hit);
+            if (hit.collider && hit.collider.TryGetComponent(out IInteractable interactable))
             {
                 // var interactable = hit.collider.TryGetComponent(out IInteractable interactableComponent) ? interactableComponent : hit.collider.GetComponentInParent<IInteractable>();
                 if (currentInteractable != null && interactable != currentInteractable)

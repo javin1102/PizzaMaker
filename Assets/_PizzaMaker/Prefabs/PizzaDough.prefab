@@ -69,7 +69,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_overrideName: 
-  m_overrideUseMessage: <sprite name="lmb"/> Pizza Dough
+  m_overrideUseMessage: <sprite name="lmb"/> Grab
   maxUseDistance: 2
   events:
     onSelect:

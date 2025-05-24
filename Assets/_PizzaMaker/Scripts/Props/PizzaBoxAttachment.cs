@@ -1,10 +1,12 @@
 using PixelCrushers.DialogueSystem.Wrappers;
+using Reflex.Attributes;
 using UnityEngine;
 
 namespace PizzaMaker
 {
     public class PizzaBoxAttachment : Interactable
     {
+        [Inject] private OrderFulFillManager orderFulFillManager;
         protected override void Awake()
         {
             base.Awake();
@@ -22,7 +24,6 @@ namespace PizzaMaker
 
         public override void OnHover(PlayerController playerController, ref RaycastHit raycastHit)
         {
-            usable.maxUseDistance = 0;
             usable.enabled = playerController.CurrentIGrabbable?.GetGrabbableObject<PizzaBox>();
             StandardUISelectorElements.instance.useMessageText.text = usable.overrideUseMessage;
         }
@@ -38,6 +39,7 @@ namespace PizzaMaker
             pizzaBox.transform.localRotation = Quaternion.identity;
             pizzaBox.CurrentGrabbableState = GrabbableState.Placed;
             pizzaBox.gameObject.SetGameLayerRecursive(GlobalVars.LayerDefault);
+            orderFulFillManager.AddItem(pizzaBox);
             UpdateStack();
         }
 
