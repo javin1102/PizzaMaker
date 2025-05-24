@@ -49,7 +49,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_overrideName: 
   m_overrideUseMessage: 
-  maxUseDistance: 5
+  maxUseDistance: 2
   events:
     onSelect:
       m_PersistentCalls:

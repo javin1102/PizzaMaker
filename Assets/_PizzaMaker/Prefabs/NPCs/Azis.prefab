@@ -98,7 +98,7 @@ GameObject:
   - component: {fileID: 2457169972385941127}
   - component: {fileID: 1151731470048849520}
   - component: {fileID: 1362778628557063445}
-  - component: {fileID: 8044565793544761245}
+  - component: {fileID: 7018463229157881239}
   - component: {fileID: 9094714214258934618}
   m_Layer: 0
   m_Name: Azis
@@ -249,7 +249,7 @@ MonoBehaviour:
     onUse:
       m_PersistentCalls:
         m_Calls: []
---- !u!114 &8044565793544761245
+--- !u!114 &7018463229157881239
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -258,7 +258,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 3879098225219713182}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 676338c5ca352a34ea0a04bb2bab0f8e, type: 3}
+  m_Script: {fileID: 11500000, guid: 5a9ac758628b441fac666873e4c18da5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &9094714214258934618
@@ -283,4 +283,3 @@ MonoBehaviour:
       id: 1003
       name: Soja Cola
     extraToppings: []
-  orderFulFillChannel: {fileID: 11400000, guid: c935bdf6d3f6e93468ca19c58aecd649, type: 2}

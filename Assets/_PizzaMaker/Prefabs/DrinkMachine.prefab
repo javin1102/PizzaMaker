@@ -69,7 +69,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_overrideName: 
   m_overrideUseMessage: 
-  maxUseDistance: 5
+  maxUseDistance: 2
   events:
     onSelect:
       m_PersistentCalls:
@@ -253,7 +253,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_overrideName: 
   m_overrideUseMessage: 
-  maxUseDistance: 5
+  maxUseDistance: 2
   events:
     onSelect:
       m_PersistentCalls:
@@ -348,7 +348,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_overrideName: 
   m_overrideUseMessage: 
-  maxUseDistance: 5
+  maxUseDistance: 2
   events:
     onSelect:
       m_PersistentCalls:
@@ -446,7 +446,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_overrideName: 
   m_overrideUseMessage: 
-  maxUseDistance: 5
+  maxUseDistance: 2
   events:
     onSelect:
       m_PersistentCalls:
@@ -1131,11 +1131,11 @@ MonoBehaviour:
     - Name: DrinkPairs
       Entry: 7
       Data: 0|System.Collections.Generic.Dictionary`2[[PizzaMaker.DrinkMachinePresser,
-        Assembly-CSharp],[PizzaMaker.DrinkMachineAttachment, Assembly-CSharp]], mscorlib
+        Scripts],[PizzaMaker.DrinkMachineAttachment, Scripts]], mscorlib
     - Name: comparer
       Entry: 7
       Data: 1|System.Collections.Generic.ObjectEqualityComparer`1[[PizzaMaker.DrinkMachinePresser,
-        Assembly-CSharp]], mscorlib
+        Scripts]], mscorlib
     - Name: 
       Entry: 8
       Data: 
@@ -1310,7 +1310,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_overrideName: 
   m_overrideUseMessage: 
-  maxUseDistance: 5
+  maxUseDistance: 2
   events:
     onSelect:
       m_PersistentCalls:
@@ -1405,7 +1405,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_overrideName: 
   m_overrideUseMessage: 
-  maxUseDistance: 5
+  maxUseDistance: 2
   events:
     onSelect:
       m_PersistentCalls:
@@ -1596,7 +1596,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_overrideName: 
   m_overrideUseMessage: 
-  maxUseDistance: 5
+  maxUseDistance: 2
   events:
     onSelect:
       m_PersistentCalls:
@@ -1722,7 +1722,6 @@ GameObject:
   - component: {fileID: 9151687263043380743}
   - component: {fileID: 472008288256273625}
   - component: {fileID: 7305520362796004453}
-  - component: {fileID: 3095055650699002324}
   m_Layer: 0
   m_Name: Drain
   m_TagString: Untagged
@@ -1798,27 +1797,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &3095055650699002324
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5266636382165189056}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1.4440234, y: 0.10849863, z: 0.43715763}
-  m_Center: {x: -0.00000032782555, y: 0.054249115, z: 0.035823166}
 --- !u!1 &5285061500582748453
 GameObject:
   m_ObjectHideFlags: 0
@@ -1867,7 +1845,6 @@ GameObject:
   - component: {fileID: 5267819354420133599}
   - component: {fileID: 7586254373543852200}
   - component: {fileID: 2860215557729812874}
-  - component: {fileID: 2038323418604138368}
   m_Layer: 0
   m_Name: Part_01
   m_TagString: Untagged
@@ -1944,27 +1921,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &2038323418604138368
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5299116930343236106}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1.4558933, y: 0.87866706, z: 0.3775609}
-  m_Center: {x: -0.00000032782555, y: -0.00000011920929, z: 0.1887804}
 --- !u!1 &5403826000035519472
 GameObject:
   m_ObjectHideFlags: 0
@@ -2120,7 +2076,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_overrideName: 
   m_overrideUseMessage: 
-  maxUseDistance: 5
+  maxUseDistance: 2
   events:
     onSelect:
       m_PersistentCalls:
@@ -2215,7 +2171,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_overrideName: 
   m_overrideUseMessage: 
-  maxUseDistance: 5
+  maxUseDistance: 2
   events:
     onSelect:
       m_PersistentCalls:
@@ -2691,7 +2647,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_overrideName: 
   m_overrideUseMessage: 
-  maxUseDistance: 5
+  maxUseDistance: 2
   events:
     onSelect:
       m_PersistentCalls:
@@ -2786,7 +2742,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_overrideName: 
   m_overrideUseMessage: 
-  maxUseDistance: 5
+  maxUseDistance: 2
   events:
     onSelect:
       m_PersistentCalls:
@@ -2884,7 +2840,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_overrideName: 
   m_overrideUseMessage: 
-  maxUseDistance: 5
+  maxUseDistance: 2
   events:
     onSelect:
       m_PersistentCalls:

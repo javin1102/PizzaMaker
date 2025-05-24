@@ -74,6 +74,7 @@ GameObject:
   - component: {fileID: 862318606127339323}
   - component: {fileID: 3302222032106727371}
   - component: {fileID: 1879851794842404773}
+  - component: {fileID: 7858143225097707238}
   m_Layer: 0
   m_Name: PizzaTray
   m_TagString: Untagged
@@ -134,6 +135,31 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.54772663, y: 0.67915833, z: 0.05}
   m_Center: {x: -0.02943921, y: 0.34671384, z: 0}
+--- !u!114 &7858143225097707238
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7622924079177121176}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 274b80ab5b659c646ba9338870d14625, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_overrideName: 
+  m_overrideUseMessage: 
+  maxUseDistance: 2
+  events:
+    onSelect:
+      m_PersistentCalls:
+        m_Calls: []
+    onDeselect:
+      m_PersistentCalls:
+        m_Calls: []
+    onUse:
+      m_PersistentCalls:
+        m_Calls: []
 --- !u!1001 &5849493139468208403
 PrefabInstance:
   m_ObjectHideFlags: 0

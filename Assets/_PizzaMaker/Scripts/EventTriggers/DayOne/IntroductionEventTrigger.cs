@@ -39,7 +39,7 @@ namespace PizzaMaker.Events
             {
                 isTriggered = true;
                 DialogueManager.Instance.DialogueUI.ShowAlert("You got a message", 2f);
-                QuestOpenPhone _ = new();
+                QuestHandlerOpenPhone _ = new();
                 dialogueSystemTrigger.enabled = true;
                 Tween.Delay(3f, () =>
                 {

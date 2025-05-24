@@ -1,8 +1,9 @@
-using Obvious.Soap;
 using PixelCrushers.DialogueSystem;
 using Reflex.Core;
+using ToolBox.Serialization;
 using UnityEngine;
 using DialogueDatabase = PixelCrushers.DialogueSystem.Wrappers.DialogueDatabase;
+using StandardUISelectorElements = PixelCrushers.DialogueSystem.Wrappers.StandardUISelectorElements;
 
 namespace PizzaMaker
 {
@@ -28,9 +29,7 @@ namespace PizzaMaker
         protected void Awake()
         {
             mainCamera = Camera.main;
-            //Note: Uses PlayerPrefs for temp save data (testing purposes)
-            // PersistentDataManager.ApplySaveData(PlayerPrefs.GetString(GlobalVars.SaveData));
-            // Debug.LogError(PlayerPrefs.GetString(GlobalVars.SaveData));
+            PersistentDataManager.ApplySaveData(DataSerializer.Load<string>(SaveKey.DataDialogueState));
             selector = GetComponent<Selector>();
             var spawnPoint = GameObject.FindGameObjectWithTag(GlobalVars.TagSpawn);
             if (spawnPoint != null)
@@ -86,8 +85,14 @@ namespace PizzaMaker
                 TogglePhone();
             }
 
-            var isHit = Physics.Raycast(mainCamera.transform.position, mainCamera.transform.forward, out RaycastHit hit, 5f);
-            if (isHit && hit.collider.TryGetComponent(out IInteractable interactable))
+            var isHit = Physics.Raycast(mainCamera.transform.position, mainCamera.transform.forward, out RaycastHit hit);
+            if (isHit && selector.CurrentUsable)
+            {
+                StandardUISelectorElements.instance.mainGraphic.gameObject.SetActive(!string.IsNullOrEmpty(selector.CurrentUsable.overrideUseMessage));
+                selector.maxSelectionDistance = selector.CurrentUsable.maxUseDistance;
+            }
+
+            if (selector.CurrentUsable && hit.collider && hit.collider.TryGetComponent(out IInteractable interactable))
             {
                 // var interactable = hit.collider.TryGetComponent(out IInteractable interactableComponent) ? interactableComponent : hit.collider.GetComponentInParent<IInteractable>();
                 if (currentInteractable != null && interactable != currentInteractable)
@@ -211,6 +216,7 @@ namespace PizzaMaker
 
             Cursor.lockState = CursorLockMode.Locked;
             SetMovement(true);
+            DataSerializer.Save(SaveKey.DataDialogueState, PersistentDataManager.GetSaveData());
         }
 
         public void SetMovement(bool isEnable)

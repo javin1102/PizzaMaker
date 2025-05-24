@@ -6,6 +6,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 using Reflex.Attributes;
+using ToolBox.Serialization;
 
 namespace PizzaMaker
 {
@@ -81,7 +82,7 @@ namespace PizzaMaker
 
         public void Close()
         {
-            PlayerPrefs.SetString(GlobalVars.SaveData, PersistentDataManager.GetSaveData());
+            DataSerializer.Save(SaveKey.DataDialogueState, PersistentDataManager.GetSaveData());
         }
 
         public void ShowSubtitle(Subtitle subtitle)

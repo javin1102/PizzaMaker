@@ -1638,7 +1638,7 @@ MonoBehaviour:
       outgoingLinks: []
       conditionsString: (CurrentQuestState("day1_pizza-order_azis") == "active")
         and (CheckOrder("azis")  == true)
-      userScript: 
+      userScript: SetQuestState("day1_pizza-order_azis", "success")
       onExecute:
         m_PersistentCalls:
           m_Calls: []

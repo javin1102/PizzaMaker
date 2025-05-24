@@ -514,7 +514,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_overrideName: 
   m_overrideUseMessage: <sprite name="lmb>Bake Pizza
-  maxUseDistance: 5
+  maxUseDistance: 3
   events:
     onSelect:
       m_PersistentCalls:

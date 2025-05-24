@@ -15,22 +15,36 @@ namespace PizzaMaker
                 usable.enabled = isInteractable;
             }
         }
+        
         private bool isInteractable = true;
         private Usable usable;
         public bool ForceDisableInteractable { get; set; }
 
-        private void Awake()
+        protected virtual void Awake()
         {
             usable = GetComponent<Usable>();
+            GameEvents.OnQuestStateChanged += OnQuestStateChanged;
+        }
+        
+        protected virtual void OnDestroy()
+        {
+            GameEvents.OnQuestStateChanged -= OnQuestStateChanged;
         }
 
-        private void Update()
+        protected virtual void Update()
         {
             if (ForceDisableInteractable)
+            {
+                IsInteractable = false;
                 return;
+            }
+            
             IsInteractable = !DialogueManager.IsConversationActive;
         }
-
+        
+        protected virtual void OnQuestStateChanged(QuestId questId, QuestState questState)
+        {
+        }
 
         public void OnClick(PlayerController playerController, ref RaycastHit raycastHit)
         {
