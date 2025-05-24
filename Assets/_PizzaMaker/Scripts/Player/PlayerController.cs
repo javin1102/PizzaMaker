@@ -18,8 +18,6 @@ namespace PizzaMaker
         [SerializeField] private PhoneController phoneController;
         [SerializeField] private Transform grabAttachPoint;
         [SerializeField] private DialogueDatabase demoDatabase;
-        [SerializeField] private ScriptableEventIGrabbable iGrabbableEvent;
-        [SerializeField] private ScriptableEventNoParam unGrabEvent;
 
         private Focusable currentFocusable;
         private Selector selector;
@@ -97,7 +95,7 @@ namespace PizzaMaker
                     currentInteractable.OnUnhover(this);
                     currentInteractable = null;
                 }
-                
+
                 if (!IsPhoneActive && currentFocusable == null)
                 {
                     if (Input.GetMouseButtonDown(0))
@@ -155,13 +153,7 @@ namespace PizzaMaker
             Cursor.lockState = CursorLockMode.None;
             firstPersonController.cameraCanMove = false;
             selector.enabled = false;
-
-            var openPhoneQuestState = QuestLog.GetQuestState(CustomLua.Quests.Day1OpenPhone.id);
-            if (openPhoneQuestState == QuestState.Active)
-            {
-                QuestLog.SetQuestState(CustomLua.Quests.Day1OpenPhone.id, QuestState.Success);
-                GameEvents.OnQuestStateChanged?.Invoke(CustomLua.Quests.Day1OpenPhone, QuestState.Success);
-            }
+            GameEvents.OnPhoneShow?.Invoke();
         }
 
         public void HidePhone()
@@ -177,6 +169,7 @@ namespace PizzaMaker
             phoneController.gameObject.SetActive(false);
             Cursor.lockState = CursorLockMode.Locked;
             firstPersonController.cameraCanMove = true;
+            GameEvents.OnPhoneHide?.Invoke();
         }
 
         public void SetFocusable(Focusable focusable)
@@ -237,7 +230,7 @@ namespace PizzaMaker
             objectToGrab.gameObject.SetGameLayerRecursive(GlobalVars.LayerFocus);
             CurrentIGrabbable = objectToGrab.GetComponent<IGrabbable>();
             CurrentIGrabbable.OnGrab(this);
-            iGrabbableEvent.Raise(CurrentIGrabbable);
+            GameEvents.OnGrab?.Invoke(CurrentIGrabbable);
         }
 
         public void UnGrab()
@@ -246,7 +239,7 @@ namespace PizzaMaker
                 return;
 
             CurrentIGrabbable = null;
-            unGrabEvent.Raise();
+            GameEvents.OnUnGrab?.Invoke();
         }
     }
 }

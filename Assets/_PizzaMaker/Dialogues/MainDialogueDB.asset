@@ -289,7 +289,7 @@ MonoBehaviour:
   - id: 2
     fields:
     - title: Name
-      value: day1_azis_pizza-order
+      value: day1_pizza-order_azis
       type: 0
       typeString: CustomFieldType_Text
     - title: Pictures
@@ -1086,14 +1086,14 @@ MonoBehaviour:
         destinationDialogueID: 2
         isConnector: 0
         priority: 2
-      conditionsString: CurrentQuestState("day1_azis_pizza-order") == "unassigned"
+      conditionsString: CurrentQuestState("day1_pizza-order_azis") == "unassigned"
       userScript: 
       onExecute:
         m_PersistentCalls:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 45.463577
+        x: 47.28177
         y: 140.7767
         width: 160
         height: 30
@@ -1442,13 +1442,13 @@ MonoBehaviour:
       conditionPriority: 2
       outgoingLinks: []
       conditionsString: 
-      userScript: SetQuestState("day1_azis_pizza-order", "active")
+      userScript: SetQuestState("day1_pizza-order_azis", "active")
       onExecute:
         m_PersistentCalls:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 1
+        x: 1.0000076
         y: 452.91904
         width: 160
         height: 30
@@ -1506,14 +1506,14 @@ MonoBehaviour:
       falseConditionAction: Block
       conditionPriority: 2
       outgoingLinks: []
-      conditionsString: CurrentQuestState("day1_azis_pizza-order") == "active"
+      conditionsString: CurrentQuestState("day1_pizza-order_azis") == "active"
       userScript: 
       onExecute:
         m_PersistentCalls:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 246.32819
+        x: 245.41907
         y: 142.80089
         width: 160
         height: 30
@@ -1572,13 +1572,13 @@ MonoBehaviour:
       conditionPriority: 2
       outgoingLinks: []
       conditionsString: 
-      userScript: SetQuestState("day1_azis_pizza-order", "active")
+      userScript: SetQuestState("day1_pizza-order_azis", "active")
       onExecute:
         m_PersistentCalls:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 195.15921
+        x: 196.06833
         y: 450.51126
         width: 160
         height: 30
@@ -1636,16 +1636,16 @@ MonoBehaviour:
       falseConditionAction: Block
       conditionPriority: 2
       outgoingLinks: []
-      conditionsString: CurrentQuestState("day1_azis_pizza-order") == "active" and
-        (CheckOrder("azis")  == true)
+      conditionsString: (CurrentQuestState("day1_pizza-order_azis") == "active")
+        and (CheckOrder("azis")  == true)
       userScript: 
       onExecute:
         m_PersistentCalls:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 441.5564
-        y: 142.98912
+        x: 440.64734
+        y: 143.8982
         width: 160
         height: 30
     entryGroups: []

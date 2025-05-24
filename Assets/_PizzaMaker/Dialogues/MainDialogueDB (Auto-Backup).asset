@@ -289,7 +289,7 @@ MonoBehaviour:
   - id: 2
     fields:
     - title: Name
-      value: day1_azis_pizza-order
+      value: day1_pizza-order_azis
       type: 0
       typeString: CustomFieldType_Text
     - title: Pictures
@@ -322,6 +322,20 @@ MonoBehaviour:
     fields:
     - title: Name
       value: day1_boss_intro
+      type: 0
+      typeString: CustomFieldType_Text
+    - title: Initial Value
+      value: False
+      type: 2
+      typeString: CustomFieldType_Boolean
+    - title: Description
+      value: 
+      type: 0
+      typeString: CustomFieldType_Text
+  - id: 2
+    fields:
+    - title: Name
+      value: day1_azis_order_fulfilled
       type: 0
       typeString: CustomFieldType_Text
     - title: Initial Value
@@ -994,7 +1008,7 @@ MonoBehaviour:
         destinationConversationID: 2
         destinationDialogueID: 7
         isConnector: 0
-        priority: 2
+        priority: 1
       - originConversationID: 2
         originDialogueID: 0
         destinationConversationID: 2
@@ -1027,7 +1041,7 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Actor
-        value: 2
+        value: 5
         type: 5
         typeString: CustomFieldType_Actor
       - title: Conversant
@@ -1072,14 +1086,14 @@ MonoBehaviour:
         destinationDialogueID: 2
         isConnector: 0
         priority: 2
-      conditionsString: CurrentQuestState("day1_azis_pizza-order") == "unassigned"
+      conditionsString: CurrentQuestState("day1_pizza-order_azis") == "unassigned"
       userScript: 
       onExecute:
         m_PersistentCalls:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 44.70601
+        x: 47.28177
         y: 140.7767
         width: 160
         height: 30
@@ -1098,7 +1112,7 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Actor
-        value: 2
+        value: 5
         type: 5
         typeString: CustomFieldType_Actor
       - title: Conversant
@@ -1169,7 +1183,7 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Actor
-        value: 2
+        value: 5
         type: 5
         typeString: CustomFieldType_Actor
       - title: Conversant
@@ -1240,7 +1254,7 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Actor
-        value: 2
+        value: 5
         type: 5
         typeString: CustomFieldType_Actor
       - title: Conversant
@@ -1311,7 +1325,7 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Actor
-        value: 2
+        value: 5
         type: 5
         typeString: CustomFieldType_Actor
       - title: Conversant
@@ -1428,13 +1442,13 @@ MonoBehaviour:
       conditionPriority: 2
       outgoingLinks: []
       conditionsString: 
-      userScript: SetQuestState("day1_azis_pizza-order", "active")
+      userScript: SetQuestState("day1_pizza-order_azis", "active")
       onExecute:
         m_PersistentCalls:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 1
+        x: 1.0000076
         y: 452.91904
         width: 160
         height: 30
@@ -1453,7 +1467,7 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Actor
-        value: 2
+        value: 5
         type: 5
         typeString: CustomFieldType_Actor
       - title: Conversant
@@ -1492,14 +1506,14 @@ MonoBehaviour:
       falseConditionAction: Block
       conditionPriority: 2
       outgoingLinks: []
-      conditionsString: 
+      conditionsString: CurrentQuestState("day1_pizza-order_azis") == "active"
       userScript: 
       onExecute:
         m_PersistentCalls:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 246.32819
+        x: 245.41907
         y: 142.80089
         width: 160
         height: 30
@@ -1558,13 +1572,13 @@ MonoBehaviour:
       conditionPriority: 2
       outgoingLinks: []
       conditionsString: 
-      userScript: SetQuestState("day1_azis_pizza-order", "active")
+      userScript: SetQuestState("day1_pizza-order_azis", "active")
       onExecute:
         m_PersistentCalls:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 195.15921
+        x: 196.06833
         y: 450.51126
         width: 160
         height: 30
@@ -1583,7 +1597,7 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Actor
-        value: 2
+        value: 5
         type: 5
         typeString: CustomFieldType_Actor
       - title: Conversant
@@ -1622,20 +1636,21 @@ MonoBehaviour:
       falseConditionAction: Block
       conditionPriority: 2
       outgoingLinks: []
-      conditionsString: 
+      conditionsString: (CurrentQuestState("day1_pizza-order_azis") == "active")
+        and (CheckOrder("azis")  == true)
       userScript: 
       onExecute:
         m_PersistentCalls:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 442.46545
-        y: 143.89821
+        x: 440.64734
+        y: 143.8982
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 236.39145, y: 0}
-    canvasZoom: 1.2700015
+    canvasScrollPosition: {x: 0, y: 0}
+    canvasZoom: 0.88000166
   syncInfo:
     syncActors: 0
     syncItems: 0

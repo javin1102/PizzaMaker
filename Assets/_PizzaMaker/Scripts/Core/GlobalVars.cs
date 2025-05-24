@@ -41,17 +41,13 @@ namespace PizzaMaker
     {
         public static class Variables
         {
-            public const string Day1AzisOrderFulfilled = "day1_azis_order_fulfilled";
-        }
-
-        public static class Conversations
-        {
             public const string Day1BossIntro = "day1_boss_intro";
         }
 
         public static class Quests
         {
-            public static QuestId Day1OpenPhone = new QuestId("day1_open_phone");
+            public static QuestId Day1OpenPhone = new ("day1_open_phone");
+            public static QuestId Day1PizzaOrderAzis = new("day1_pizza_order_azis");
         }
     }
 

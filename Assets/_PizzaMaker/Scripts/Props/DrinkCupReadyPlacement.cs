@@ -9,7 +9,6 @@ namespace PizzaMaker
         [SerializeField] private Mesh cupMesh;
         [SerializeField] private Material cupMaterial;
         [SerializeField] private Material invalidCupMaterial;
-        [SerializeField] private ScriptableEventIGrabbable iGrabbableEvent;
         [Inject] private OrderFulFillManager _orderFulFillManager;
         private bool isFailPlacement;
         private Vector3 cupPosition;
@@ -17,12 +16,12 @@ namespace PizzaMaker
         protected override void Awake()
         {
             base.Awake();
-            iGrabbableEvent.OnRaised += OnGrab;
+            GameEvents.OnGrab += OnGrab;
         }
 
         private void OnDestroy()
         {
-            iGrabbableEvent.OnRaised -= OnGrab;
+            GameEvents.OnGrab -= OnGrab;
         }
 
         private void OnGrab(IGrabbable grabbable)

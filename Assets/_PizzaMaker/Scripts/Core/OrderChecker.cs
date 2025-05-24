@@ -9,7 +9,6 @@ namespace PizzaMaker
     public class OrderChecker : MonoBehaviour
     {
         [Inject] private OrderFulFillManager orderFulFillManager;
-        [SerializeField] private ScriptableEventString onFulFillOrder;
 
         void OnEnable()
         {
@@ -27,7 +26,7 @@ namespace PizzaMaker
             if (canFulFillOrder)
             {
                 orderFulFillManager.FulFillOrder(customerName);
-                onFulFillOrder.Raise(customerName);
+                GameEvents.OnOrderFulfilled?.Invoke(customerName);
             }
 
             return canFulFillOrder;

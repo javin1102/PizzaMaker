@@ -14,8 +14,6 @@ namespace PizzaMaker
         [SerializeField] private Image imageOverlay, imageOverlayScreenSpace;
         [SerializeField] private Canvas canvasOverlay, canvasScreenSpace;
         [SerializeField] private AdditionalInformationUI additionalInformationUI;
-        [SerializeField] private ScriptableEventIGrabbable iGrabbableEvent;
-        [SerializeField] private ScriptableEventNoParam unGrabEvent;
         private int overlayCount = 0;
         private int overlayScreenSpaceCount = 0;
 
@@ -43,8 +41,8 @@ namespace PizzaMaker
         private void OnEnable()
         {
             GameEvents.OnQuestStateChanged += OnQuestStateChange;
-            iGrabbableEvent.OnRaised += OnGrab;
-            unGrabEvent.OnRaised += UnGrab;
+            GameEvents.OnGrab += OnGrab;
+            GameEvents.OnUnGrab += UnGrab;
             Focusable.OnFocus += OnFocus;
             Focusable.OnOutFocus += OnOutFocus;
 
@@ -54,8 +52,8 @@ namespace PizzaMaker
         private void OnDisable()
         {
             GameEvents.OnQuestStateChanged -= OnQuestStateChange;
-            iGrabbableEvent.OnRaised -= OnGrab;
-            unGrabEvent.OnRaised -= UnGrab;
+            GameEvents.OnGrab -= OnGrab;
+            GameEvents.OnUnGrab -= UnGrab;
             Focusable.OnFocus -= OnFocus;
             Focusable.OnOutFocus -= OnOutFocus;
         }

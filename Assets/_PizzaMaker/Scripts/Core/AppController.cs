@@ -12,7 +12,6 @@ namespace PizzaMaker
         private static void OnAppStart()
         {
             // AutoLoadCoreScene();
-
         }
 
         private static void AutoLoadCoreScene()

@@ -1,7 +1,4 @@
-using System;
 using System.Collections.Generic;
-using Obvious.Soap;
-using PixelCrushers.DialogueSystem;
 using Reflex.Attributes;
 using Sirenix.OdinInspector;
 using UnityEngine;
@@ -21,12 +18,11 @@ namespace PizzaMaker
         [field: SerializeField] public string CustomerName { get; private set; }
         [Inject] private OrderFulFillManager orderFulFillManager;
         [field: SerializeField] public List<OrderMenu> OrderMenus { get; private set; }
-        [SerializeField] private ScriptableEventString orderFulFillChannel;
 
         private void OnEnable()
         {
             orderFulFillManager.AddNPCOrder(this);
-            orderFulFillChannel.OnRaised += OnOrderFulfilled;
+            GameEvents.OnOrderFulfilled += OnOrderFulfilled;
         }
 
         private void OnOrderFulfilled(string customerName)
@@ -45,7 +41,7 @@ namespace PizzaMaker
         private void OnDisable()
         {
             orderFulFillManager.RemoveNPCOrder(this);
-            orderFulFillChannel.OnRaised -= OnOrderFulfilled;
+            GameEvents.OnOrderFulfilled -= OnOrderFulfilled;
         }
     }
 }

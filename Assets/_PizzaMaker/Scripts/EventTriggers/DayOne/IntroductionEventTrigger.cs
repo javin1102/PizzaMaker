@@ -23,13 +23,13 @@ namespace PizzaMaker.Events
 
         private void Start()
         {
-           if(DialogueLua.GetVariable(CustomLua.Conversations.Day1BossIntro).asBool)
+           if(DialogueLua.GetVariable(CustomLua.Variables.Day1BossIntro).asBool)
                gameObject.SetActive(false);
         }
 
         private void OnTriggerEnter(Collider other)
         {
-            if (isTriggered || DialogueLua.GetVariable(CustomLua.Conversations.Day1BossIntro).asBool)
+            if (isTriggered || DialogueLua.GetVariable(CustomLua.Variables.Day1BossIntro).asBool)
             {
                 gameObject.SetActive(false);
                 return;
@@ -39,7 +39,7 @@ namespace PizzaMaker.Events
             {
                 isTriggered = true;
                 DialogueManager.Instance.DialogueUI.ShowAlert("You got a message", 2f);
-                QuestLog.SetQuestState(CustomLua.Quests.Day1OpenPhone.id, QuestState.Active);
+                QuestOpenPhone _ = new();
                 dialogueSystemTrigger.enabled = true;
                 Tween.Delay(3f, () =>
                 {

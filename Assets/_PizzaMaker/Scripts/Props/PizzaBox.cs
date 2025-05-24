@@ -21,16 +21,16 @@ namespace PizzaMaker
 
         public void OnGrab(PlayerController playerController)
         {
-            if(PizzaCooked)
+            if (PizzaCooked)
                 PizzaCooked.gameObject.SetActive(false);
-            
+
             CurrentGrabbableState = GrabbableState.Grabbed;
             orderFulFillManager.RemoveItem(this);
         }
 
         public void OnGrabUsed(PlayerController playerController)
         {
-            
+
         }
 
         public void OnRelease(PlayerController playerController)
@@ -40,7 +40,7 @@ namespace PizzaMaker
 
         public override void OnClick(PlayerController playerController, ref RaycastHit raycastHit)
         {
-            if (PizzaCooked == null 
+            if (PizzaCooked == null
                 && playerController.CurrentIGrabbable?.GetGrabbableObject<PizzaCooked>() is { } grabbedPizzaCooked
                 && grabbedPizzaCooked.MenuType != PizzaMaker.Menu.PizzaBurnt
             )
@@ -69,7 +69,7 @@ namespace PizzaMaker
 
         public override void OnHover(PlayerController playerController, ref RaycastHit raycastHit)
         {
-            
+
             if (PizzaCooked && playerController.CurrentIGrabbable == null)
             {
                 usable.overrideUseMessage = $"<sprite name=\"lmb\">Grab";
@@ -87,7 +87,7 @@ namespace PizzaMaker
             else if (PizzaCooked && playerController.CurrentIGrabbable?.GetGrabbableObject<PizzaBox>())
             {
                 usable.overrideUseMessage = $"<sprite name=\"lmb\">Place";
-                 if (PizzaCooked.ExtraToppingList is { Count: > 0 })
+                if (PizzaCooked.ExtraToppingList is { Count: > 0 })
                 {
                     var infoText = $"{PizzaCooked.MenuType.name} \n ({Utils.FormatIngredients(PizzaCooked.ExtraToppingList)})";
                     InGameUIController.Instance.ShowAdditionalInformationUI(infoText);
@@ -97,9 +97,9 @@ namespace PizzaMaker
                     InGameUIController.Instance.ShowAdditionalInformationUI(PizzaCooked.MenuType.name);
                 }
             }
-            
-            else if (PizzaCooked == null 
-                     && playerController.CurrentIGrabbable?.GetGrabbableObject<PizzaCooked>() is { } grabbedPizzaCooked 
+
+            else if (PizzaCooked == null
+                     && playerController.CurrentIGrabbable?.GetGrabbableObject<PizzaCooked>() is { } grabbedPizzaCooked
                      && grabbedPizzaCooked.MenuType != Menu.PizzaBurnt)
             {
                 usable.overrideUseMessage = "<sprite name=\"lmb\">Pack";
@@ -117,7 +117,7 @@ namespace PizzaMaker
         {
             InGameUIController.Instance.HideAdditionalInformationUI();
         }
-        
+
         public void AttachedTo(Transform parentTransform)
         {
             transform.SetParent(parentTransform);
