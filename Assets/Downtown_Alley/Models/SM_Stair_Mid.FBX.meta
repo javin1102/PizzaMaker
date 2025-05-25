@@ -3,7 +3,17 @@ guid: c8a17fd49da9e54489350e6211caf475
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: MI_Stair_Mask
+    second: {fileID: 2100000, guid: ed09b431a5b81494e94adfac1a14c062, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: MI_Stair_Opaque
+    second: {fileID: 2100000, guid: 0e59a9041eb8290458e8afdf9007b6ff, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

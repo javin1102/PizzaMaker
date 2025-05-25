@@ -3,7 +3,17 @@ guid: cd249e7930945db4ea907590f2466e3a
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: MI_Light_Off
+    second: {fileID: 2100000, guid: 833c2f37b5f41c84e9ff170b610246d3, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: MI_Sign
+    second: {fileID: 2100000, guid: 2b215770485e7dd478513642c02100b1, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

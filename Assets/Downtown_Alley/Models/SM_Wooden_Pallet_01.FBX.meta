@@ -8,7 +8,7 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: MI_Wooden_Pallet
-    second: {fileID: 2100000, guid: 92743360516b00d43891e516b6bcc409, type: 2}
+    second: {fileID: 2100000, guid: adab0f95e22b7b84ab4030c48259a29f, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

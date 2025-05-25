@@ -3,7 +3,22 @@ guid: 45bce03129d16af4085f169a2a3a264e
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: MI_Asphalt
+    second: {fileID: 2100000, guid: 0c13cd045d65b3b4eaaa2261590cbf89, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: MI_Black
+    second: {fileID: 2100000, guid: 44b9b5f8440e17f429eecaf64fb484aa, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: MI_Ground_Side
+    second: {fileID: 2100000, guid: 17f046f72238cef49a926c999e7cf444, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

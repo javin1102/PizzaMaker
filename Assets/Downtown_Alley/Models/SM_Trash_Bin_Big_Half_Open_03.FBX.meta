@@ -3,7 +3,32 @@ guid: c3117122f2a8a3441ac83935f0d2ff92
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: MI_Cardboards_Box_Brown
+    second: {fileID: 2100000, guid: 04d8495819ea50644a27a36c8fd44f3c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: MI_Plastic_Bag_Black
+    second: {fileID: 2100000, guid: 1a052a0fbe49c4247a88e655d6604966, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: MI_Small_Trash
+    second: {fileID: 2100000, guid: 9668e73997d737048860f7f75634f843, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: MI_Small_Trash_TwoSided
+    second: {fileID: 2100000, guid: bda35aeef29db904ead34017bb96fef4, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: MI_Trash_Bin_Big_Green
+    second: {fileID: 2100000, guid: 176b1a476bc8ea348bd565680f78c5ce, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

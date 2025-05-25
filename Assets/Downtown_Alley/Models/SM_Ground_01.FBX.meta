@@ -3,7 +3,12 @@ guid: 538e951ca49cb92429349003b7b2d632
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: MI_Asphalt
+    second: {fileID: 2100000, guid: 0c13cd045d65b3b4eaaa2261590cbf89, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

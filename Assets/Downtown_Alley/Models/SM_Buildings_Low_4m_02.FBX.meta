@@ -9,6 +9,16 @@ ModelImporter:
       assembly: UnityEngine.CoreModule
       name: MI_Brick_Red
     second: {fileID: 2100000, guid: 459798d6804d6c147bed050626ad37fb, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: MI_Doors_01_White
+    second: {fileID: 2100000, guid: f86f590d620fd7348a353976118f66e2, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: MI_Trimsheet_White
+    second: {fileID: 2100000, guid: 92743360516b00d43891e516b6bcc409, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
